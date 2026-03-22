@@ -1673,51 +1673,17 @@
 
     <form action="https://formspree.io/f/mykdqaol" method="POST" onsubmit="this.querySelector('[type=submit]').textContent='Sending...'; this.querySelector('[type=submit]').disabled=true;">
       <input type="hidden" name="_subject" value="New Reservation Request - Let's Nail It">
-      <input type="hidden" name="_next" value="">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="party-name">Name</label>
-          <input id="party-name" type="text" name="name" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label for="party-phone">Phone / WhatsApp</label>
-          <input id="party-phone" type="tel" name="phone" placeholder="+91 98765 43210" required>
-        </div>
+      <div class="form-group">
+        <label for="party-name">First Name</label>
+        <input id="party-name" type="text" name="name" placeholder="Your first name" required>
       </div>
       <div class="form-group">
-        <label for="party-email">Email</label>
-        <input id="party-email" type="email" name="email" placeholder="you@email.com" required>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="party-guests">Number of Guests</label>
-          <select id="party-guests" name="guests" required>
-            <option value="">Select...</option>
-            <option>1 (Solo)</option>
-            <option>2 (Couple)</option>
-            <option>3-4 (Small Group)</option>
-            <option>5-6 (Group)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="party-date">Preferred Date</label>
-          <input id="party-date" type="date" name="date" required>
-        </div>
+        <label for="party-phone">Phone / WhatsApp</label>
+        <input id="party-phone" type="tel" name="phone" placeholder="+91 98765 43210" required>
       </div>
       <div class="form-group">
-        <label>Dietary Requirements</label>
-        <select name="dietary">
-          <option value="">None</option>
-          <option>Vegetarian</option>
-          <option>Vegan</option>
-          <option>Jain</option>
-          <option>Gluten-Free</option>
-          <option>Other (mention below)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Anything Else?</label>
-        <textarea name="message" rows="2" placeholder="Special occasion, requests, questions..."></textarea>
+        <label for="party-date">Preferred Date</label>
+        <input id="party-date" type="date" name="date" required>
       </div>
       <button type="submit" class="btn btn-red form-submit">SUBMIT MY RESERVATION</button>
     </form>
@@ -1732,55 +1698,17 @@
 
     <form action="https://formspree.io/f/mykdqaol" method="POST" onsubmit="this.querySelector('[type=submit]').textContent='Sending...'; this.querySelector('[type=submit]').disabled=true;">
       <input type="hidden" name="_subject" value="New Private Event Enquiry - Let's Nail It">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="priv-name">Name</label>
-          <input id="priv-name" type="text" name="name" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label for="priv-phone">Phone / WhatsApp</label>
-          <input id="priv-phone" type="tel" name="phone" placeholder="+91 98765 43210" required>
-        </div>
+      <div class="form-group">
+        <label for="priv-name">First Name</label>
+        <input id="priv-name" type="text" name="name" placeholder="Your first name" required>
       </div>
       <div class="form-group">
-        <label for="priv-email">Email</label>
-        <input id="priv-email" type="email" name="email" placeholder="you@email.com" required>
+        <label for="priv-phone">Phone / WhatsApp</label>
+        <input id="priv-phone" type="tel" name="phone" placeholder="+91 98765 43210" required>
       </div>
       <div class="form-group">
-        <label>Event Type</label>
-        <select name="event_type" required>
-          <option value="">Select your event...</option>
-          <option>Birthday Party</option>
-          <option>Corporate Team Building</option>
-          <option>House Party / Get-Together</option>
-          <option>Holiday / Festive Party</option>
-          <option>Bachelor/Bachelorette</option>
-          <option>Anniversary / Celebration</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Guest Count</label>
-          <select name="guest_count">
-            <option value="">Select...</option>
-            <option>8-12 guests</option>
-            <option>13-20 guests</option>
-            <option>21-40 guests</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Preferred Date</label>
-          <input type="date" name="date">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Venue / Location</label>
-        <input type="text" name="venue" placeholder="Your home, office, restaurant...">
-      </div>
-      <div class="form-group">
-        <label>Tell Us More</label>
-        <textarea name="message" rows="3" placeholder="Theme ideas, special requests, budget range..."></textarea>
+        <label for="priv-date">Preferred Date</label>
+        <input id="priv-date" type="date" name="date">
       </div>
       <button type="submit" class="btn btn-red form-submit">REQUEST A QUOTE</button>
     </form>
