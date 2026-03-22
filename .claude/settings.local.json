@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \":*)",
+      "Bash(where python3)",
+      "Bash(where python)",
+      "Bash(where node)",
+      "Bash(where nodejs)",
+      "Bash(where py)",
+      "Bash(py --version)",
+      "Bash(powershell -Command \":*)",
+      "Bash(powershell -NoProfile -Command \":*)",
+      "WebFetch(domain:www.letsnailit.com)",
+      "Bash(netlify --version)"
+    ]
+  }
+}
