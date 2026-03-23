@@ -998,8 +998,17 @@
     .modal-overlay { padding: 0; align-items: flex-end; }
     /* Ensure all buttons meet 44px min touch target */
     .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
-    /* Hero: fix background crop and reduce padding */
-    .hero { background-position: center top !important; padding: 4.5rem 1.5rem 3rem; }
+    /* Hero: darker gradient for readability + reframe image to show faces */
+    .hero {
+      padding: 4.5rem 1.5rem 3rem;
+      background:
+        linear-gradient(180deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.82) 50%, rgba(13,13,13,1) 100%),
+        url('dinner.jpg') center 25% / cover no-repeat !important;
+    }
+    /* Badge: shrink to fit single line */
+    .hero-badge { font-size: 0.62rem; letter-spacing: 0.18em; padding: 0.4rem 1rem; }
+    /* Sub text: lighten from #999 to near-white for contrast */
+    .hero-sub { color: rgba(220, 220, 220, 0.95); }
     /* Hero: remove extra bottom margin on CTA buttons */
     .hero-btns { margin-bottom: 0; }
     /* Hero location: hide phone link to prevent mid-number line wrap */
