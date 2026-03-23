@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Characters, Clues & the Kill: How a Murder Mystery Dinner Actually Works | Let's Nail It</title>
+<meta name="description" content="Ever wondered what's actually happening beneath the surface at a murder mystery dinner? Characters, clues, information asymmetry, and the mechanics of the reveal — explained.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Let's Nail It">
+<link rel="canonical" href="https://letsnailit.com/blog/how-murder-mystery-dinner-works.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Let's Nail It">
+<meta property="og:title" content="Characters, Clues & the Kill: How a Murder Mystery Dinner Actually Works">
+<meta property="og:description" content="Ever wondered what's actually happening beneath the surface at a murder mystery dinner? Characters, clues, information asymmetry, and the mechanics of the reveal — explained.">
+<meta property="og:url" content="https://letsnailit.com/blog/how-murder-mystery-dinner-works.html">
+<meta property="og:image" content="https://letsnailit.com/dinner.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-03-23">
+<meta property="article:author" content="Let's Nail It">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@letsnailit">
+<meta name="twitter:title" content="Characters, Clues & the Kill: How a Murder Mystery Dinner Actually Works">
+<meta name="twitter:description" content="Ever wondered what's actually happening beneath the surface at a murder mystery dinner? The mechanics of characters, clues, and the reveal — explained.">
+<meta name="twitter:image" content="https://letsnailit.com/dinner.jpg">
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Characters, Clues & the Kill: How a Murder Mystery Dinner Actually Works",
+    "description": "Ever wondered what's actually happening beneath the surface at a murder mystery dinner? Characters, clues, information asymmetry, and the mechanics of the reveal — explained.",
+    "image": "https://letsnailit.com/dinner.jpg",
+    "datePublished": "2026-03-23",
+    "dateModified": "2026-03-23",
+    "author": {
+      "@type": "Organization",
+      "name": "Let's Nail It",
+      "url": "https://letsnailit.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Let's Nail It",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://letsnailit.com/dinner.jpg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://letsnailit.com/blog/how-murder-mystery-dinner-works.html"
+    },
+    "keywords": "how does a murder mystery dinner work, murder mystery mechanics, murder mystery characters, murder mystery clues, murder mystery dinner Bangalore"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://letsnailit.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://letsnailit.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "How a Murder Mystery Dinner Actually Works", "item": "https://letsnailit.com/blog/how-murder-mystery-dinner-works.html" }
+    ]
+  }
+]
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%238B0000'/><g transform='rotate(-45 32 32)'><rect x='28' y='10' width='8' height='28' rx='2' fill='%23C9A84C'/><rect x='18' y='8' width='28' height='14' rx='3' fill='%23C9A84C'/><rect x='20' y='10' width='24' height='10' rx='2' fill='%23D4B96A'/></g></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<style>
+  :root {
+    --blood: #8B0000; --blood-bright: #C41E3A; --gold: #C9A84C; --gold-light: #D4B96A;
+    --gold-dim: #8B7332; --cream: #F5F0E8; --noir: #0D0D0D; --noir-mid: #161616;
+    --noir-card: #1C1C1C; --noir-light: #2A2A2A; --noir-border: #333;
+    --smoke: #666; --fog: #999; --mist: #BBB;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Lato', sans-serif; background: var(--noir); color: var(--cream); overflow-x: hidden; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+  .skip-nav { position: absolute; top: -100%; left: 1rem; background: var(--blood); color: white; padding: 0.5rem 1rem; z-index: 9999; font-size: 0.9rem; text-decoration: none; border-radius: 0 0 4px 4px; }
+  .skip-nav:focus { top: 0; }
+
+  /* TOP BAR */
+  .top-bar { background: var(--blood); padding: 0.55rem 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; flex-wrap: wrap; text-align: center; }
+  .top-bar span { color: rgba(255,255,255,0.7); }
+  .top-bar a { color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .top-bar a:hover { text-decoration: underline; }
+
+  /* NAV */
+  nav.site-nav { background: var(--noir); border-bottom: 1px solid var(--noir-light); position: sticky; top: 0; z-index: 100; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--cream); }
+  .logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
+  .logo-icon svg { width: 100%; height: 100%; }
+  .logo-text { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.1; }
+  .logo-text small { display: block; font-size: 0.55rem; font-weight: 300; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
+  .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+  .nav-links a { color: var(--mist); text-decoration: none; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold); }
+  .nav-phone { color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--gold-dim); padding: 0.4rem 0.9rem; border-radius: 3px; }
+  .nav-phone:hover { background: var(--gold); color: var(--noir); }
+  .hamburger { display: none; background: none; border: none; color: var(--cream); font-size: 1.4rem; cursor: pointer; }
+  @media (max-width: 900px) {
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir-mid); flex-direction: column; padding: 1rem 2rem; gap: 0; border-bottom: 1px solid var(--noir-border); }
+    .nav-links.nav-open { display: flex; }
+    .nav-links li { border-bottom: 1px solid var(--noir-border); }
+    .nav-links a { display: block; padding: 0.75rem 0; }
+    .hamburger { display: block; }
+    .nav-cta-wrap { display: none; }
+  }
+
+  /* BREADCRUMB */
+  .breadcrumb { padding: 0.75rem 0; font-size: 0.8rem; color: var(--fog); }
+  .breadcrumb a { color: var(--fog); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb span { margin: 0 0.4rem; }
+
+  /* ARTICLE LAYOUT */
+  .post-header { background: var(--noir-mid); border-bottom: 1px solid var(--noir-border); padding: 3.5rem 0 3rem; }
+  .post-category { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: block; }
+  .post-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 900; line-height: 1.2; max-width: 780px; margin-bottom: 1.1rem; }
+  .post-header h1 em { font-style: italic; color: var(--gold); }
+  .post-meta { font-size: 0.82rem; color: var(--fog); display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+  .post-meta .divider { color: var(--noir-border); }
+
+  .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; padding: 3.5rem 0 5rem; align-items: start; }
+  @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { display: none; } }
+
+  /* ARTICLE BODY */
+  .post-body { max-width: 720px; }
+  .post-body .lead { font-size: 1.1rem; line-height: 1.75; color: var(--mist); margin-bottom: 2rem; border-left: 3px solid var(--blood); padding-left: 1.2rem; }
+  .post-body p { font-size: 0.97rem; line-height: 1.8; color: var(--fog); margin-bottom: 1.4rem; }
+  .post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--cream); margin: 2.5rem 0 1rem; }
+  .post-body h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 1.8rem 0 0.75rem; }
+  .post-body ul, .post-body ol { padding-left: 1.5rem; margin-bottom: 1.4rem; }
+  .post-body li { font-size: 0.97rem; line-height: 1.8; color: var(--fog); margin-bottom: 0.4rem; }
+  .post-body strong { color: var(--cream); font-weight: 700; }
+  .post-body em { color: var(--mist); font-style: italic; }
+  .post-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  .post-body a:hover { color: var(--gold-light); }
+
+  /* PULL QUOTE */
+  .pull-quote { background: var(--noir-card); border-left: 4px solid var(--blood); padding: 1.4rem 1.6rem; margin: 2rem 0; border-radius: 0 4px 4px 0; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--cream); margin: 0; line-height: 1.6; }
+
+  /* MECHANICS BOX */
+  .mechanics-box { background: var(--noir-card); border: 1px solid var(--noir-border); border-radius: 4px; padding: 1.8rem; margin: 2rem 0; }
+  .mechanics-box h3 { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .mechanics-box ul { padding-left: 1.2rem; }
+  .mechanics-box li { font-size: 0.93rem; line-height: 1.75; color: var(--fog); margin-bottom: 0.5rem; }
+  .mechanics-box li strong { color: var(--cream); }
+
+  /* ROLE CARDS */
+  .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0 2rem; }
+  @media (max-width: 600px) { .role-grid { grid-template-columns: 1fr; } }
+  .role-card { background: var(--noir-card); border: 1px solid var(--noir-border); border-radius: 4px; padding: 1.3rem; }
+  .role-card .role-label { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .role-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--cream); margin-bottom: 0.5rem; }
+  .role-card p { font-size: 0.88rem; line-height: 1.65; color: var(--fog); margin: 0; }
+  .role-card.killer { border-color: var(--blood); }
+  .role-card.killer .role-label { color: var(--blood-bright); }
+
+  /* CTA BOX */
+  .cta-box { background: var(--blood); border-radius: 4px; padding: 2.2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .cta-box p { font-size: 0.92rem; opacity: 0.85; margin-bottom: 1.4rem; line-height: 1.6; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 3px; cursor: pointer; transition: all 0.2s; }
+  .btn-cream { background: var(--cream); color: var(--blood); }
+  .btn-cream:hover { background: white; }
+
+  /* SIDEBAR */
+  .post-sidebar { position: sticky; top: 84px; }
+  .sidebar-card { background: var(--noir-card); border: 1px solid var(--noir-border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .sidebar-card h4 { font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .sidebar-card ul { list-style: none; }
+  .sidebar-card ul li { margin-bottom: 0.6rem; }
+  .sidebar-card ul li a { color: var(--fog); font-size: 0.88rem; text-decoration: none; line-height: 1.4; display: block; }
+  .sidebar-card ul li a:hover { color: var(--gold); }
+  .sidebar-card p { color: var(--fog); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem; }
+  .sidebar-cta { background: var(--blood); border-color: var(--blood); }
+  .sidebar-cta h4 { color: rgba(255,255,255,0.7); }
+  .sidebar-cta p { color: rgba(255,255,255,0.85); }
+  .sidebar-cta .btn { width: 100%; justify-content: center; background: white; color: var(--blood); font-size: 0.8rem; }
+
+  /* FOOTER */
+  footer { background: var(--noir-mid); border-top: 1px solid var(--noir-border); padding: 4rem 0 0; }
+  .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+  .footer-brand-col p { color: var(--fog); font-size: 0.88rem; line-height: 1.7; margin: 1.2rem 0; }
+  .social-links { display: flex; gap: 0.75rem; }
+  .social-links a { width: 36px; height: 36px; border: 1px solid var(--noir-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--fog); text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+  .social-links a:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.6rem; }
+  .footer-col ul li a { color: var(--fog); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--cream); }
+  .footer-col address { font-style: normal; }
+  .footer-bottom { max-width: 1200px; margin: 3rem auto 0; padding: 1.5rem 2rem; border-top: 1px solid var(--noir-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--smoke); }
+  .footer-bottom-links { display: flex; gap: 1.5rem; }
+  .footer-bottom-links a { color: var(--smoke); text-decoration: none; }
+  .footer-bottom-links a:hover { color: var(--cream); }
+  @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand-col { grid-column: 1 / -1; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-nav">Skip to main content</a>
+
+<div class="top-bar">
+  <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp us!</a>
+  <span>|</span>
+  <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +91 97310 00440</a>
+  <span>|</span>
+  <span><i class="fas fa-map-marker-alt" style="color:rgba(255,255,255,0.8);margin-right:4px;"></i> MG Road, Bangalore</span>
+</div>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Let's Nail It — home">
+      <div class="logo-icon"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="2" width="12" height="26" rx="2" fill="#8B8B8B"/><rect x="29.5" y="3" width="4" height="24" rx="1" fill="#A0A0A0" opacity="0.4"/><rect x="18" y="2" width="32" height="14" rx="3" fill="#555"/><rect x="19" y="3" width="30" height="5" rx="1.5" fill="#6B6B6B" opacity="0.5"/><path d="M16 14 C14 16, 13 20, 16 22 L20 18 Z" fill="#C41E3A" opacity="0.9"/><path d="M50 10 C52 14, 54 18, 50 20 L48 16 Z" fill="#C41E3A" opacity="0.7"/><circle cx="18" cy="18" r="3" fill="#8B0000" opacity="0.8"/><circle cx="48" cy="16" r="2.5" fill="#8B0000" opacity="0.6"/><circle cx="22" cy="20" r="1.5" fill="#C41E3A" opacity="0.7"/><circle cx="46" cy="19" r="1.8" fill="#C41E3A" opacity="0.5"/><path d="M15 16 Q12 20 14 24" stroke="#8B0000" stroke-width="1.5" fill="none" opacity="0.6" stroke-linecap="round"/><path d="M50 14 Q53 18 51 21" stroke="#8B0000" stroke-width="1" fill="none" opacity="0.5" stroke-linecap="round"/><rect x="30" y="28" width="8" height="34" rx="1.5" fill="#6B4226"/><rect x="31" y="28" width="3" height="32" rx="0.5" fill="#8B5A3C" opacity="0.4"/><path d="M30 58 Q28 62 30 64 L38 64 Q40 62 38 58 Z" fill="#C41E3A" opacity="0.8"/><circle cx="32" cy="60" r="1" fill="#8B0000" opacity="0.9"/><circle cx="36" cy="61" r="0.8" fill="#8B0000" opacity="0.7"/><path d="M29 60 Q27 63 30 64" stroke="#8B0000" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+      <div class="logo-text">LET'S NAIL IT<small>A Killer Dining Experience</small></div>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#supper-club">Supper Club</a></li>
+      <li><a href="/#how">How It Works</a></li>
+      <li><a href="/#private">Private Events</a></li>
+      <li><a href="/#events">Occasions</a></li>
+      <li><a href="/#menu">The Menu</a></li>
+      <li><a href="/blog/index.html" aria-current="page">Blog</a></li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer" class="nav-phone"><i class="fab fa-whatsapp"></i> +91 97310 00440</a>
+    </div>
+    <button class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('nav-open'); this.setAttribute('aria-expanded', document.getElementById('nav-links').classList.contains('nav-open'));" aria-expanded="false" aria-label="Toggle navigation menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="post-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/index.html">Blog</a><span aria-hidden="true">/</span><span aria-current="page">How a Murder Mystery Dinner Actually Works</span>
+    </nav>
+    <span class="post-category"><i class="fas fa-skull"></i> Deep Dive</span>
+    <h1>Characters, Clues & the Kill: <em>How a Murder Mystery Dinner Actually Works</em></h1>
+    <div class="post-meta">
+      <span><i class="fas fa-calendar-alt"></i> <time datetime="2026-03-23">23 March 2026</time></span>
+      <span class="divider">|</span>
+      <span><i class="fas fa-clock"></i> 7 min read</span>
+      <span class="divider">|</span>
+      <span>By Let's Nail It</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="post-layout">
+
+    <article class="post-body">
+
+      <p class="lead">A murder mystery dinner looks like dinner theatre from the outside. It isn't. Underneath the candlelight and character names, there's a carefully constructed game — one built on information asymmetry, social pressure, and the delicious possibility that the person sitting across from you is lying through their teeth.</p>
+
+      <p>Here's exactly how it's built, and why it works.</p>
+
+      <h2>The Fundamental Design: Everyone Has a Secret</h2>
+      <p>The engine of a murder mystery dinner isn't the murder itself — it's the fact that <strong>every single guest at the table has something to hide</strong>. Not just the killer. Every character has private objectives, uncomfortable histories, and information they'd rather not share. This is the design choice that separates a genuinely good murder mystery from a scripted theatre piece: everyone is playing, and everyone has skin in the game.</p>
+      <p>When you sit down to dinner at <a href="/">Let's Nail It</a>, you already know things the person next to you doesn't. They know things you don't. The mystery isn't just "who killed the victim" — it's "what is everyone at this table concealing, and how does it connect?"</p>
+
+      <div class="pull-quote">
+        <p>"The best murder mysteries aren't solved. They're negotiated."</p>
+      </div>
+
+      <h2>The Character Roles</h2>
+      <p>Before the evening begins, every guest receives a character brief. But not all characters are built the same way. Here's how the roles actually function:</p>
+
+      <div class="role-grid">
+        <div class="role-card killer">
+          <div class="role-label"><i class="fas fa-skull-crossbones"></i> The Killer</div>
+          <h4>The Guilty Party</h4>
+          <p>Knows they did it. Has a complete account of events — and has to keep that account consistent under pressure across the entire evening. The killer wins by surviving the vote.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-label"><i class="fas fa-user-secret"></i> The Suspects</div>
+          <h4>The (Mostly) Innocent</h4>
+          <p>Have genuine secrets, genuine motives, and genuine reasons to deflect suspicion — even if they didn't do it. Their job is to survive the vote and name the real killer.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-label"><i class="fas fa-exclamation-triangle"></i> The Red Herrings</div>
+          <h4>The Suspicious Innocents</h4>
+          <p>Specifically designed to look guilty. Their backstories and secrets point toward the crime in ways that are misleading — making the killer's job significantly easier.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-label"><i class="fas fa-eye"></i> The Witnesses</div>
+          <h4>The Information Holders</h4>
+          <p>Saw or know something critical — but may not realise its significance. Other guests need to extract the right information from them at the right moment.</p>
+        </div>
+      </div>
+
+      <p>No one at the table is given the full picture. That's the point. You're working from a deliberately incomplete hand, and so is everyone else.</p>
+
+      <h2>How Information Works: The Asymmetry Engine</h2>
+      <p>This is the mechanism that makes a murder mystery dinner feel alive. Information isn't distributed evenly — it's distributed <em>strategically</em>.</p>
+      <p>Each character knows roughly 20% of the full story. To reconstruct the truth, guests have to trade, coax, bluff, and sometimes flat-out steal information from each other. But here's the catch: you don't always know what you don't know. You might have a crucial piece of evidence and not realise it's crucial until someone else's reaction tells you it is.</p>
+
+      <div class="mechanics-box">
+        <h3>How clue distribution works</h3>
+        <ul>
+          <li><strong>Pre-event briefing</strong> — each guest receives their character's private knowledge before the evening. This is the information they start with and must protect.</li>
+          <li><strong>Physical evidence</strong> — documents, letters, and items that appear during the evening and can be shared (or not shared) at the guest's discretion.</li>
+          <li><strong>Host-released clues</strong> — at specific moments across the evening, the host introduces new evidence that shifts the playing field. Timed to the dinner courses.</li>
+          <li><strong>Extracted information</strong> — what you learn by directly interrogating other guests. The most valuable clues are often the ones people didn't mean to reveal.</li>
+        </ul>
+      </div>
+
+      <p>The design goal is this: at any given moment, the truth <em>is</em> reconstructable — but only by a guest who has gathered enough pieces from enough people. Sitting back and waiting doesn't work. You have to play.</p>
+
+      <h2>The Interrogation Rounds</h2>
+      <p>Between dinner courses, structured interrogation rounds give every guest a formal opportunity to question, accuse, and deal. This is where the social mechanics get interesting.</p>
+      <p>Interrogations at the table are rarely adversarial. They're more like poker. You reveal just enough to get the other person to reveal something in return, while keeping your hand hidden. Alliances form — temporary, fragile alliances where two guests agree to share information, knowing full well neither of them is entirely trustworthy.</p>
+      <p>The killer's job during this phase is to seem cooperative without being cooperative. To offer the right amount of credible information while misdirecting suspicion toward someone else — ideally toward one of the red herrings the story has helpfully provided.</p>
+
+      <div class="pull-quote">
+        <p>"The killer rarely lies about everything. They lie about the one thing that matters."</p>
+      </div>
+
+      <h2>The Killer's Win Condition</h2>
+      <p>People often assume the killer just needs to "not get caught." It's more nuanced than that. The killer wins if, at the moment of the final vote, the majority of the table names someone other than them as the murderer.</p>
+      <p>This means the killer's entire evening is a misdirection campaign. They have to:</p>
+      <ul>
+        <li>Maintain a consistent, plausible alibi under sustained questioning</li>
+        <li>Build enough social trust that the table is reluctant to suspect them</li>
+        <li>Actively (and subtly) redirect suspicion toward another guest</li>
+        <li>Adapt their story as new evidence is released — without contradicting themselves</li>
+      </ul>
+      <p>A good killer doesn't stay quiet. A quiet suspect <em>is</em> a suspicious suspect. The best killers are often the most talkative guests at the table — confidently naming someone else while controlling the information flow around them.</p>
+
+      <h2>The Final Vote and the Reveal</h2>
+      <p>Before the last course, the host calls time. Each guest makes a formal, public accusation — naming who they believe committed the crime and, critically, stating their reasoning. This is where the evening crystallises. Weeks of careful misdirection either hold up or collapse.</p>
+      <p>The vote is simultaneous and binding. There's no negotiating after you've committed. And then — the reveal.</p>
+      <p>The reveal is the moment the whole evening has been building toward. The killer is unmasked. The full story comes out. Every alibi is examined. Every red herring is explained. For most guests, the reveal answers questions they didn't even know they should have been asking — and reframes conversations from two hours ago in an entirely different light.</p>
+      <p>The guest who correctly identified the killer, with the most compelling case, takes the trophy. The killer, if they survived, takes the quiet satisfaction of having fooled a room full of people over a three-course dinner.</p>
+
+      <div class="cta-box">
+        <h3>Think You Can Crack It?</h3>
+        <p>One evening at Let's Nail It. Limited seats. The killer is already booked.</p>
+        <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer" class="btn btn-cream"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+      </div>
+
+      <h2>Why It Feels Different from Other Experiences</h2>
+      <p>The reason a murder mystery dinner stays with you — and why guests inevitably come back — is that it's the only social experience where being deceived by your friends is both expected and genuinely entertaining. You gave information you shouldn't have. You trusted someone you should have suspected. You were this close to naming the killer before someone talked you out of it.</p>
+      <p>That post-dinner debrief, where everyone pieces together what actually happened, is often louder than the mystery itself. It's not just a story that was told to you. It's a story you helped create — and one you'll be retelling for weeks.</p>
+      <p>We design each evening at <a href="/">Let's Nail It</a> with these mechanics at the centre. The food is part of it. The setting is part of it. But the game is the thing — and it's designed to be won and lost by the people sitting around the table.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can the killer lie to the host?</h3>
+      <p>Guests respond to each other, not to the host. The host runs the mechanics and pacing — they're neutral. The lying happens between guests, which is exactly where it should happen.</p>
+
+      <h3>What if I figure out who the killer is early?</h3>
+      <p>You still have to prove it — and you might be wrong. "I think I know" and "I can demonstrate why" are very different positions at the final vote. Keep gathering evidence until you can make a case.</p>
+
+      <h3>Does the killer know from the beginning?</h3>
+      <p>Yes. The killer's brief is different from every other character's brief. They know the truth, they know their motive, and they arrive ready to perform innocence for three courses.</p>
+
+      <h3>Is it possible for no one to get it right?</h3>
+      <p>Absolutely. A well-played killer can walk away the victor. It's rarer than a correct identification, but it happens — and when it does, the debrief is even better.</p>
+
+    </article>
+
+    <aside class="post-sidebar" aria-label="Sidebar">
+      <div class="sidebar-card sidebar-cta">
+        <h4>Book a Seat</h4>
+        <p>Bangalore's only murder mystery supper club. Limited seats per evening.</p>
+        <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp to Book</a>
+      </div>
+      <div class="sidebar-card">
+        <h4>More from the Blog</h4>
+        <ul>
+          <li><a href="/blog/what-to-expect-murder-mystery-dinner.html">What to Expect at Your First Murder Mystery Dinner →</a></li>
+          <li><a href="/blog/corporate-team-building-bangalore.html">Best Corporate Team Building in Bangalore →</a></li>
+          <li><a href="/blog/unique-date-night-ideas-bangalore.html">7 Unique Date Night Ideas in Bangalore →</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>The Evening at a Glance</h4>
+        <ul>
+          <li><strong style="color:var(--cream);">Duration:</strong> ~3–4 hours</li>
+          <li style="margin-top:0.5rem;"><strong style="color:var(--cream);">Format:</strong> Multi-course dinner + live mystery</li>
+          <li style="margin-top:0.5rem;"><strong style="color:var(--cream);">Guests:</strong> Intimate group, everyone plays</li>
+          <li style="margin-top:0.5rem;"><strong style="color:var(--cream);">Location:</strong> MG Road, Bangalore</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <a href="/" class="logo" aria-label="Let's Nail It — home">
+        <div class="logo-icon"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="2" width="12" height="26" rx="2" fill="#8B8B8B"/><rect x="29.5" y="3" width="4" height="24" rx="1" fill="#A0A0A0" opacity="0.4"/><rect x="18" y="2" width="32" height="14" rx="3" fill="#555"/><rect x="19" y="3" width="30" height="5" rx="1.5" fill="#6B6B6B" opacity="0.5"/><path d="M16 14 C14 16, 13 20, 16 22 L20 18 Z" fill="#C41E3A" opacity="0.9"/><path d="M50 10 C52 14, 54 18, 50 20 L48 16 Z" fill="#C41E3A" opacity="0.7"/><circle cx="18" cy="18" r="3" fill="#8B0000" opacity="0.8"/><circle cx="48" cy="16" r="2.5" fill="#8B0000" opacity="0.6"/><circle cx="22" cy="20" r="1.5" fill="#C41E3A" opacity="0.7"/><circle cx="46" cy="19" r="1.8" fill="#C41E3A" opacity="0.5"/><path d="M15 16 Q12 20 14 24" stroke="#8B0000" stroke-width="1.5" fill="none" opacity="0.6" stroke-linecap="round"/><path d="M50 14 Q53 18 51 21" stroke="#8B0000" stroke-width="1" fill="none" opacity="0.5" stroke-linecap="round"/><rect x="30" y="28" width="8" height="34" rx="1.5" fill="#6B4226"/><rect x="31" y="28" width="3" height="32" rx="0.5" fill="#8B5A3C" opacity="0.4"/><path d="M30 58 Q28 62 30 64 L38 64 Q40 62 38 58 Z" fill="#C41E3A" opacity="0.8"/><circle cx="32" cy="60" r="1" fill="#8B0000" opacity="0.9"/><circle cx="36" cy="61" r="0.8" fill="#8B0000" opacity="0.7"/><path d="M29 60 Q27 63 30 64" stroke="#8B0000" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+        <div class="logo-text">LET'S NAIL IT<small>A Killer Dining Experience</small></div>
+      </a>
+      <p>Bangalore's only murder mystery supper club. An immersive dining experience on MG Road where every guest is a suspect and only the sharpest detective nails the killer.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="me noopener noreferrer" aria-label="Follow on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp us"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="me noopener noreferrer" aria-label="Follow on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@letsnailit" target="_blank" rel="me noopener noreferrer" aria-label="Watch on YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Experiences</h4>
+      <ul>
+        <li><a href="/#supper-club">Supper Club</a></li>
+        <li><a href="/#private">Private Events</a></li>
+        <li><a href="/#events">Birthday Parties</a></li>
+        <li><a href="/#events">Team Building</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#menu">The Menu</a></li>
+        <li><a href="/blog/index.html">Blog</a></li>
+        <li><a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer">Gift Cards via WhatsApp</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <address>
+        <ul>
+          <li><a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +91 97310 00440</a></li>
+          <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:0.3em;"></i> MG Road, Bangalore, Karnataka</li>
+        </ul>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Let's Nail It. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="/terms.html">Terms &amp; Conditions</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+<script>
+  document.querySelector('.hamburger').addEventListener('click', function() {
+    const nav = document.getElementById('nav-links');
+    nav.classList.toggle('nav-open');
+    this.setAttribute('aria-expanded', nav.classList.contains('nav-open'));
+  });
+</script>
+</body>
+</html>
