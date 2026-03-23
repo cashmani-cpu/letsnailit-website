@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" rx="24" fill="#8B0000"/>
+  <g transform="rotate(-45 150 130)">
+    <rect x="138" y="40" width="24" height="100" rx="6" fill="#C9A84C"/>
+    <rect x="108" y="32" width="84" height="44" rx="10" fill="#C9A84C"/>
+    <rect x="112" y="36" width="76" height="36" rx="8" fill="#D4B96A"/>
+  </g>
+  <text x="150" y="230" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#C9A84C" text-anchor="middle" letter-spacing="3">LET'S NAIL IT</text>
+  <text x="150" y="258" font-family="Arial, sans-serif" font-size="13" fill="#D4B96A" text-anchor="middle" letter-spacing="2">MURDER MYSTERY SUPPER CLUB</text>
+</svg>

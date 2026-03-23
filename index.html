@@ -41,8 +41,19 @@
 <meta name="twitter:image" content="https://letsnailit.com/dinner.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<!-- LCP preload: hero background image -->
+<link rel="preload" as="image" href="dinner.jpg" fetchpriority="high">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
 <style>
   :root {
     --blood: #8B0000;
@@ -1072,13 +1083,8 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Let's Nail It",
-  "url": "https://www.letsnailit.com/",
-  "description": "Bangalore's only murder mystery supper club — immersive dining experience for corporate events, date nights and private parties.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.letsnailit.com/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "url": "https://letsnailit.com/",
+  "description": "Bangalore's only murder mystery supper club — immersive dining experience for corporate events, date nights and private parties."
 }
 </script>
 <script type="application/ld+json">
@@ -1088,9 +1094,9 @@
   "name": "Let's Nail It — Murder Mystery Supper Club",
   "alternateName": ["Let's Nail It", "Bangalore Murder Mystery Dinner"],
   "description": "Bangalore's only murder mystery supper club. An intimate multi-course dinner experience on MG Road, Bengaluru, where every guest is a suspect, every course hides a clue, and only the sharpest detective nails the killer. Perfect for corporate team building, date nights, birthday parties and bachelorette parties.",
-  "url": "https://www.letsnailit.com/",
-  "logo": "https://www.letsnailit.com/dinner.jpg",
-  "image": "https://www.letsnailit.com/dinner.jpg",
+  "url": "https://letsnailit.com/",
+  "logo": "https://letsnailit.com/logo.svg",
+  "image": "https://letsnailit.com/dinner.jpg",
   "telephone": "+919731000440",
   "email": "ac@onemorelight.co",
   "address": {
@@ -1134,13 +1140,19 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
+  "@type": "EventSeries",
   "name": "Murder Mystery Supper Club — Let's Nail It",
   "description": "An immersive murder mystery dinner experience in Bangalore. Every guest is a suspect. Every course hides a clue. Interrogate, bluff, deduce — and nail the killer before dessert.",
-  "image": "https://www.letsnailit.com/dinner.jpg",
-  "url": "https://www.letsnailit.com/",
-  "startDate": "2026-03-28T18:30",
-  "endDate": "2026-03-28T22:00",
+  "image": "https://letsnailit.com/dinner.jpg",
+  "url": "https://letsnailit.com/",
+  "startDate": "2026-01-01",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1W",
+    "byDay": ["https://schema.org/Friday", "https://schema.org/Saturday"],
+    "startTime": "18:30",
+    "endTime": "22:00"
+  },
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -1163,11 +1175,11 @@
   "organizer": {
     "@type": "Organization",
     "name": "Let's Nail It",
-    "url": "https://www.letsnailit.com/"
+    "url": "https://letsnailit.com/"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://www.letsnailit.com/",
+    "url": "https://letsnailit.com/",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
     "validFrom": "2026-01-01"
@@ -1279,25 +1291,25 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.letsnailit.com/"
+      "item": "https://letsnailit.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Murder Mystery Supper Club Bangalore",
-      "item": "https://www.letsnailit.com/#supper-club"
+      "item": "https://letsnailit.com/#supper-club"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Private Events & Corporate Team Building",
-      "item": "https://www.letsnailit.com/#private"
+      "item": "https://letsnailit.com/#private"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "FAQ",
-      "item": "https://www.letsnailit.com/#faq"
+      "item": "https://letsnailit.com/#faq"
     }
   ]
 }
@@ -1358,10 +1370,10 @@
   <p class="hero-sub">An intimate murder mystery supper club where every guest becomes a suspect, every course hides a clue, and only the sharpest detective nails the killer — all over a handcrafted multi-course dinner in Bangalore.</p>
   <p class="hero-location"><i class="fas fa-map-marker-alt"></i> MG Road, Bangalore (Bengaluru) &nbsp;·&nbsp; <a href="https://wa.me/919731000440" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">+91 97310 00440</a></p>
   <div class="hero-btns">
-    <a href="javascript:void(0)" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active');">
+    <a href="#partyModal" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active'); return false;">
       <i class="fas fa-skull-crossbones"></i> BOOK A SEAT
     </a>
-    <a href="javascript:void(0)" class="btn btn-gold-outline" onclick="document.getElementById('privateModal').classList.add('active');">
+    <a href="#privateModal" class="btn btn-gold-outline" onclick="document.getElementById('privateModal').classList.add('active'); return false;">
       <i class="fas fa-glass-cheers"></i> HOST A PRIVATE EVENT
     </a>
   </div>
@@ -1371,7 +1383,7 @@
   <div class="split-inner">
     <div class="split-visual">
       <div class="split-visual-inner split-visual-img">
-        <img src="dinner.jpg" alt="Guests at a candlelit murder mystery dinner in Bangalore" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        <img src="dinner.jpg" alt="Guests at a candlelit murder mystery dinner in Bangalore" width="985" height="531" style="width:100%;height:100%;object-fit:cover;" loading="eager">
         <p class="overlay-text">"The killer is already seated..."</p>
       </div>
     </div>
@@ -1382,7 +1394,7 @@
       <p>Welcome to Bangalore's most exclusive dinner party — one you might not survive. Let's Nail It is an intimate supper club hosted at our private dining space on MG Road, Bengaluru, where strangers and friends gather around one table for a multi-course meal laced with mystery.</p>
       <p>You'll be assigned a character, given secret objectives, and served a curated dinner while an original murder mystery unfolds around you. <em>Interrogate. Bluff. Deduce.</em> By the final course, one guest will be unmasked as the killer — and the sharpest detective at the table walks away with bragging rights.</p>
       <p>Limited seats per evening. No two nights are ever the same. This is Bangalore's — and India's — most immersive murder mystery dining experience.</p>
-      <a href="javascript:void(0)" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active');">RESERVE YOUR SEAT</a>
+      <a href="#partyModal" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active'); return false;">RESERVE YOUR SEAT</a>
     </div>
   </div>
 </section>
@@ -1464,7 +1476,7 @@
     <p class="lead">Will you be able to nail who did it?</p>
     <p>This isn't dinner theater. There's no stage, no audience, no scripts to read from. At Let's Nail It, you're inside the story — playing a character with real secrets, real motives, and real strategy. Every conversation is a potential interrogation. Every course brings you closer to the truth — or further from it.</p>
     <p>Our mystery designers create layered plots with deception mechanics, hidden information, and competitive scoring. Come as strangers, leave as rivals. This is Bangalore (Bengaluru)'s most memorable night out — and India's most immersive murder mystery supper club.</p>
-    <a href="javascript:void(0)" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active');">BOOK YOUR NIGHT</a>
+    <a href="#partyModal" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active'); return false;">BOOK YOUR NIGHT</a>
   </div>
 </section>
 
@@ -1476,11 +1488,11 @@
       <p>Want to host a murder mystery dinner at your own space? We bring the full Let's Nail It experience to your home, office, restaurant, or any venue of your choice across Bangalore and Bengaluru.</p>
       <p>Our team handles everything — the plot, the characters, the props, the game mechanics. You just invite the guests. Whether it's a <strong>birthday party</strong>, <strong>corporate team building dinner</strong>, <strong>bachelorette party</strong>, or festive get-together, we design a completely custom murder mystery experience around your group size and vibe.</p>
       <p>Perfect for groups of 8–40 guests. Food packages available, or bring your own catering.</p>
-      <a href="javascript:void(0)" class="btn btn-red" onclick="document.getElementById('privateModal').classList.add('active');">PLAN YOUR PRIVATE EVENT</a>
+      <a href="#privateModal" class="btn btn-red" onclick="document.getElementById('privateModal').classList.add('active'); return false;">PLAN YOUR PRIVATE EVENT</a>
     </div>
     <div class="split-visual">
       <div class="split-visual-inner split-visual-img">
-        <img src="group-pic.jpg" alt="Group of guests at Let's Nail It murder mystery supper club Bangalore" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        <img src="group-pic.jpg" alt="Group of guests at Let's Nail It murder mystery supper club Bangalore" width="2752" height="1536" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
         <p class="overlay-text">"Your living room. Our crime scene."</p>
       </div>
     </div>
@@ -1624,7 +1636,7 @@
           <li style="padding:0.4rem 0; border-bottom:1px solid var(--noir-border); font-size:0.9rem; color:var(--fog);"><i class="fas fa-check" style="color:var(--gold); margin-right:0.6em;"></i>Drinks throughout evening</li>
           <li style="padding:0.4rem 0; font-size:0.9rem; color:var(--fog);"><i class="fas fa-check" style="color:var(--gold); margin-right:0.6em;"></i>Full mystery experience &amp; scoring</li>
         </ul>
-        <a href="javascript:void(0)" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active');" style="width:100%; justify-content:center;">BOOK A SEAT</a>
+        <a href="#partyModal" class="btn btn-red" onclick="document.getElementById('partyModal').classList.add('active'); return false;" style="width:100%; justify-content:center;">BOOK A SEAT</a>
       </div>
       <div style="background:var(--noir-card); border:2px solid var(--gold-dim); padding:2.5rem 2rem; text-align:center; position:relative;">
         <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--blood); font-family:'Oswald',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#fff; padding:0.3rem 1.2rem;">Most Popular</div>
@@ -1637,7 +1649,7 @@
           <li style="padding:0.4rem 0; border-bottom:1px solid var(--noir-border); font-size:0.9rem; color:var(--fog);"><i class="fas fa-check" style="color:var(--gold); margin-right:0.6em;"></i>8–40 guests</li>
           <li style="padding:0.4rem 0; font-size:0.9rem; color:var(--fog);"><i class="fas fa-check" style="color:var(--gold); margin-right:0.6em;"></i>Optional food &amp; drinks package</li>
         </ul>
-        <a href="javascript:void(0)" class="btn btn-red" onclick="document.getElementById('privateModal').classList.add('active');" style="width:100%; justify-content:center;">GET A QUOTE</a>
+        <a href="#privateModal" class="btn btn-red" onclick="document.getElementById('privateModal').classList.add('active'); return false;" style="width:100%; justify-content:center;">GET A QUOTE</a>
       </div>
     </div>
     <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--smoke); font-style:italic;">Prices vary by date &amp; theme. WhatsApp us for current availability and exact pricing.</p>
