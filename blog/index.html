@@ -123,8 +123,9 @@
   .blog-section { padding: 4rem 0 5rem; }
   .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
 
-  .post-card { background: var(--noir-card); border: 1px solid var(--noir-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+  .post-card { background: var(--noir-card); border: 1px solid var(--noir-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; position: relative; }
   .post-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
+  .post-card-link::after { content: ''; position: absolute; inset: 0; }
   .post-card-img { height: 200px; background: var(--noir-light); overflow: hidden; position: relative; }
   .post-card-img img { width: 100%; height: 100%; object-fit: cover; }
   .post-card-img .card-category { position: absolute; top: 0.75rem; left: 0.75rem; background: var(--blood); color: white; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; }
@@ -228,7 +229,7 @@
         </div>
         <div class="post-card-body">
           <p class="post-meta"><time datetime="2026-03-20">20 March 2026</time> &nbsp;·&nbsp; 6 min read</p>
-          <h2><a href="/blog/what-to-expect-murder-mystery-dinner.html">What to Expect at a Murder Mystery Dinner in Bangalore</a></h2>
+          <h2><a href="/blog/what-to-expect-murder-mystery-dinner.html" class="post-card-link">What to Expect at a Murder Mystery Dinner in Bangalore</a></h2>
           <p>Never been to a murder mystery dinner before? Here's exactly what happens — from arriving in character to cracking the case over dessert.</p>
         </div>
         <div class="post-card-footer">
@@ -243,7 +244,7 @@
         </div>
         <div class="post-card-body">
           <p class="post-meta"><time datetime="2026-03-15">15 March 2026</time> &nbsp;·&nbsp; 7 min read</p>
-          <h2><a href="/blog/corporate-team-building-bangalore.html">The Best Corporate Team Building Activities in Bangalore (2026)</a></h2>
+          <h2><a href="/blog/corporate-team-building-bangalore.html" class="post-card-link">The Best Corporate Team Building Activities in Bangalore (2026)</a></h2>
           <p>Skip the ropes course. These are the corporate team outings that actually get people talking — and the one your team will still bring up two years later.</p>
         </div>
         <div class="post-card-footer">
@@ -258,7 +259,7 @@
         </div>
         <div class="post-card-body">
           <p class="post-meta"><time datetime="2026-03-10">10 March 2026</time> &nbsp;·&nbsp; 5 min read</p>
-          <h2><a href="/blog/unique-date-night-ideas-bangalore.html">7 Unique Date Night Ideas in Bangalore (Beyond the Usual Dinner)</a></h2>
+          <h2><a href="/blog/unique-date-night-ideas-bangalore.html" class="post-card-link">7 Unique Date Night Ideas in Bangalore (Beyond the Usual Dinner)</a></h2>
           <p>Bangalore has no shortage of restaurants. But if you want a date night that's genuinely memorable, you need something with a little more intrigue.</p>
         </div>
         <div class="post-card-footer">
