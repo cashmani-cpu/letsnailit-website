@@ -9,10 +9,9 @@
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%238B0000'/><g transform='rotate(-45 32 32)'><rect x='28' y='10' width='8' height='28' rx='2' fill='%23C9A84C'/><rect x='18' y='8' width='28' height='14' rx='3' fill='%23C9A84C'/><rect x='20' y='10' width='24' height='10' rx='2' fill='%23D4B96A'/></g></svg>">
 
 <!-- SEO: Core meta -->
-<meta name="description" content="Bangalore's only murder mystery supper club on MG Road. Solve a murder over a gourmet dinner — perfect for date nights, corporate team building &amp; private parties. Book your seat today.">
+<meta name="description" content="Bangalore's only murder mystery supper club on MG Road. Solve a murder over dinner — perfect for date nights, corporate events &amp; private parties. Book now.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Let's Nail It">
-<meta name="keywords" content="murder mystery dinner Bangalore, murder mystery dinner Bengaluru, murder mystery experience Bangalore, dinner theater Bangalore, interactive dinner experience Bangalore, murder mystery supper club, corporate team building Bangalore, unique date night Bangalore, private events Bangalore">
 <meta name="theme-color" content="#8B0000">
 <link rel="canonical" href="https://letsnailit.com/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -29,6 +28,8 @@
 <meta property="og:description" content="Bangalore's only murder mystery supper club. Solve a murder over a gourmet multi-course dinner on MG Road. Perfect for corporate events, date nights & celebrations. Book now.">
 <meta property="og:url" content="https://letsnailit.com/">
 <meta property="og:image" content="https://letsnailit.com/dinner.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Guests at a candlelit murder mystery dinner, one guest slumped over the table">
 <meta property="og:locale" content="en_IN">
 
@@ -36,10 +37,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Let's Nail It – Murder Mystery Dinner Bangalore | Supper Club">
 <meta name="twitter:description" content="Bangalore's only murder mystery supper club. Solve a murder over a gourmet dinner. Corporate events, date nights & private parties. Book now.">
+<meta name="twitter:site" content="@letsnailit">
 <meta name="twitter:image" content="https://letsnailit.com/dinner.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 <style>
   :root {
     --blood: #8B0000;
@@ -59,6 +62,20 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .skip-nav {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--blood);
+    color: white;
+    padding: 0.5rem 1rem;
+    z-index: 9999;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+  }
+  .skip-nav:focus { top: 0; }
   html { scroll-behavior: smooth; }
 
   body {
@@ -161,7 +178,7 @@
     text-transform: uppercase;
     color: var(--mist);
     text-decoration: none;
-    padding: 0 1.1rem;
+    padding: 0 0.8rem;
     height: 100%;
     display: flex;
     align-items: center;
@@ -929,7 +946,7 @@
   }
 
   /* RESPONSIVE */
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     /* Mobile nav — stacks vertically below nav bar */
     .nav-links {
       display: none;
@@ -1037,7 +1054,7 @@
   "@context": "https://schema.org",
   "@type": "DinnerTheater",
   "name": "Let's Nail It — Murder Mystery Supper Club",
-  "alternateName": ["Let's Nail It", "JustNailIt", "Bangalore Murder Mystery Dinner"],
+  "alternateName": ["Let's Nail It", "Bangalore Murder Mystery Dinner"],
   "description": "Bangalore's only murder mystery supper club. An intimate multi-course dinner experience on MG Road, Bengaluru, where every guest is a suspect, every course hides a clue, and only the sharpest detective nails the killer. Perfect for corporate team building, date nights, birthday parties and bachelorette parties.",
   "url": "https://www.letsnailit.com/",
   "logo": "https://www.letsnailit.com/dinner.jpg",
@@ -1090,6 +1107,8 @@
   "description": "An immersive murder mystery dinner experience in Bangalore. Every guest is a suspect. Every course hides a clue. Interrogate, bluff, deduce — and nail the killer before dessert.",
   "image": "https://www.letsnailit.com/dinner.jpg",
   "url": "https://www.letsnailit.com/",
+  "startDate": "2026-03-28T18:30",
+  "endDate": "2026-03-28T22:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -1253,6 +1272,7 @@
 </script>
 </head>
 <body>
+<a href="#main" class="skip-nav">Skip to main content</a>
 
 <div class="top-bar">
   <a href="https://wa.me/919731000440" target="_blank">
@@ -1283,6 +1303,7 @@
       <li><a href="#events">Occasions</a></li>
       <li><a href="#menu">The Menu</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="/blog/">Blog</a></li>
     </ul>
 
     <div class="nav-cta-wrap">
@@ -1296,7 +1317,7 @@
     </button>
   </div>
 </nav>
-<main>
+<main id="main">
 
 <section class="hero">
   <div class="hero-badge"><i class="fas fa-skull"></i> Bangalore's Only Murder Mystery Dinner & Supper Club</div>
@@ -1640,6 +1661,7 @@
         <li><a href="#menu">The Menu</a></li>
         <li><a href="#how">How It Works</a></li>
         <li><a href="#supper-club">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="https://wa.me/919731000440" target="_blank" rel="noopener">Gift Cards</a></li>
       </ul>
     </div>
