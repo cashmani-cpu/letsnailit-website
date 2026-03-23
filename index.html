@@ -998,12 +998,13 @@
     .modal-overlay { padding: 0; align-items: flex-end; }
     /* Ensure all buttons meet 44px min touch target */
     .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
-    /* Hero: darker gradient for readability + reframe image to show faces */
+    /* Hero: show image at natural proportions instead of zooming it 2.8x */
     .hero {
       padding: 4.5rem 1.5rem 3rem;
+      min-height: 0;
       background:
         linear-gradient(180deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.82) 50%, rgba(13,13,13,1) 100%),
-        url('dinner.jpg') center 25% / cover no-repeat !important;
+        url('dinner.jpg') center top / 100% auto no-repeat !important;
     }
     /* Badge: shrink to fit single line */
     .hero-badge { font-size: 0.62rem; letter-spacing: 0.18em; padding: 0.4rem 1rem; }
