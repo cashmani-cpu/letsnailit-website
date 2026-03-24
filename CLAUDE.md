@@ -44,3 +44,17 @@ JNI/
 - No build step needed; open directly in a browser to preview
 - Use the existing CSS variable names when adding new styles
 - Maintain the noir/murder-mystery aesthetic: dark backgrounds, blood red + gold accents, serif headings (Playfair Display), sans-serif body (Lato/Oswald)
+
+## Known Fixes — Do Not Revert
+
+### Hero image on mobile (`@media (max-width: 600px)`)
+**NEVER use `background-size: cover` for `.hero` on mobile.** `cover` zooms a landscape photo ~2.8× on a portrait container, making people look distorted. The correct value is `100% auto`:
+```css
+.hero {
+  min-height: 0;
+  background:
+    linear-gradient(180deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.82) 50%, rgba(13,13,13,1) 100%),
+    url('dinner.jpg') center top / 100% auto no-repeat !important;
+}
+```
+The gradient fades to noir at the bottom so there is no visible gap below the image. This was confirmed working on device (commit `59bc42f`).
