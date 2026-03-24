@@ -44,6 +44,8 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap"></noscript>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<!-- LCP preload: hero background image -->
+<link rel="preload" as="image" href="dinner.jpg" fetchpriority="high">
 <style>
   :root {
     --blood: #8B0000;
@@ -997,6 +999,15 @@
     .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
     /* Prevent hero location from overflowing */
     .hero-location { flex-direction: column; gap: 0.25rem; text-align: center; }
+    /* Hero image: darker gradient for readability + show faces not ceiling */
+    .hero {
+      min-height: 0;
+      background:
+        linear-gradient(180deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.82) 50%, rgba(13,13,13,1) 100%),
+        url('dinner.jpg') center 25% / cover no-repeat !important;
+    }
+    .hero-badge { font-size: 0.62rem; letter-spacing: 0.18em; padding: 0.4rem 1rem; }
+    .hero-sub { color: rgba(220, 220, 220, 0.95); }
   }
 
   /* FLOATING WHATSAPP BUTTON */
@@ -1637,9 +1648,9 @@
       </a>
       <p>Bangalore's (Bengaluru's) only murder mystery supper club. An intimate, immersive dining experience on MG Road where every guest is a suspect, every course hides a clue, and only the sharpest detective nails the killer.</p>
       <div class="social-links">
-        <a href="https://www.instagram.com/letsnailit_bangalore/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Let's Nail It on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Let's Nail It on Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/919731000440" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/letsnailit" target="_blank" rel="me noopener noreferrer" aria-label="Follow Let's Nail It on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Let's Nail It on Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
 
