@@ -999,12 +999,12 @@
     .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
     /* Prevent hero location from overflowing */
     .hero-location { flex-direction: column; gap: 0.25rem; text-align: center; }
-    /* Hero image: darker gradient for readability + show faces not ceiling */
+    /* Hero image: full-width at natural proportions avoids zoom distortion on mobile */
     .hero {
       min-height: 0;
       background:
         linear-gradient(180deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.82) 50%, rgba(13,13,13,1) 100%),
-        url('dinner.jpg') center 25% / cover no-repeat !important;
+        url('dinner.jpg') center top / 100% auto no-repeat !important;
     }
     .hero-badge { font-size: 0.62rem; letter-spacing: 0.18em; padding: 0.4rem 1rem; }
     .hero-sub { color: rgba(220, 220, 220, 0.95); }
