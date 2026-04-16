@@ -68,13 +68,28 @@ tailwind.config = {
   </header>
 
   <!-- NAV -->
-  <nav aria-label="Site sections" class="border-b-2 border-newsprint-ink mb-6 bg-newsprint-ink text-newsprint-base">
-    <div class="flex flex-wrap items-center px-3 py-0 divide-x divide-newsprint-base/20 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-      <a href="/#supper-club" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">The Mystery</a>
-      <a href="/#how" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">How It Works</a>
-      <a href="/#private" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">Private Events</a>
-      <a href="/#faq" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">FAQ</a>
-      <a href="/blog/" class="px-3 py-2 bg-newsprint-accent">Gazette Archives</a>
+  <nav id="main-nav" aria-label="Site sections" class="sticky top-0 z-[60] border-b-2 border-newsprint-ink mb-6 bg-newsprint-ink text-newsprint-base shadow-lg md:shadow-none">
+    <div class="flex items-center justify-between px-3 py-0">
+      <!-- Section links (Desktop) -->
+      <div class="hidden md:flex flex-wrap items-center divide-x divide-newsprint-base/20 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+        <a href="/#supper-club" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">The Mystery</a>
+        <a href="/#how" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">How It Works</a>
+        <a href="/#private" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">Private Events</a>
+        <a href="/#faq" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">FAQ</a>
+        <a href="/blog/" class="px-3 py-2 bg-newsprint-accent">Gazette Archives</a>
+      </div>
+
+      <!-- Mobile Toggle Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-between gap-3 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
+        <div class="flex items-center gap-2">
+          <i class="fas fa-bars text-newsprint-accent group-hover:text-white transition-colors"></i>
+          <span>Sections & Dispatches</span>
+        </div>
+        <div class="flex items-center gap-2 text-newsprint-base opacity-40">
+          <span class="text-[8px] font-normal italic">Archives Ed.</span>
+          <i class="fas fa-search text-[8px]"></i>
+        </div>
+      </button>
     </div>
   </nav>
 
@@ -243,5 +258,85 @@ tailwind.config = {
   </footer>
 
 </div>
+
+<script>
+  /* Mobile menu toggle logic */
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const content = document.getElementById('mobile-menu-content');
+    const body = document.body;
+
+    if (menu.classList.contains('hidden')) {
+      menu.classList.remove('hidden');
+      content.offsetHeight; // Reflow
+      content.classList.remove('translate-x-full');
+      body.style.overflow = 'hidden';
+    } else {
+      content.classList.add('translate-x-full');
+      setTimeout(() => {
+        menu.classList.add('hidden');
+        body.style.overflow = '';
+      }, 300);
+    }
+  }
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !document.getElementById('mobile-menu').classList.contains('hidden')) {
+      toggleMobileMenu();
+    }
+  });
+</script>
+
+<!-- ═══ MOBILE NAVIGATION DRAWER ═══ -->
+<div id="mobile-menu" class="hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true">
+  <div class="absolute inset-0 bg-newsprint-ink/60 backdrop-blur-md transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
+  <div id="mobile-menu-content" class="absolute top-0 right-0 w-[85%] max-w-[320px] h-full bg-newsprint-base border-l-4 border-newsprint-ink shadow-2xl transform transition-transform duration-300 ease-in-out translate-x-full overflow-y-auto flex flex-col">
+    
+    <div class="p-6 border-b-2 border-newsprint-ink bg-newsprint-dark/10">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <p class="text-[9px] font-bold uppercase tracking-widest text-newsprint-accent mb-1 underline decoration-double">South Parade Dispatch</p>
+          <h2 class="font-masthead text-4xl tracking-tight leading-none">The Gazette</h2>
+        </div>
+        <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center border-2 border-newsprint-ink rounded-full hover:bg-newsprint-accent hover:text-white transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <p class="text-[10px] font-bold uppercase tracking-wider italic text-newsprint-ink/60">"For King, Country and the Garden City"</p>
+    </div>
+
+    <nav class="flex-1 p-6 space-y-1">
+      <p class="text-[9px] font-black uppercase tracking-[0.2em] text-newsprint-ink/40 mb-4 border-b border-newsprint-ink/10 pb-2">Main Sections</p>
+      <a href="/#supper-club" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+        <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">The Mystery</span>
+        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+      </a>
+      <a href="/#how" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+        <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">How It Works</span>
+        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+      </a>
+      <a href="/#private" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+        <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">Private Events</span>
+        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+      </a>
+      <a href="/#faq" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+        <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">FAQ</span>
+        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+      </a>
+      <a href="/blog/" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-4 mt-4 bg-newsprint-ink text-white px-4 -mx-2">
+        <span class="font-headline text-xl font-black uppercase">Gazette Archives</span>
+        <i class="fas fa newspaper"></i>
+      </a>
+    </nav>
+
+    <div class="p-6 mt-auto bg-newsprint-accent/10 border-t-2 border-newsprint-ink text-center">
+      <p class="text-[9px] font-black uppercase tracking-widest text-newsprint-accent mb-2">Back to the front page?</p>
+      <a href="/" class="inline-block font-headline text-sm font-bold border-b border-newsprint-ink">Return to South Parade »</a>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
