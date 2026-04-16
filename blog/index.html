@@ -1,345 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Murder Mystery Blog | Let's Nail It Bangalore</title>
-<meta name="description" content="Tips, guides and ideas for murder mystery dinners, date nights and corporate events in Bangalore — from the team at Let's Nail It supper club.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gazette Archives | The Bangalore Gazette — Let's Nail It</title>
+<meta name="description" content="Dispatches from the Gazette desk — guides, ideas and insider intelligence for anyone planning a murder mystery experience in Bangalore.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Let's Nail It">
 <link rel="canonical" href="https://letsnailit.com/blog/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Let's Nail It">
-<meta property="og:title" content="Murder Mystery Blog | Let's Nail It Bangalore">
-<meta property="og:description" content="Tips, guides and ideas for murder mystery dinners, date nights and corporate events in Bangalore.">
+<meta property="og:title" content="Gazette Archives | The Bangalore Gazette — Let's Nail It">
+<meta property="og:description" content="Dispatches from the Gazette desk — guides, ideas and insider intelligence for anyone planning a murder mystery experience in Bangalore.">
 <meta property="og:url" content="https://letsnailit.com/blog/">
 <meta property="og:image" content="https://letsnailit.com/dinner.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_IN">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@letsnailit">
-<meta name="twitter:title" content="Murder Mystery Blog | Let's Nail It Bangalore">
-<meta name="twitter:description" content="Tips, guides and ideas for murder mystery dinners, date nights and corporate events in Bangalore.">
-<meta name="twitter:image" content="https://letsnailit.com/dinner.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%236b1111'/><text x='32' y='48' font-size='40' text-anchor='middle' fill='%23d2c7b3' font-family='serif'>G</text></svg>">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Let's Nail It — Murder Mystery Blog",
-  "description": "Tips, guides and ideas for murder mystery dinners, date nights and corporate events in Bangalore.",
-  "url": "https://letsnailit.com/blog/",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Let's Nail It",
-    "url": "https://letsnailit.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://letsnailit.com/dinner.jpg"
-    }
-  }
-}
-</script>
-
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%238B0000'/><g transform='rotate(-45 32 32)'><rect x='28' y='10' width='8' height='28' rx='2' fill='%23C9A84C'/><rect x='18' y='8' width='28' height='14' rx='3' fill='%23C9A84C'/><rect x='20' y='10' width='24' height='10' rx='2' fill='%23D4B96A'/></g></svg>">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Old+Standard+TT:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-<style>
-  :root {
-    --blood: #8B0000;
-    --blood-bright: #C41E3A;
-    --gold: #C9A84C;
-    --gold-light: #D4B96A;
-    --gold-dim: #8B7332;
-    --cream: #F5F0E8;
-    --noir: #0D0D0D;
-    --noir-mid: #161616;
-    --noir-card: #1C1C1C;
-    --noir-light: #2A2A2A;
-    --noir-border: #333;
-    --smoke: #666;
-    --fog: #999;
-    --mist: #BBB;
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          newsprint: {
+            base: '#d2c7b3',
+            dark: '#bdaf96',
+            ink: '#1c1b19',
+            accent: '#6b1111'
+          }
+        },
+        fontFamily: {
+          'masthead': ['UnifrakturMaguntia', 'serif'],
+          'headline': ['"Playfair Display"', 'serif'],
+          'body': ['"Old Standard TT"', 'serif'],
+          'typewriter': ['"Courier New"', 'Courier', 'monospace'],
+        }
+      }
+    }
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Lato', sans-serif; background: var(--noir); color: var(--cream); overflow-x: hidden; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-  .skip-nav { position: absolute; top: -100%; left: 1rem; background: var(--blood); color: white; padding: 0.5rem 1rem; z-index: 9999; font-size: 0.9rem; text-decoration: none; border-radius: 0 0 4px 4px; }
-  .skip-nav:focus { top: 0; }
-
-  /* TOP BAR */
-  .top-bar { background: var(--blood); padding: 0.55rem 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; flex-wrap: wrap; text-align: center; }
-  .top-bar span { color: rgba(255,255,255,0.7); }
-  .top-bar a { color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
-  .top-bar a:hover { text-decoration: underline; }
-
-  /* NAV */
-  nav { background: var(--noir); border-bottom: 1px solid var(--noir-light); position: sticky; top: 0; z-index: 100; }
-  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--cream); }
-  .logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
-  .logo-icon svg { width: 100%; height: 100%; }
-  .logo-text { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.1; }
-  .logo-text small { display: block; font-size: 0.55rem; font-weight: 300; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
-  .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-  .nav-links a { color: var(--mist); text-decoration: none; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold); }
-  .nav-phone { color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--gold-dim); padding: 0.4rem 0.9rem; border-radius: 3px; }
-  .nav-phone:hover { background: var(--gold); color: var(--noir); }
-  .hamburger { display: none; background: none; border: none; color: var(--cream); font-size: 1.4rem; cursor: pointer; }
-
-  @media (max-width: 900px) {
-    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir-mid); flex-direction: column; padding: 1rem 2rem; gap: 0; border-bottom: 1px solid var(--noir-border); }
-    .nav-links.nav-open { display: flex; }
-    .nav-links li { border-bottom: 1px solid var(--noir-border); }
-    .nav-links a { display: block; padding: 0.75rem 0; }
-    .hamburger { display: block; }
-    .nav-cta-wrap { display: none; }
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    html { font-size: 118%; }
+    body {
+      @apply bg-newsprint-base text-newsprint-ink font-body leading-tight;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    }
   }
-
-  /* BLOG HERO */
-  .blog-hero { background: var(--noir-mid); border-bottom: 1px solid var(--noir-border); padding: 4rem 0 3rem; text-align: center; }
-  .blog-hero .eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-  .blog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 1rem; }
-  .blog-hero h1 em { font-style: italic; color: var(--gold); }
-  .blog-hero p { color: var(--fog); max-width: 560px; margin: 0 auto; line-height: 1.7; }
-
-  /* BREADCRUMB */
-  .breadcrumb { padding: 0.75rem 0; font-size: 0.8rem; color: var(--fog); }
-  .breadcrumb a { color: var(--fog); text-decoration: none; }
-  .breadcrumb a:hover { color: var(--gold); }
-  .breadcrumb span { margin: 0 0.4rem; }
-
-  /* BLOG GRID */
-  .blog-section { padding: 4rem 0 5rem; }
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-
-  .post-card { background: var(--noir-card); border: 1px solid var(--noir-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; position: relative; }
-  .post-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
-  .post-card-link::after { content: ''; position: absolute; inset: 0; }
-  .post-card-img { height: 200px; background: var(--noir-light); overflow: hidden; position: relative; }
-  .post-card-img img { width: 100%; height: 100%; object-fit: cover; }
-  .post-card-img .card-category { position: absolute; top: 0.75rem; left: 0.75rem; background: var(--blood); color: white; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; }
-  .post-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-  .post-meta { font-size: 0.75rem; color: var(--smoke); margin-bottom: 0.75rem; }
-  .post-card-body h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.35; margin-bottom: 0.75rem; }
-  .post-card-body h2 a { color: var(--cream); text-decoration: none; }
-  .post-card-body h2 a:hover { color: var(--gold); }
-  .post-card-body p { color: var(--fog); font-size: 0.9rem; line-height: 1.65; flex: 1; }
-  .post-card-footer { padding: 0 1.5rem 1.5rem; }
-  .read-more { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
-  .read-more:hover { color: var(--gold-light); }
-  .read-more i { font-size: 0.7rem; }
-
-  /* FOOTER */
-  footer { background: var(--noir-mid); border-top: 1px solid var(--noir-border); padding: 4rem 0 0; }
-  .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
-  .footer-brand-col p { color: var(--fog); font-size: 0.88rem; line-height: 1.7; margin: 1.2rem 0; }
-  .social-links { display: flex; gap: 0.75rem; }
-  .social-links a { width: 36px; height: 36px; border: 1px solid var(--noir-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--fog); text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
-  .social-links a:hover { border-color: var(--gold); color: var(--gold); }
-  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 0.6rem; }
-  .footer-col ul li a { color: var(--fog); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: var(--cream); }
-  .footer-col address { font-style: normal; }
-  .footer-bottom { max-width: 1200px; margin: 3rem auto 0; padding: 1.5rem 2rem; border-top: 1px solid var(--noir-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--smoke); }
-  .footer-bottom-links { display: flex; gap: 1.5rem; }
-  .footer-bottom-links a { color: var(--smoke); text-decoration: none; }
-  .footer-bottom-links a:hover { color: var(--cream); }
-
-  @media (max-width: 768px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .footer-brand-col { grid-column: 1 / -1; }
-    .blog-grid { grid-template-columns: 1fr; }
+  .halftone {
+    filter: contrast(160%) grayscale(100%) brightness(85%);
   }
-  @media (max-width: 480px) {
-    .footer-grid { grid-template-columns: 1fr; }
-  }
+  .newspaper-border { border: 6px double #1a1a1a; }
+  .weathered { box-shadow: inset 0 0 120px rgba(0,0,0,0.1); }
+  .headline-shadow { text-shadow: 2px 2px 0px rgba(0,0,0,0.15); }
 </style>
 </head>
-<body>
-<a href="#main" class="skip-nav">Skip to main content</a>
+<body class="p-2 md:p-6 selection:bg-newsprint-ink selection:text-newsprint-base">
 
-<div class="top-bar">
-  <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp us!</a>
-  <span>|</span>
-  <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +91 97310 00440</a>
-  <span>|</span>
-  <span><i class="fas fa-map-marker-alt" style="color:rgba(255,255,255,0.8);margin-right:4px;"></i> MG Road, Bangalore</span>
-</div>
+<div class="max-w-6xl mx-auto newspaper-border p-2 md:p-6 bg-newsprint-base weathered relative">
 
-<nav aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/" class="logo" aria-label="Let's Nail It — home">
-      <div class="logo-icon"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="2" width="12" height="26" rx="2" fill="#8B8B8B"/><rect x="29.5" y="3" width="4" height="24" rx="1" fill="#A0A0A0" opacity="0.4"/><rect x="18" y="2" width="32" height="14" rx="3" fill="#555"/><rect x="19" y="3" width="30" height="5" rx="1.5" fill="#6B6B6B" opacity="0.5"/><path d="M16 14 C14 16, 13 20, 16 22 L20 18 Z" fill="#C41E3A" opacity="0.9"/><path d="M50 10 C52 14, 54 18, 50 20 L48 16 Z" fill="#C41E3A" opacity="0.7"/><circle cx="18" cy="18" r="3" fill="#8B0000" opacity="0.8"/><circle cx="48" cy="16" r="2.5" fill="#8B0000" opacity="0.6"/><circle cx="22" cy="20" r="1.5" fill="#C41E3A" opacity="0.7"/><circle cx="46" cy="19" r="1.8" fill="#C41E3A" opacity="0.5"/><path d="M15 16 Q12 20 14 24" stroke="#8B0000" stroke-width="1.5" fill="none" opacity="0.6" stroke-linecap="round"/><path d="M50 14 Q53 18 51 21" stroke="#8B0000" stroke-width="1" fill="none" opacity="0.5" stroke-linecap="round"/><rect x="30" y="28" width="8" height="34" rx="1.5" fill="#6B4226"/><rect x="31" y="28" width="3" height="32" rx="0.5" fill="#8B5A3C" opacity="0.4"/><path d="M30 58 Q28 62 30 64 L38 64 Q40 62 38 58 Z" fill="#C41E3A" opacity="0.8"/><circle cx="32" cy="60" r="1" fill="#8B0000" opacity="0.9"/><circle cx="36" cy="61" r="0.8" fill="#8B0000" opacity="0.7"/><path d="M29 60 Q27 63 30 64" stroke="#8B0000" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
-      <div class="logo-text">LET'S NAIL IT<small>A Killer Dining Experience</small></div>
+  <!-- ═══ MASTHEAD ═══ -->
+  <header class="text-center border-b-4 border-double border-newsprint-ink pb-4 mb-0">
+    <div class="flex justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest px-2 mb-2">
+      <span>VOL. XLII... No. 12,804</span>
+      <span class="hidden md:block">FOUNDED BY THE CANTONMENT PRESS</span>
+      <span>PRICE: ONE ANNA</span>
+    </div>
+    <a href="/" class="block hover:opacity-80 transition-opacity">
+      <h1 class="font-masthead text-5xl md:text-9xl mb-2 tracking-tight">The Bangalore Gazette</h1>
     </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/#supper-club">Supper Club</a></li>
-      <li><a href="/#how">How It Works</a></li>
-      <li><a href="/#private">Private Events</a></li>
-      <li><a href="/#events">Occasions</a></li>
-      <li><a href="/#menu">The Menu</a></li>
-      <li><a href="/blog/index.html" aria-current="page">Blog</a></li>
-    </ul>
-    <div class="nav-cta-wrap">
-      <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer" class="nav-phone"><i class="fab fa-whatsapp"></i> +91 97310 00440</a>
+    <div class="border-y border-newsprint-ink py-2 flex justify-between text-xs md:text-sm font-bold italic px-4 bg-newsprint-dark/10">
+      <span>SOUTH PARADE, FRIDAY, OCTOBER 17, 1941</span>
+      <span class="hidden sm:inline">"For King, Country and the Garden City"</span>
+      <span>LATE CANTONMENT EDITION</span>
     </div>
-    <button class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('nav-open'); this.setAttribute('aria-expanded', document.getElementById('nav-links').classList.contains('nav-open'));" aria-expanded="false" aria-label="Toggle navigation menu">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</nav>
+  </header>
 
-<main id="main">
-
-<div class="blog-hero">
-  <div class="container">
-    <p class="eyebrow"><i class="fas fa-feather-alt"></i> From the Suspects at Let's Nail It</p>
-    <h1>The <em>Murder Mystery</em> Blog</h1>
-    <p>Guides, ideas and insider tips for anyone planning a murder mystery dinner, date night, or corporate event in Bangalore.</p>
-  </div>
-</div>
-
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Blog</span>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav aria-label="Site sections" class="border-b-2 border-newsprint-ink mb-8 bg-newsprint-ink text-newsprint-base">
+    <div class="flex flex-wrap items-center px-3 py-0 divide-x divide-newsprint-base/20 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+      <a href="/#supper-club" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">The Mystery</a>
+      <a href="/#how" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">How It Works</a>
+      <a href="/#private" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">Private Events</a>
+      <a href="/#faq" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">FAQ</a>
+      <a href="/blog/" class="px-3 py-2 bg-newsprint-accent" aria-current="page">Gazette Archives</a>
+    </div>
   </nav>
-</div>
 
-<section class="blog-section" aria-label="Blog posts">
-  <div class="container">
-    <div class="blog-grid">
+  <!-- ═══ ARCHIVE MASTHEAD ═══ -->
+  <div class="border-b-2 border-newsprint-ink mb-8 pb-6 text-center">
+    <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-ink/50 mb-2">— SPECIAL SUPPLEMENT —</p>
+    <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter headline-shadow italic mb-3">
+      Gazette Archives
+    </h2>
+    <p class="text-sm italic text-newsprint-ink/70 max-w-xl mx-auto leading-relaxed">
+      Dispatches from our correspondents — guides, intelligence and insider knowledge for anyone stepping into the world of murder mystery.
+    </p>
+    <div class="flex items-center justify-center gap-3 mt-4 text-[10px] uppercase font-bold tracking-widest text-newsprint-ink/40">
+      <a href="/" class="hover:text-newsprint-accent transition-colors">Home</a>
+      <span>/</span>
+      <span>Gazette Archives</span>
+    </div>
+  </div>
 
-      <article class="post-card">
-        <div class="post-card-img">
-          <img src="/dinner.jpg" alt="Murder mystery dinner mechanics — characters, clues and the reveal" loading="lazy">
-          <span class="card-category">Deep Dive</span>
+  <!-- ═══ ARTICLES GRID ═══ -->
+  <main id="main">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-newsprint-ink mb-10">
+
+      <!-- Article 1 — Deep Dive, featured -->
+      <article class="md:col-span-2 border-b-2 border-newsprint-ink grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div class="border-r border-newsprint-ink">
+          <div class="border-2 border-newsprint-ink m-3 overflow-hidden">
+            <img src="/blog-mechanics.png" alt="Murder mystery dinner mechanics — characters, clues and the reveal" class="w-full h-56 object-cover halftone" loading="lazy">
+          </div>
         </div>
-        <div class="post-card-body">
-          <p class="post-meta"><time datetime="2026-03-23">23 March 2026</time> &nbsp;·&nbsp; 7 min read</p>
-          <h2><a href="/blog/how-murder-mystery-dinner-works.html" class="post-card-link">Characters, Clues & the Kill: How a Murder Mystery Dinner Actually Works</a></h2>
-          <p>The mechanics behind the mystery — how characters, clues, information asymmetry, and the final vote come together to make the whole thing work.</p>
-        </div>
-        <div class="post-card-footer">
-          <a href="/blog/how-murder-mystery-dinner-works.html" class="read-more">Read the guide <i class="fas fa-arrow-right"></i></a>
+        <div class="p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-newsprint-ink text-newsprint-base text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest">Deep Dive</span>
+              <span class="text-[9px] uppercase font-bold tracking-widest text-newsprint-ink/40"><time datetime="2026-03-23">23 March 2026</time> &nbsp;·&nbsp; 7 min read</span>
+            </div>
+            <h2 class="font-headline text-2xl font-black uppercase leading-tight mb-3">
+              <a href="/blog/how-murder-mystery-dinner-works.html" class="hover:text-newsprint-accent transition-colors">
+                Characters, Clues &amp; the Kill: How a Murder Mystery Actually Works
+              </a>
+            </h2>
+            <p class="text-sm leading-relaxed text-newsprint-ink/80 mb-4">The mechanics behind the mystery — how characters, clues, information asymmetry, and the final vote combine to create an evening nobody sees coming.</p>
+          </div>
+          <a href="/blog/how-murder-mystery-dinner-works.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">
+            Read the Full Dispatch <span class="font-headline text-base">»</span>
+          </a>
         </div>
       </article>
 
-      <article class="post-card">
-        <div class="post-card-img">
-          <img src="/dinner.jpg" alt="Guests at a murder mystery dinner in Bangalore" loading="lazy">
-          <span class="card-category">Guide</span>
+      <!-- Article 2 -->
+      <article class="border-b border-newsprint-ink md:border-r md:border-b-0 p-5 flex flex-col justify-between">
+        <div>
+          <div class="border border-newsprint-ink overflow-hidden mb-4">
+            <img src="/blog-expect.png" alt="Guests at a murder mystery experience in Bangalore" class="w-full h-40 object-cover halftone" loading="lazy">
+          </div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-newsprint-ink text-newsprint-base text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest">Guide</span>
+            <span class="text-[9px] uppercase font-bold tracking-widest text-newsprint-ink/40"><time datetime="2026-03-20">20 March 2026</time> &nbsp;·&nbsp; 6 min</span>
+          </div>
+          <h2 class="font-headline text-lg font-black uppercase leading-tight mb-2">
+            <a href="/blog/what-to-expect-murder-mystery-dinner.html" class="hover:text-newsprint-accent transition-colors">
+              What to Expect at a Murder Mystery Experience in Bangalore
+            </a>
+          </h2>
+          <p class="text-sm leading-relaxed text-newsprint-ink/70 mb-4">Never been before? Here's exactly what happens — from arriving in character to the final accusation.</p>
         </div>
-        <div class="post-card-body">
-          <p class="post-meta"><time datetime="2026-03-20">20 March 2026</time> &nbsp;·&nbsp; 6 min read</p>
-          <h2><a href="/blog/what-to-expect-murder-mystery-dinner.html" class="post-card-link">What to Expect at a Murder Mystery Dinner in Bangalore</a></h2>
-          <p>Never been to a murder mystery dinner before? Here's exactly what happens — from arriving in character to cracking the case over dessert.</p>
-        </div>
-        <div class="post-card-footer">
-          <a href="/blog/what-to-expect-murder-mystery-dinner.html" class="read-more">Read the guide <i class="fas fa-arrow-right"></i></a>
-        </div>
+        <a href="/blog/what-to-expect-murder-mystery-dinner.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">
+          Read the Dispatch <span class="font-headline text-base">»</span>
+        </a>
       </article>
 
-      <article class="post-card">
-        <div class="post-card-img">
-          <img src="/group-pic.jpg" alt="Corporate team at a murder mystery team building event in Bangalore" loading="lazy">
-          <span class="card-category">Corporate</span>
+      <!-- Article 3 -->
+      <article class="border-b border-newsprint-ink p-5 flex flex-col justify-between">
+        <div>
+          <div class="border border-newsprint-ink overflow-hidden mb-4">
+            <img src="/blog-corporate.png" alt="Corporate team at a murder mystery team building event in Bangalore" class="w-full h-40 object-cover halftone" loading="lazy">
+          </div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-newsprint-accent text-white text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest">Corporate</span>
+            <span class="text-[9px] uppercase font-bold tracking-widest text-newsprint-ink/40"><time datetime="2026-03-15">15 March 2026</time> &nbsp;·&nbsp; 7 min</span>
+          </div>
+          <h2 class="font-headline text-lg font-black uppercase leading-tight mb-2">
+            <a href="/blog/corporate-team-building-bangalore.html" class="hover:text-newsprint-accent transition-colors">
+              The Best Corporate Team Building Activities in Bangalore (2026)
+            </a>
+          </h2>
+          <p class="text-sm leading-relaxed text-newsprint-ink/70 mb-4">Skip the ropes course. These are the outings teams still talk about two years later — and the one that actually builds something real.</p>
         </div>
-        <div class="post-card-body">
-          <p class="post-meta"><time datetime="2026-03-15">15 March 2026</time> &nbsp;·&nbsp; 7 min read</p>
-          <h2><a href="/blog/corporate-team-building-bangalore.html" class="post-card-link">The Best Corporate Team Building Activities in Bangalore (2026)</a></h2>
-          <p>Skip the ropes course. These are the corporate team outings that actually get people talking — and the one your team will still bring up two years later.</p>
-        </div>
-        <div class="post-card-footer">
-          <a href="/blog/corporate-team-building-bangalore.html" class="read-more">Read the guide <i class="fas fa-arrow-right"></i></a>
-        </div>
+        <a href="/blog/corporate-team-building-bangalore.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">
+          Read the Dispatch <span class="font-headline text-base">»</span>
+        </a>
       </article>
 
-      <article class="post-card">
-        <div class="post-card-img">
-          <img src="/dinner.jpg" alt="Romantic candlelit dinner at a murder mystery supper club in Bangalore" loading="lazy">
-          <span class="card-category">Date Night</span>
+      <!-- Article 4 -->
+      <article class="md:col-span-2 border-t border-newsprint-ink p-5 grid grid-cols-1 md:grid-cols-3 gap-0">
+        <div class="md:border-r border-newsprint-ink md:pr-5 mb-4 md:mb-0">
+          <div class="border border-newsprint-ink overflow-hidden mb-3">
+            <img src="/blog-datenight.png" alt="Unique date night ideas in Bangalore" class="w-full h-32 object-cover halftone" loading="lazy">
+          </div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-newsprint-ink text-newsprint-base text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest">Date Night</span>
+          </div>
+          <h2 class="font-headline text-base font-black uppercase leading-tight mb-2">
+            <a href="/blog/unique-date-night-ideas-bangalore.html" class="hover:text-newsprint-accent transition-colors">
+              7 Unique Date Night Ideas in Bangalore
+            </a>
+          </h2>
+          <p class="text-xs leading-relaxed text-newsprint-ink/70 mb-3">Bangalore has no shortage of restaurants. But if you want genuinely memorable, you need something with intrigue.</p>
+          <a href="/blog/unique-date-night-ideas-bangalore.html" class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">
+            Read <span class="font-headline">»</span>
+          </a>
         </div>
-        <div class="post-card-body">
-          <p class="post-meta"><time datetime="2026-03-10">10 March 2026</time> &nbsp;·&nbsp; 5 min read</p>
-          <h2><a href="/blog/unique-date-night-ideas-bangalore.html" class="post-card-link">7 Unique Date Night Ideas in Bangalore (Beyond the Usual Dinner)</a></h2>
-          <p>Bangalore has no shortage of restaurants. But if you want a date night that's genuinely memorable, you need something with a little more intrigue.</p>
+
+        <!-- Placeholder / Coming Soon articles -->
+        <div class="md:border-r border-newsprint-ink md:px-5 mb-4 md:mb-0 flex flex-col justify-between">
+          <div>
+            <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-ink/30 mb-3 border-b border-newsprint-ink/20 pb-2">Coming from our correspondents</p>
+            <div class="space-y-4">
+              <div class="border-b border-newsprint-ink/20 pb-3">
+                <span class="text-[9px] font-bold bg-newsprint-dark px-2 py-0.5 uppercase tracking-widest text-newsprint-ink/50">Forthcoming</span>
+                <p class="font-headline font-bold uppercase text-sm mt-1 leading-tight text-newsprint-ink/40">How to Win at a Murder Mystery (Without Cheating)</p>
+              </div>
+              <div class="border-b border-newsprint-ink/20 pb-3">
+                <span class="text-[9px] font-bold bg-newsprint-dark px-2 py-0.5 uppercase tracking-widest text-newsprint-ink/50">Forthcoming</span>
+                <p class="font-headline font-bold uppercase text-sm mt-1 leading-tight text-newsprint-ink/40">The Best Group Activity Ideas in Bangalore for 2026</p>
+              </div>
+              <div>
+                <span class="text-[9px] font-bold bg-newsprint-dark px-2 py-0.5 uppercase tracking-widest text-newsprint-ink/50">Forthcoming</span>
+                <p class="font-headline font-bold uppercase text-sm mt-1 leading-tight text-newsprint-ink/40">Birthday Party Ideas That Actually Surprise the Guest of Honour</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="post-card-footer">
-          <a href="/blog/unique-date-night-ideas-bangalore.html" class="read-more">Read the guide <i class="fas fa-arrow-right"></i></a>
+
+        <!-- Mini CTA -->
+        <div class="md:pl-5 flex flex-col justify-center text-center">
+          <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-ink/40 mb-3">— JOIN THE INVESTIGATION —</p>
+          <h3 class="font-headline text-xl font-black uppercase leading-tight mb-3">Ready to step into the story?</h3>
+          <p class="text-xs italic text-newsprint-ink/70 mb-4">Aga Abbas Ali Road, Bangalore &nbsp;·&nbsp; Fri–Sun evenings &nbsp;·&nbsp; from ₹999/person</p>
+          <a href="/" class="bg-newsprint-ink text-newsprint-base px-4 py-3 font-bold uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow text-xs text-center">
+            Book a Seat »
+          </a>
         </div>
       </article>
 
     </div>
-  </div>
-</section>
+  </main>
 
-</main>
-
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand-col">
-      <a href="/" class="logo" aria-label="Let's Nail It — home">
-        <div class="logo-icon"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="2" width="12" height="26" rx="2" fill="#8B8B8B"/><rect x="29.5" y="3" width="4" height="24" rx="1" fill="#A0A0A0" opacity="0.4"/><rect x="18" y="2" width="32" height="14" rx="3" fill="#555"/><rect x="19" y="3" width="30" height="5" rx="1.5" fill="#6B6B6B" opacity="0.5"/><path d="M16 14 C14 16, 13 20, 16 22 L20 18 Z" fill="#C41E3A" opacity="0.9"/><path d="M50 10 C52 14, 54 18, 50 20 L48 16 Z" fill="#C41E3A" opacity="0.7"/><circle cx="18" cy="18" r="3" fill="#8B0000" opacity="0.8"/><circle cx="48" cy="16" r="2.5" fill="#8B0000" opacity="0.6"/><circle cx="22" cy="20" r="1.5" fill="#C41E3A" opacity="0.7"/><circle cx="46" cy="19" r="1.8" fill="#C41E3A" opacity="0.5"/><path d="M15 16 Q12 20 14 24" stroke="#8B0000" stroke-width="1.5" fill="none" opacity="0.6" stroke-linecap="round"/><path d="M50 14 Q53 18 51 21" stroke="#8B0000" stroke-width="1" fill="none" opacity="0.5" stroke-linecap="round"/><rect x="30" y="28" width="8" height="34" rx="1.5" fill="#6B4226"/><rect x="31" y="28" width="3" height="32" rx="0.5" fill="#8B5A3C" opacity="0.4"/><path d="M30 58 Q28 62 30 64 L38 64 Q40 62 38 58 Z" fill="#C41E3A" opacity="0.8"/><circle cx="32" cy="60" r="1" fill="#8B0000" opacity="0.9"/><circle cx="36" cy="61" r="0.8" fill="#8B0000" opacity="0.7"/><path d="M29 60 Q27 63 30 64" stroke="#8B0000" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
-        <div class="logo-text">LET'S NAIL IT<small>A Killer Dining Experience</small></div>
-      </a>
-      <p>Bangalore's only murder mystery supper club. An immersive dining experience on MG Road where every guest is a suspect, every course hides a clue, and only the sharpest detective nails the killer.</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Let's Nail It on Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Let's Nail It on Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.youtube.com/@letsnailit" target="_blank" rel="me noopener noreferrer" aria-label="Watch Let's Nail It on YouTube"><i class="fab fa-youtube"></i></a>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="mt-6 border-t-4 border-double border-newsprint-ink pt-6">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] font-bold uppercase tracking-widest mb-4">
+      <div class="mb-4 md:mb-0">&copy; 2026 LET'S NAIL IT. ALL RIGHTS RESERVED.</div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2">
+        <a href="/#supper-club" class="hover:text-newsprint-accent transition-colors">The Mystery</a>
+        <a href="/#private" class="hover:text-newsprint-accent transition-colors">Private Events</a>
+        <a href="/blog/" class="text-newsprint-accent">Gazette Archives</a>
+        <a href="/terms.html" class="hover:text-newsprint-accent transition-colors">Terms</a>
+        <a href="/privacy.html" class="hover:text-newsprint-accent transition-colors">Privacy</a>
+      </nav>
+      <div class="mt-4 md:mt-0 italic font-headline text-sm font-bold border-l-2 border-newsprint-ink pl-4">
+        "Wait for the Final Edition"
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Experiences</h4>
-      <ul>
-        <li><a href="/#supper-club">Supper Club</a></li>
-        <li><a href="/#private">Private Events</a></li>
-        <li><a href="/#events">Birthday Parties</a></li>
-        <li><a href="/#events">Team Building</a></li>
-        <li><a href="/#events">House Parties</a></li>
-      </ul>
+    <div class="flex gap-3 mb-4 text-base">
+      <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-facebook-f"></i></a>
     </div>
-    <div class="footer-col">
-      <h4>Info</h4>
-      <ul>
-        <li><a href="/#faq">FAQ</a></li>
-        <li><a href="/#menu">The Menu</a></li>
-        <li><a href="/#how">How It Works</a></li>
-        <li><a href="/blog/index.html">Blog</a></li>
-        <li><a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer">Gift Cards via WhatsApp</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <address>
-        <ul>
-          <li><a href="https://wa.me/919731000440" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +91 97310 00440</a></li>
-          <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:0.3em;"></i> MG Road, Bangalore (Bengaluru), Karnataka</li>
-        </ul>
-      </address>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Let's Nail It. All rights reserved. Bangalore's only murder mystery supper club — MG Road, Bengaluru.</p>
-    <div class="footer-bottom-links">
-      <a href="/terms.html">Terms &amp; Conditions</a>
-      <a href="/privacy.html">Privacy Policy</a>
-    </div>
-  </div>
-</footer>
+    <p class="text-[9px] text-newsprint-ink/40 italic">Bangalore's only murder mystery experience — Aga Abbas Ali Road, Bengaluru, Karnataka, India. Murder mystery Bangalore · corporate team building Bangalore · unique date night Bangalore.</p>
+  </footer>
+
+</div><!-- /newspaper wrapper -->
+
 </body>
 </html>
