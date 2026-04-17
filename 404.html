@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case File Missing (404) | The Bangalore Gazette — Let's Nail It</title>
+<meta name="description" content="The case file you were looking for isn't in our archives. Return to The Bangalore Gazette.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#6b1111">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%236b1111'/><text x='32' y='48' font-size='40' text-anchor='middle' fill='%23d2c7b3' font-family='serif'>G</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Old+Standard+TT:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --newsprint-base: #d2c7b3;
+    --newsprint-dark: #bdaf96;
+    --newsprint-ink: #1c1b19;
+    --newsprint-accent: #6b1111;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 118%; }
+  body {
+    margin: 0;
+    font-family: 'Old Standard TT', serif;
+    background: var(--newsprint-base);
+    color: var(--newsprint-ink);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  }
+  .masthead {
+    border-bottom: 6px double var(--newsprint-ink);
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .masthead a { color: var(--newsprint-ink); text-decoration: none; }
+  .masthead a:hover, .masthead a:focus { color: var(--newsprint-accent); }
+  .masthead .brand {
+    font-family: 'UnifrakturMaguntia', serif;
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+  }
+  .card {
+    max-width: 640px;
+    text-align: center;
+    border: 6px double var(--newsprint-ink);
+    padding: 2.5rem 1.75rem;
+    background: rgba(210, 199, 179, 0.6);
+    box-shadow: inset 0 0 120px rgba(0,0,0,0.1);
+  }
+  .stamp {
+    display: inline-block;
+    transform: rotate(-4deg);
+    border: 3px solid var(--newsprint-accent);
+    color: var(--newsprint-accent);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.7rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.25rem, 7vw, 3.5rem);
+    line-height: 1;
+    margin: 0 0 0.35em;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+  }
+  h1 em { color: var(--newsprint-accent); font-style: italic; }
+  .lead {
+    font-size: 1.05rem;
+    margin: 0 0 1.75rem;
+  }
+  .edition {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--newsprint-ink);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--newsprint-ink);
+    background: var(--newsprint-ink);
+    color: var(--newsprint-base);
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--newsprint-ink);
+  }
+  .btn:hover, .btn:focus {
+    background: var(--newsprint-accent);
+    border-color: var(--newsprint-accent);
+    color: var(--newsprint-base);
+  }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: var(--newsprint-ink); color: var(--newsprint-base);
+    padding: 0.75rem 1rem;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+  footer {
+    border-top: 6px double var(--newsprint-ink);
+    padding: 1.25rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  footer a {
+    color: var(--newsprint-ink);
+    text-decoration: none;
+    margin: 0 0.75rem;
+  }
+  footer a:hover, footer a:focus { color: var(--newsprint-accent); }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<header class="masthead">
+  <a href="/" aria-label="Back to The Bangalore Gazette home"><span class="brand">The Bangalore Gazette</span></a>
+  <a href="/">&larr; Front page</a>
+</header>
+<main id="main">
+  <div class="card">
+    <div class="stamp">Case File Missing</div>
+    <div class="edition">Error No. 404 &nbsp;&bull;&nbsp; Archive Department</div>
+    <h1>This <em>page</em> has gone missing.</h1>
+    <p class="lead">The case file you were hunting for is not in our archives. It may have been filed under a different headline, or the trail has simply gone cold.</p>
+    <div class="actions">
+      <a class="btn" href="/">Return to Front Page</a>
+      <a class="btn ghost" href="/blog/">Read the Blog</a>
+      <a class="btn ghost" href="https://wa.me/919731000440">WhatsApp Us</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/terms.html">Terms</a>
+  <a href="mailto:hello@letsnailit.com">Email</a>
+</footer>
+</body>
+</html>

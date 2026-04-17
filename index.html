@@ -13,12 +13,14 @@
 <link rel="canonical" href="https://letsnailit.com/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%236b1111'/><text x='32' y='48' font-size='40' text-anchor='middle' fill='%23d2c7b3' font-family='serif'>G</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%236b1111'/><text x='90' y='135' font-size='110' text-anchor='middle' fill='%23d2c7b3' font-family='serif'>G</text></svg>">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- SEO: Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Let's Nail It">
 <meta property="og:title" content="Let's Nail It – Murder Mystery Experience Bangalore">
-<meta property="og:description" content="Bangalore's only murder mystery experience. Interrogate suspects, crack clues and nail the killer. Perfect for corporate events, date nights &amp; private parties. Book now.">
+<meta property="og:description" content="Bangalore's signature murder mystery experience. Interrogate suspects, crack clues and nail the killer. Perfect for corporate events, date nights &amp; private parties. Book now.">
 <meta property="og:url" content="https://letsnailit.com/">
 <meta property="og:image" content="https://letsnailit.com/dinner.jpg">
 <meta property="og:image:width" content="1200">
@@ -29,7 +31,7 @@
 <!-- SEO: Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Let's Nail It – Murder Mystery Experience Bangalore">
-<meta name="twitter:description" content="Bangalore's only murder mystery experience. Interrogate suspects, crack clues and nail the killer. Corporate events, date nights &amp; private parties. Book now.">
+<meta name="twitter:description" content="Bangalore's signature murder mystery experience. Interrogate suspects, crack clues and nail the killer. Corporate events, date nights &amp; private parties. Book now.">
 <meta name="twitter:site" content="@letsnailit">
 <meta name="twitter:image" content="https://letsnailit.com/dinner.jpg">
 
@@ -78,22 +80,26 @@
     }
     .halftone {
         filter: contrast(160%) grayscale(100%) brightness(85%);
-        mix-blend-mode: multiply;
+    }
+    .halftone-wrap {
+        position: relative;
+        display: block;
+    }
+    .halftone-wrap > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .halftone-wrap::after {
+        content: '';
+        position: absolute;
+        inset: 0;
         background-image: radial-gradient(circle, #000 0.8px, transparent 1px);
         background-size: 2.5px 2.5px;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        opacity: 0.55;
     }
-    .column-rule {
-        border-left: 1px solid #1a1a1a;
-    }
-    .headline-shadow {
-        text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
-    }
-    .newspaper-border {
-        border: 6px double #1a1a1a;
-    }
-    .weathered {
-        box-shadow: inset 0 0 120px rgba(0,0,0,0.1);
-    }
+    .column-rule { border-left: 1px solid #1a1a1a; }
+    .headline-shadow { text-shadow: 2px 2px 0px rgba(0,0,0,0.15); }
+    .newspaper-border { border: 6px double #1a1a1a; }
+    .weathered { box-shadow: inset 0 0 120px rgba(0,0,0,0.1); }
     /* Modal styling in newsprint aesthetic */
     .gazette-modal {
         background-color: #d2c7b3;
@@ -103,7 +109,21 @@
         @apply bg-transparent border-0 border-b-2 border-newsprint-ink w-full py-1 px-0 font-typewriter text-newsprint-ink focus:outline-none focus:border-newsprint-accent;
     }
     .gazette-label {
-        @apply block font-typewriter text-[10px] uppercase tracking-widest text-newsprint-ink/60 mb-1;
+        @apply block font-typewriter text-[10px] uppercase tracking-widest text-newsprint-ink/75 mb-1;
+    }
+    /* Skip link for keyboard users */
+    .skip-link {
+        position: absolute; left: -9999px; top: 0; z-index: 200;
+        background: #1c1b19; color: #d2c7b3; padding: 0.75rem 1rem;
+        font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+    /* SVG portrait card for suspects (no external image dependency) */
+    .suspect-portrait { aspect-ratio: 4 / 5; background: #d2c7b3; position: relative; overflow: hidden; }
+    .suspect-portrait svg { width: 100%; height: 100%; display: block; }
+    /* Disable the dropcap on very narrow screens to avoid orphan lines */
+    @media (max-width: 480px) {
+        .dropcap::first-letter { font-size: 1em !important; float: none !important; margin: 0 !important; font-weight: inherit !important; }
     }
 </style>
 
@@ -113,11 +133,11 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Let's Nail It",
-  "url": "https://www.letsnailit.com/",
-  "description": "Bangalore's only murder mystery experience — immersive interactive event for corporate team building, date nights and private parties.",
+  "url": "https://letsnailit.com/",
+  "description": "Bangalore's signature murder mystery experience — immersive interactive event for corporate team building, date nights and private parties.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.letsnailit.com/?s={search_term_string}",
+    "target": "https://letsnailit.com/?s={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -128,12 +148,12 @@
   "@type": "EntertainmentBusiness",
   "name": "Let's Nail It — Murder Mystery Experience",
   "alternateName": ["Let's Nail It", "Bangalore Murder Mystery"],
-  "description": "Bangalore's only murder mystery experience. An immersive interactive event on Aga Abbas Ali Road, Bengaluru, where every guest is a suspect, every clue matters, and only the sharpest detective nails the killer. Perfect for corporate team building, date nights, birthday parties and private events.",
-  "url": "https://www.letsnailit.com/",
-  "logo": "https://www.letsnailit.com/dinner.jpg",
-  "image": "https://www.letsnailit.com/dinner.jpg",
+  "description": "Bangalore's signature murder mystery experience. An immersive interactive event on Aga Abbas Ali Road, Bengaluru, where every guest is a suspect, every clue matters, and only the sharpest detective nails the killer. Perfect for corporate team building, date nights, birthday parties and private events.",
+  "url": "https://letsnailit.com/",
+  "logo": "https://letsnailit.com/dinner.jpg",
+  "image": "https://letsnailit.com/dinner.jpg",
   "telephone": "+919731000440",
-  "email": "ac@onemorelight.co",
+  "email": "hello@letsnailit.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Aga Abbas Ali Road",
@@ -147,15 +167,13 @@
     "latitude": "12.9756",
     "longitude": "77.6099"
   },
-  "hasMap": "https://maps.google.com/?q=MG+Road,+Bangalore,+Karnataka",
+  "hasMap": "https://maps.google.com/?q=Aga+Abbas+Ali+Road,+Bangalore,+Karnataka",
   "areaServed": [
     {"@type": "City", "name": "Bangalore"},
     {"@type": "City", "name": "Bengaluru"}
   ],
-  "priceRange": "₹₹",
   "currenciesAccepted": "INR",
   "paymentAccepted": "Cash, Credit Card, Debit Card, UPI",
-  "openingHours": ["Fr 19:00-23:00", "Sa 19:00-23:00", "Su 19:00-23:00"],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -164,21 +182,46 @@
       "closes": "23:00"
     }
   ],
+  "makesOffer": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "799",
+      "maxPrice": "1499",
+      "priceCurrency": "INR"
+    },
+    "availability": "https://schema.org/InStock"
+  },
   "foundingDate": "2025",
   "keywords": "murder mystery Bangalore, murder mystery experience Bengaluru, interactive mystery event Bangalore, corporate team building Bangalore, unique date night Bangalore, murder mystery India",
-  "sameAs": ["https://wa.me/919731000440"]
+  "sameAs": [
+    "https://wa.me/919731000440",
+    "https://www.instagram.com/letsnailit_official/",
+    "https://www.facebook.com/letsnailit.official/"
+  ]
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
+  "@type": "EventSeries",
   "name": "Murder Mystery Experience — Let's Nail It",
   "description": "An immersive murder mystery experience in Bangalore. Every guest is a suspect. Interrogate, bluff, deduce — and nail the killer.",
-  "image": "https://www.letsnailit.com/dinner.jpg",
-  "url": "https://www.letsnailit.com/",
-  "startDate": "2026-03-28T18:30",
-  "endDate": "2026-03-28T22:00",
+  "image": "https://letsnailit.com/dinner.jpg",
+  "url": "https://letsnailit.com/",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1W",
+    "byDay": [
+      "https://schema.org/Friday",
+      "https://schema.org/Saturday",
+      "https://schema.org/Sunday"
+    ],
+    "startTime": "19:00",
+    "endTime": "22:30",
+    "scheduleTimezone": "Asia/Kolkata"
+  },
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -196,12 +239,13 @@
   "organizer": {
     "@type": "Organization",
     "name": "Let's Nail It",
-    "url": "https://www.letsnailit.com/"
+    "url": "https://letsnailit.com/"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://www.letsnailit.com/",
+    "url": "https://letsnailit.com/",
     "priceCurrency": "INR",
+    "price": "999",
     "availability": "https://schema.org/InStock",
     "validFrom": "2026-01-01"
   }
@@ -276,20 +320,31 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.letsnailit.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Murder Mystery Experience Bangalore", "item": "https://www.letsnailit.com/#experience"},
-    {"@type": "ListItem", "position": 3, "name": "Private Events & Corporate Team Building", "item": "https://www.letsnailit.com/#private"},
-    {"@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://www.letsnailit.com/#faq"}
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://letsnailit.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Murder Mystery Experience Bangalore", "item": "https://letsnailit.com/#experience"},
+    {"@type": "ListItem", "position": 3, "name": "Private Events & Corporate Team Building", "item": "https://letsnailit.com/#private"},
+    {"@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://letsnailit.com/#faq"}
   ]
 }
 </script>
 </head>
 <body class="p-2 md:p-6 selection:bg-newsprint-ink selection:text-newsprint-base">
 
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Booking ribbon: above-the-fold contemporary CTA so first-time visitors see the offer immediately -->
+<div class="max-w-6xl mx-auto mb-2 bg-newsprint-accent text-white px-3 py-2 flex flex-wrap items-center justify-between gap-2 text-[11px] md:text-xs font-bold uppercase tracking-widest shadow">
+  <span class="flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 bg-white rounded-full"></span>Book Now · ₹999 · Fri–Sun · Aga Abbas Ali Road</span>
+  <span class="flex items-center gap-3">
+    <a href="https://wa.me/919731000440?text=Hi%20Let%27s%20Nail%20It%20%E2%80%94%20I%27d%20like%20to%20book%20a%20murder%20mystery" target="_blank" rel="noopener" class="flex items-center gap-1 hover:underline"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+    <button type="button" data-open-modal="partyModal" class="underline underline-offset-2 hover:no-underline">Reserve →</button>
+  </span>
+</div>
+
 <div class="max-w-6xl mx-auto newspaper-border p-2 md:p-6 bg-newsprint-base weathered relative">
 
-  <!-- Censored stamp watermark -->
-  <div class="absolute top-24 right-12 w-32 h-32 border-4 border-newsprint-accent/20 rounded-full flex items-center justify-center -rotate-12 pointer-events-none uppercase text-xs font-bold text-newsprint-accent/20 text-center leading-none">
+  <!-- Censored stamp watermark (decorative — hidden on mobile to avoid hero overlap) -->
+  <div aria-hidden="true" class="hidden md:flex absolute top-24 right-12 w-32 h-32 border-4 border-newsprint-accent/20 rounded-full items-center justify-center -rotate-12 pointer-events-none uppercase text-xs font-bold text-newsprint-accent/20 text-center leading-none">
     Censored by<br/>Cantonment<br/>Press Bureau
   </div>
 
@@ -311,31 +366,28 @@
   <!-- ═══ NAVIGATION — newspaper sections strip ═══ -->
   <nav id="main-nav" aria-label="Site sections" class="sticky top-0 z-[60] border-b-2 border-newsprint-ink mb-6 bg-newsprint-ink text-newsprint-base shadow-lg md:shadow-none">
     <div class="flex items-center justify-between px-3 py-0">
-      <!-- Section links (Desktop) -->
-      <div class="hidden md:flex flex-wrap items-center divide-x divide-newsprint-base/20 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-        <a href="#supper-club" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">The Mystery</a>
-        <a href="#how" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">How It Works</a>
-        <a href="#private" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">Private Events</a>
-        <a href="#faq" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">FAQ</a>
-        <a href="/blog/" class="px-3 py-2 hover:bg-newsprint-accent transition-colors">Gazette Archives</a>
+      <!-- Section links (Desktop) — touch-friendly padding -->
+      <div class="hidden md:flex flex-wrap items-center divide-x divide-newsprint-base/20 text-[11px] md:text-xs font-bold uppercase tracking-widest">
+        <a href="#supper-club" class="px-4 py-3 hover:bg-newsprint-accent transition-colors">The Mystery</a>
+        <a href="#how" class="px-4 py-3 hover:bg-newsprint-accent transition-colors">How It Works</a>
+        <a href="#private" class="px-4 py-3 hover:bg-newsprint-accent transition-colors">Private Events</a>
+        <a href="#faq" class="px-4 py-3 hover:bg-newsprint-accent transition-colors">FAQ</a>
+        <a href="/blog/" class="px-4 py-3 hover:bg-newsprint-accent transition-colors">Gazette Archives</a>
       </div>
 
       <!-- Mobile Toggle Button -->
-      <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-between gap-3 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
+      <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden flex items-center justify-between gap-3 px-3 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
         <div class="flex items-center gap-2">
-          <i class="fas fa-bars text-newsprint-accent group-hover:text-white transition-colors"></i>
-          <span>Sections & Dispatches</span>
+          <i class="fas fa-bars text-newsprint-accent group-hover:text-white transition-colors" aria-hidden="true"></i>
+          <span>Sections &amp; Dispatches</span>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="text-[8px] opacity-50 font-normal">VOL. XLII</span>
-          <i class="fas fa-chevron-right text-[8px] opacity-30 group-hover:translate-x-1 transition-transform"></i>
-        </div>
+        <i class="fas fa-chevron-right text-[10px] opacity-40 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
 
   <!-- ═══ MAIN CONTENT ═══ -->
-  <main class="grid grid-cols-1 md:grid-cols-12 gap-8">
+  <main id="main" class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
     <!-- Left / centre columns -->
     <div class="md:col-span-8 border-r-0 md:border-r border-newsprint-ink pr-0 md:pr-8">
@@ -350,56 +402,62 @@
         </h3>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div class="order-2 lg:order-1">
-            <p class="text-lg first-letter:text-7xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 mb-4 leading-relaxed font-body">
+          <!-- Copy block appears first on mobile (CTA visible without scroll past images) -->
+          <div class="order-1">
+            <p class="text-lg dropcap first-letter:text-7xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 mb-4 leading-relaxed font-body">
               <span class="font-bold">BY OUR SPECIAL CORRESPONDENT ON SOUTH PARADE</span><br/>
               Residents of the quiet enclave of Richards Town were awoken at dawn by a grisly discovery. Major Henderson, a decorated veteran of the Mysore State Railway security, was found slumped in his study at 'The Silver Oaks'.
             </p>
             <p class="mb-4 leading-relaxed italic border-l-4 border-newsprint-accent pl-4 py-2 bg-newsprint-dark/30">
               "The tea was still warm, the doors bolted. It is as if the very air of the Nilgiris turned to poison within those walls," noted Inspector Rao of the Cantonment Police.
             </p>
-            <div class="mt-6">
-              <button onclick="document.getElementById('partyModal').classList.remove('hidden')"
-                      class="bg-newsprint-ink text-newsprint-base px-10 py-4 font-bold uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg text-base">
+            <div class="mt-6 flex flex-wrap gap-3">
+              <button type="button" data-open-modal="partyModal"
+                      class="bg-newsprint-ink text-newsprint-base px-8 py-4 font-bold uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg text-base">
                 Join the Investigation! »
               </button>
+              <a href="https://wa.me/919731000440?text=Hi%20Let%27s%20Nail%20It%20%E2%80%94%20I%27d%20like%20to%20book%20a%20murder%20mystery" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 bg-newsprint-accent text-white px-6 py-4 font-bold uppercase tracking-widest hover:bg-newsprint-ink transition-colors shadow-lg text-base">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+              </a>
             </div>
             <div class="mt-5 border-t-2 border-b-2 border-newsprint-ink py-4">
-              <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-accent mb-2">— FROM THE EDITOR'S DESK —</p>
+              <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-2">— FROM THE EDITOR'S DESK —</p>
               <p class="font-headline text-xl font-black italic leading-tight mb-3"><em>Let's Nail It</em> invites you to take a seat at the table.</p>
               <p class="font-body text-base leading-relaxed text-newsprint-ink">An immersive murder mystery experience on Aga Abbas Ali Road, Bengaluru — where every guest is a suspect, every clue matters, and only the sharpest detective nails the killer.</p>
             </div>
           </div>
-          <div class="order-1 lg:order-2">
-            <div class="border-2 border-newsprint-ink p-1 bg-white mb-2 shadow-md">
-              <img alt="Evidence: case file dossier, confidential envelope, pocket watch and key from the Richards Town murder" class="w-full grayscale halftone contrast-150" src="mystery-props.png"/>
-            </div>
-            <p class="text-[10px] uppercase font-bold text-center italic leading-tight">FIG 1. EVIDENCE RECOVERED FROM 'THE SILVER OAKS', RICHARDS TOWN — DOSSIER NO. 43-B, CASE FILE: THE HENDERSON MURDER.</p>
-            <div class="border-2 border-newsprint-ink p-1 bg-white mt-4 shadow-md">
-              <img alt="Inspector poring over a map of Bangalore in a colonial study by lamplight" class="w-full grayscale halftone contrast-150" src="mystery-scene.png"/>
-            </div>
-            <p class="text-[10px] uppercase font-bold text-center italic leading-tight mt-1">FIG 2. INSPECTOR RAO CROSS-REFERENCES WITNESS ACCOUNTS AGAINST A MAP OF THE CANTONMENT DISTRICT.</p>
+          <!-- Imagery follows copy on mobile; side-by-side on desktop -->
+          <div class="order-2">
+            <figure class="halftone-wrap border-2 border-newsprint-ink p-1 bg-white mb-2 shadow-md">
+              <img alt="Evidence: case file dossier, confidential envelope, pocket watch and key from the Richards Town murder" class="halftone contrast-150" src="mystery-props.png"/>
+            </figure>
+            <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight">FIG 1. EVIDENCE RECOVERED FROM 'THE SILVER OAKS', RICHARDS TOWN — DOSSIER NO. 43-B, CASE FILE: THE HENDERSON MURDER.</figcaption>
+            <figure class="halftone-wrap border-2 border-newsprint-ink p-1 bg-white mt-4 shadow-md">
+              <img alt="Inspector poring over a map of Bangalore in a colonial study by lamplight" class="halftone contrast-150" src="mystery-scene.png"/>
+            </figure>
+            <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight mt-1">FIG 2. INSPECTOR RAO CROSS-REFERENCES WITNESS ACCOUNTS AGAINST A MAP OF THE CANTONMENT DISTRICT.</figcaption>
           </div>
         </div>
       </div>
 
       <!-- Stat strip -->
       <div class="border-y-2 border-newsprint-ink my-8 py-5 grid grid-cols-2 md:grid-cols-4 gap-0 text-center">
-        <div class="border-r border-newsprint-ink/30 px-4">
+        <div class="md:border-r border-newsprint-ink/30 px-4">
           <div class="font-headline text-4xl font-black text-newsprint-accent leading-none">8</div>
-          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/60">Suspects</p>
+          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/75">Suspects</p>
         </div>
-        <div class="border-r border-newsprint-ink/30 px-4">
+        <div class="border-l border-newsprint-ink/30 md:border-l-0 md:border-r px-4">
           <div class="font-headline text-4xl font-black text-newsprint-accent leading-none">1</div>
-          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/60">Killer</p>
+          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/75">Killer</p>
         </div>
-        <div class="border-r border-newsprint-ink/30 px-4">
+        <div class="md:border-r border-newsprint-ink/30 border-t md:border-t-0 px-4 pt-3 md:pt-0">
           <div class="font-headline text-4xl font-black text-newsprint-accent leading-none">3h</div>
-          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/60">Of Intrigue</p>
+          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/75">Of Intrigue</p>
         </div>
-        <div class="px-4">
-          <div class="font-headline text-4xl font-black text-newsprint-accent leading-none">0</div>
-          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/60">Mercy</p>
+        <div class="border-l border-newsprint-ink/30 md:border-l-0 border-t md:border-t-0 px-4 pt-3 md:pt-0">
+          <div class="font-headline text-4xl font-black text-newsprint-accent leading-none">8–40</div>
+          <p class="text-[10px] uppercase tracking-widest font-bold mt-1 text-newsprint-ink/75">Guests Per Table</p>
         </div>
       </div>
 
@@ -473,57 +531,94 @@
         </div>
       </div>
 
-      <!-- Suspects section -->
+      <!-- Suspects section — "police file" cards, self-contained (no CDN image risk) -->
       <div class="border-t-4 border-newsprint-ink pt-8 mb-10" id="suspects">
-        <h2 class="font-headline text-3xl font-black uppercase mb-8 bg-newsprint-ink text-newsprint-base inline-block px-6 py-2 tracking-tight">THE USUAL SUSPECTS IN CUSTODY</h2>
+        <h2 class="font-headline text-3xl font-black uppercase mb-2 bg-newsprint-ink text-newsprint-base inline-block px-6 py-2 tracking-tight">THE USUAL SUSPECTS IN CUSTODY</h2>
+        <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/60 mb-6 border-b border-newsprint-ink/30 pb-3">FILE NOS. 1 – 3 &mdash; 5 FURTHER SUSPECTS REMAIN UNDER INVESTIGATION</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div class="border-b border-newsprint-ink sm:border-b-0 pb-4">
-            <div class="relative mb-3 group">
+
+          <figure class="border-b border-newsprint-ink sm:border-b-0 pb-4">
+            <div class="relative mb-3">
               <span class="absolute -top-3 -left-2 bg-newsprint-accent text-white text-[10px] font-bold px-3 py-1 rotate-[-8deg] z-10 shadow-md">NO ALIBI</span>
-              <img alt="The Silk Merchant" class="w-full grayscale halftone border border-newsprint-ink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWf4A_iBSYGwiDZjZfDt6S9E6e8kvmY1uQOQ9DfNYRIGTn6wZV9wk4F6gC6FTWfpsiUp1jE4wwpVce8WatN86Q7pLLX4RKA2eWSw13tFy50L_rqj8NBCuW2VYJwxxA84EXEbu7NR_-zwNMwgSTcZzZaz3jFauvxDrSx-9BopYekT5DqtTz_dCscfDUNUqH6UGmuQF_3AthwOgmG44FEODu-LKZkzwABGLhWh6YXTb-5gQCl1K93j0mQUGu1qQzPmQwu5tPvCKGKBI"/>
+              <div class="suspect-portrait border border-newsprint-ink halftone-wrap" role="img" aria-label="Police file portrait of The Chickpet Silk Merchant — no photograph on file">
+                <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect width="200" height="250" fill="#bdaf96"/>
+                  <circle cx="100" cy="95" r="42" fill="#1c1b19"/>
+                  <path d="M30 250 Q30 165 100 165 Q170 165 170 250 Z" fill="#1c1b19"/>
+                  <rect x="14" y="14" width="172" height="222" fill="none" stroke="#1c1b19" stroke-width="1" stroke-dasharray="3 3"/>
+                  <text x="100" y="232" font-family="Courier New, monospace" font-size="10" fill="#d2c7b3" text-anchor="middle" font-weight="bold" letter-spacing="1">FILE No. 1</text>
+                </svg>
+              </div>
             </div>
-            <h4 class="font-headline text-xl font-bold uppercase mb-1">THE CHICKPET MERCHANT</h4>
-            <p class="text-sm italic">"The Major owed for three bolts of gold-thread silk. I don't kill my best debtors."</p>
-          </div>
-          <div class="border-b border-newsprint-ink sm:border-b-0 pb-4">
-            <div class="relative mb-3 group">
+            <figcaption>
+              <h3 class="font-headline text-xl font-bold uppercase mb-1">THE CHICKPET MERCHANT</h3>
+              <blockquote class="text-sm italic">"The Major owed for three bolts of gold-thread silk. I don't kill my best debtors."<cite class="not-italic block text-[10px] uppercase tracking-widest font-bold text-newsprint-ink/60 mt-1">— R. Narayan, Silk Emporium</cite></blockquote>
+            </figcaption>
+          </figure>
+
+          <figure class="border-b border-newsprint-ink sm:border-b-0 pb-4">
+            <div class="relative mb-3">
               <span class="absolute -top-3 -right-2 bg-newsprint-ink text-newsprint-base text-[10px] font-bold px-3 py-1 rotate-[8deg] z-10 shadow-md">RETAINED</span>
-              <img alt="The Club Lady" class="w-full grayscale halftone border border-newsprint-ink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDhiGcYQyh0gI_dEBnirH32B10lKpdDNdzCYFw6fcs2epVjcTzmE3tMMYYhRhDwOcC_v8jR_LHJ_lKCUNaY4io0JcPkcSl4dgU2xpvlP3870tXHudMIV_wKoUKW5G-eMh9jaKFexdvlD3BUC1zLpdIBjP7dPD3q-0eB9xfj9tibHvyCzPzxOeeG34QFF6ZrXJ2tp_V4nOj3JqK-cx92ZVnag2r4YhedpP2qRvvclUVOOeRJz3DkbzOG2G1J0F3wINwP99LRtwKn9A"/>
+              <div class="suspect-portrait border border-newsprint-ink halftone-wrap" role="img" aria-label="Police file portrait of The Memsahib — no photograph on file">
+                <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect width="200" height="250" fill="#bdaf96"/>
+                  <ellipse cx="100" cy="95" rx="40" ry="44" fill="#1c1b19"/>
+                  <path d="M55 85 Q100 35 145 85" fill="none" stroke="#1c1b19" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M40 250 Q40 160 100 160 Q160 160 160 250 Z" fill="#1c1b19"/>
+                  <rect x="14" y="14" width="172" height="222" fill="none" stroke="#1c1b19" stroke-width="1" stroke-dasharray="3 3"/>
+                  <text x="100" y="232" font-family="Courier New, monospace" font-size="10" fill="#d2c7b3" text-anchor="middle" font-weight="bold" letter-spacing="1">FILE No. 2</text>
+                </svg>
+              </div>
             </div>
-            <h4 class="font-headline text-xl font-bold uppercase mb-1">THE MEMSAHIB</h4>
-            <p class="text-sm italic">"I was at the Bowring Institute bridge tournament. My partner can vouch for my presence."</p>
-          </div>
-          <div class="pb-4">
-            <div class="relative mb-3 group">
+            <figcaption>
+              <h3 class="font-headline text-xl font-bold uppercase mb-1">THE MEMSAHIB</h3>
+              <blockquote class="text-sm italic">"I was at the Bowring Institute bridge tournament. My partner can vouch for my presence."<cite class="not-italic block text-[10px] uppercase tracking-widest font-bold text-newsprint-ink/60 mt-1">— Mrs. E. Pemberton</cite></blockquote>
+            </figcaption>
+          </figure>
+
+          <figure class="pb-4">
+            <div class="relative mb-3">
               <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-newsprint-accent text-white text-[10px] font-bold px-3 py-1 z-10 shadow-md">MISSING</span>
-              <img alt="The Station Master" class="w-full grayscale halftone border border-newsprint-ink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC45aWTPtnDSfe82JhCiJxlI3Oe9BSiZ-OJezR9AlRQUOJl1p28HmAuPabRGX993ymZVxtkaU-3dZYsEzk8j5thydFuE6ux51hUGKTq6C7NdwkzvA63hl95JmTar6NVeqgRm_7m2iNtcj28g3cr3TDeLqNDO2GmPzGvx2obXixFFVtHijviD6iFKKIir2Ybig9ahqFJt08135qs49kXHci5XU-1htW8XuANx12hC7mpP6EFgIpBkwbnegEMRjM1IY3bYoe40S2wmtU"/>
+              <div class="suspect-portrait border border-newsprint-ink halftone-wrap" role="img" aria-label="Police file portrait of The Khansama — no photograph on file">
+                <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect width="200" height="250" fill="#bdaf96"/>
+                  <rect x="60" y="52" width="80" height="22" rx="4" fill="#1c1b19"/>
+                  <circle cx="100" cy="100" r="40" fill="#1c1b19"/>
+                  <path d="M40 250 Q40 160 100 160 Q160 160 160 250 Z" fill="#1c1b19"/>
+                  <rect x="14" y="14" width="172" height="222" fill="none" stroke="#1c1b19" stroke-width="1" stroke-dasharray="3 3"/>
+                  <text x="100" y="232" font-family="Courier New, monospace" font-size="10" fill="#d2c7b3" text-anchor="middle" font-weight="bold" letter-spacing="1">FILE No. 3</text>
+                </svg>
+              </div>
             </div>
-            <h4 class="font-headline text-xl font-bold uppercase mb-1">THE KHANSAMA</h4>
-            <p class="text-sm italic">"Sahib liked his gin with lime, not arsenic. I am a cook, not a chemist."</p>
-          </div>
+            <figcaption>
+              <h3 class="font-headline text-xl font-bold uppercase mb-1">THE KHANSAMA</h3>
+              <blockquote class="text-sm italic">"Sahib liked his gin with lime, not arsenic. I am a cook, not a chemist."<cite class="not-italic block text-[10px] uppercase tracking-widest font-bold text-newsprint-ink/60 mt-1">— M. Yusuf, household cook</cite></blockquote>
+            </figcaption>
+          </figure>
+
         </div>
       </div>
 
       <!-- Private Events -->
       <div class="border-t-4 border-double border-newsprint-ink pt-8 mb-10" id="private">
         <h2 class="font-headline text-3xl font-black uppercase mb-2 tracking-tight">PRIVATE INVESTIGATIONS &amp; CORPORATE DISPATCHES</h2>
-        <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/50 mb-6 border-b border-newsprint-ink/30 pb-3">SPECIAL CORRESPONDENT REPORTS — FOR YOUR EYES ONLY</p>
+        <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/60 mb-6 border-b border-newsprint-ink/30 pb-3">SPECIAL CORRESPONDENT REPORTS — FOR YOUR EYES ONLY</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <div class="border border-newsprint-ink p-4">
-            <h4 class="font-headline font-bold uppercase text-sm mb-2 border-b border-newsprint-ink/30 pb-2">Birthday Parties</h4>
-            <p class="text-xs leading-relaxed text-newsprint-ink/70">Give the guest of honour a celebration nobody will forget. We place the birthday star at the centre of the crime scene.</p>
+            <h3 class="font-headline font-bold uppercase text-sm mb-2 border-b border-newsprint-ink/30 pb-2">Birthday Parties</h3>
+            <p class="text-sm leading-relaxed text-newsprint-ink/80">Give the guest of honour a celebration nobody will forget. We place the birthday star at the centre of the crime scene.</p>
           </div>
           <div class="border border-newsprint-ink p-4">
-            <h4 class="font-headline font-bold uppercase text-sm mb-2 border-b border-newsprint-ink/30 pb-2">Corporate Team Building</h4>
-            <p class="text-xs leading-relaxed text-newsprint-ink/70">Forget trust falls. A murder mystery requires real collaboration and lateral thinking under pressure. 8–40 guests.</p>
+            <h3 class="font-headline font-bold uppercase text-sm mb-2 border-b border-newsprint-ink/30 pb-2">Corporate Team Building</h3>
+            <p class="text-sm leading-relaxed text-newsprint-ink/80">Forget trust falls. A murder mystery requires real collaboration and lateral thinking under pressure. 8–40 guests.</p>
           </div>
           <div class="border border-newsprint-ink p-4">
-            <h4 class="font-headline font-bold uppercase text-sm mb-2 border-b border-newsprint-ink/30 pb-2">House Parties &amp; Date Nights</h4>
-            <p class="text-xs leading-relaxed text-newsprint-ink/70">Turn your next house party or date night into the most talked-about night of the year. We handle the mystery — you handle everything else.</p>
+            <h3 class="font-headline font-bold uppercase text-sm mb-2 border-b border-newsprint-ink/30 pb-2">House Parties &amp; Date Nights</h3>
+            <p class="text-sm leading-relaxed text-newsprint-ink/80">Turn your next house party or date night into the most talked-about night of the year. We handle the mystery — you handle everything else.</p>
           </div>
         </div>
-        <p class="text-sm italic text-newsprint-ink/70 mb-4">Our team handles everything — the plot, characters, props, and game mechanics. You just invite the guests. At your venue, anywhere in Bangalore.</p>
-        <button onclick="document.getElementById('privateModal').classList.remove('hidden')"
+        <p class="text-sm italic text-newsprint-ink/80 mb-4">Our team handles everything — the plot, characters, props, and game mechanics. You just invite the guests. At your venue, anywhere in Bangalore.</p>
+        <button type="button" data-open-modal="privateModal"
                 class="bg-newsprint-accent text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-newsprint-ink transition-colors shadow-lg">
           File a Private Dispatch »
         </button>
@@ -538,49 +633,49 @@
           <details class="border-b border-newsprint-ink/40 group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               What exactly is a murder mystery experience?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">Think of it as a live detective game. You arrive, you're assigned a character with secrets, and a murder mystery unfolds in real time. You interrogate fellow guests, bluff, form alliances, and try to figure out who the killer is.</p>
           </details>
           <details class="border-b border-newsprint-ink/40 group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               Where is it held?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">Our murder mystery experience runs from our private space on Aga Abbas Ali Road, Bangalore. It's an intimate, curated setting built for intrigue. For private events, we come to your venue anywhere in Bangalore.</p>
           </details>
           <details class="border-b border-newsprint-ink/40 group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               Do I need to act or perform?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">Not at all. You don't need to memorise lines or put on a show. You'll receive a character card with your backstory, secrets, and goals. Whether you're a quiet strategist or a loud accuser, the game works either way.</p>
           </details>
           <details class="border-b border-newsprint-ink/40 group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               Can I come alone or do I need a group?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">Both work. Public sessions are designed for individuals, couples, and small groups joining a shared cast of strangers. For private events, you bring your own crew of 8–40 guests.</p>
           </details>
           <details class="border-b border-newsprint-ink/40 group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               Do you serve food or drinks?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">No — we don't serve food or alcohol. Your ticket covers the full mystery experience. You're welcome to bring your own food and drinks. For private events, you can arrange catering independently.</p>
           </details>
           <details class="border-b border-newsprint-ink/40 group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               How much does it cost?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">Tickets from ₹999 per person for the full mystery experience. Private events from ₹799 per person (minimum 8 guests). Contact us for current pricing and availability.</p>
           </details>
           <details class="group">
             <summary class="py-3 font-headline font-bold uppercase text-sm cursor-pointer hover:text-newsprint-accent list-none flex justify-between items-center">
               Is this good for corporate team building in Bangalore?
-              <span class="font-typewriter text-lg group-open:rotate-45 transition-transform">+</span>
+              <span aria-hidden="true" class="font-typewriter text-xl w-6 text-center group-open:before:content-['−'] before:content-['+']"></span>
             </summary>
             <p class="text-sm leading-relaxed pb-4 text-newsprint-ink/70 pl-4 border-l-2 border-newsprint-accent">Yes — it's one of the most effective formats we've seen. Unlike passive workshops, a murder mystery requires real collaboration, lateral thinking, and communication under pressure. We regularly host corporate teams of 8–40 people across Bangalore and Bengaluru, with custom scenarios built around company culture.</p>
           </details>
@@ -597,19 +692,19 @@
         <h3 class="bg-newsprint-accent text-white text-center font-black py-2 mb-4 uppercase tracking-tighter text-2xl italic">EXCLUSIVE DISPATCH</h3>
         <div class="space-y-5">
           <div class="border-b border-newsprint-ink/30 pb-3">
-            <span class="text-[9px] font-bold bg-newsprint-ink text-white px-2 py-0.5 uppercase">WIRE #441-B</span>
-            <h5 onclick="openDispatch('dispatch1')" class="font-headline font-bold uppercase hover:underline cursor-pointer text-sm mt-1 hover:text-newsprint-accent transition-colors">Henderson's Railway Files Go Missing</h5>
-            <p class="text-[11px] italic">Documents related to the Kolar Gold Fields audit vanish from his study overnight...</p>
+            <span class="text-[10px] font-bold bg-newsprint-ink text-white px-2 py-0.5 uppercase">WIRE #441-B</span>
+            <button type="button" data-open-dispatch="dispatch1" class="block text-left font-headline font-bold uppercase hover:underline text-sm mt-1 hover:text-newsprint-accent transition-colors">Henderson's Railway Files Go Missing</button>
+            <p class="text-[11px] italic mt-1">Documents related to the Kolar Gold Fields audit vanish from his study overnight...</p>
           </div>
           <div class="border-b border-newsprint-ink/30 pb-3">
-            <span class="text-[9px] font-bold bg-newsprint-ink text-white px-2 py-0.5 uppercase">INTERCEPTED #92</span>
-            <h5 onclick="openDispatch('dispatch2')" class="font-headline font-bold uppercase hover:underline cursor-pointer text-sm mt-1 hover:text-newsprint-accent transition-colors">Silk Merchant Seen Near Silver Oaks</h5>
-            <p class="text-[11px] italic">The Chickpet trader was spotted on Richards Town Road past midnight on the night in question...</p>
+            <span class="text-[10px] font-bold bg-newsprint-ink text-white px-2 py-0.5 uppercase">INTERCEPTED #92</span>
+            <button type="button" data-open-dispatch="dispatch2" class="block text-left font-headline font-bold uppercase hover:underline text-sm mt-1 hover:text-newsprint-accent transition-colors">Silk Merchant Seen Near Silver Oaks</button>
+            <p class="text-[11px] italic mt-1">The Chickpet trader was spotted on Richards Town Road past midnight on the night in question...</p>
           </div>
-          <div class="">
-            <span class="text-[9px] font-bold bg-newsprint-ink text-white px-2 py-0.5 uppercase">MEMO #7</span>
-            <h5 onclick="openDispatch('dispatch3')" class="font-headline font-bold uppercase hover:underline cursor-pointer text-sm mt-1 hover:text-newsprint-accent transition-colors">Memsahib's Alibi Disputed</h5>
-            <p class="text-[11px] italic">A source at Bowring Institute denies any bridge tournament took place that evening...</p>
+          <div>
+            <span class="text-[10px] font-bold bg-newsprint-ink text-white px-2 py-0.5 uppercase">MEMO #7</span>
+            <button type="button" data-open-dispatch="dispatch3" class="block text-left font-headline font-bold uppercase hover:underline text-sm mt-1 hover:text-newsprint-accent transition-colors">Memsahib's Alibi Disputed</button>
+            <p class="text-[11px] italic mt-1">A source at Bowring Institute denies any bridge tournament took place that evening...</p>
           </div>
         </div>
       </div>
@@ -618,40 +713,89 @@
       <div class="border-2 border-newsprint-ink p-4">
         <h3 class="font-headline text-lg font-bold uppercase border-b-2 border-newsprint-ink mb-4 pb-1">EVIDENCE LOCKER</h3>
         <div class="grid grid-cols-2 gap-3 mb-4">
-          <div class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner">
-            <img class="w-full h-full object-cover grayscale halftone" alt="Evidence item" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSnarpblh51uQH8jJRPuErF0oAAmXHZuCH_7jDC8O4wE0LvCgeSQKYIIEXBiQeO9TF00EnE36c9ALmE9JQPEYaVDaWevGwh8J5qwH2vtumdjnJhpFOx_9iJE-jSohIXRpXHeAf-RpCvW3kcq62jiG7MRZ0CxOBCZvnKy_R5M52QsPV-ge3acpHD_n-mI_qMJv-RzVXt_2OIcGkzJusaa_EzOKWpb_2w4ol2YwEzN5VQaJOH8rv5lk7yoGurI4T0mSF7o-uToi_HXk"/>
-          </div>
-          <div class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner">
-            <img class="w-full h-full object-cover grayscale halftone" alt="Evidence item" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOPiUIcbX1N83ZTi0cOir4Rn_TOxfNbkhl1HursCcDMjJVbtYo4AHb6QgowaH6rN4mHfuxkJiC6c0UQFCa9aj5TB26gAaEGTciW2c8h6hOnj7ZxiQq5zQSQX4HyjR9m-ob4P1H2E1L09SGazT_XPrqWS4Tfiqi3DxUnpxNhNsHAicJA1tpkZM8tnRnQ4Dqz0g41f2m0WYxb3N664t9zg6Xfwc7HbKuo4VBK1mOC30aSQxEI1eU98GhfhMT-JvDyHY0Yo7ia8MyY4A"/>
-          </div>
+          <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Pocket watch, recovered from the study floor — stopped at 11:42 PM">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="100" height="100" fill="#bdaf96"/>
+              <circle cx="50" cy="55" r="28" fill="none" stroke="#1c1b19" stroke-width="2"/>
+              <circle cx="50" cy="55" r="24" fill="#d2c7b3" stroke="#1c1b19" stroke-width="0.5"/>
+              <line x1="50" y1="55" x2="50" y2="38" stroke="#1c1b19" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="50" y1="55" x2="62" y2="55" stroke="#1c1b19" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="50" cy="55" r="1.8" fill="#1c1b19"/>
+              <rect x="46" y="18" width="8" height="8" rx="1.5" fill="#1c1b19"/>
+              <line x1="50" y1="14" x2="50" y2="18" stroke="#1c1b19" stroke-width="2" stroke-linecap="round"/>
+              <text x="50" y="44" font-family="Old Standard TT, serif" font-size="3.5" text-anchor="middle" fill="#1c1b19">XII</text>
+              <text x="50" y="71" font-family="Old Standard TT, serif" font-size="3.5" text-anchor="middle" fill="#1c1b19">VI</text>
+            </svg>
+          </figure>
+          <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Brass key marked 'Silver Oaks — Study' recovered beside the body">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="100" height="100" fill="#bdaf96"/>
+              <circle cx="30" cy="50" r="14" fill="none" stroke="#1c1b19" stroke-width="3"/>
+              <rect x="42" y="47" width="40" height="6" fill="#1c1b19"/>
+              <rect x="68" y="53" width="4" height="8" fill="#1c1b19"/>
+              <rect x="76" y="53" width="4" height="6" fill="#1c1b19"/>
+              <text x="50" y="85" font-family="Courier New, monospace" font-size="6" text-anchor="middle" fill="#1c1b19" letter-spacing="1">EXHIBIT B</text>
+            </svg>
+          </figure>
+          <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Sealed envelope addressed to the Resident Commissioner, Mysore — missing from the dossier">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="100" height="100" fill="#bdaf96"/>
+              <rect x="18" y="32" width="64" height="42" fill="#d2c7b3" stroke="#1c1b19" stroke-width="1.5"/>
+              <polyline points="18,32 50,58 82,32" fill="none" stroke="#1c1b19" stroke-width="1.5"/>
+              <circle cx="50" cy="60" r="8" fill="#6b1111" opacity="0.85"/>
+              <text x="50" y="63" font-family="Old Standard TT, serif" font-size="7" text-anchor="middle" fill="#d2c7b3" font-weight="bold">R</text>
+              <text x="50" y="88" font-family="Courier New, monospace" font-size="5.5" text-anchor="middle" fill="#1c1b19" letter-spacing="1">EXHIBIT C</text>
+            </svg>
+          </figure>
+          <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Teacup, contents still warm at the scene, pending laboratory analysis">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="100" height="100" fill="#bdaf96"/>
+              <path d="M30 40 L70 40 L66 72 Q50 80 34 72 Z" fill="#d2c7b3" stroke="#1c1b19" stroke-width="1.5"/>
+              <path d="M70 46 Q82 50 82 58 Q82 66 70 66" fill="none" stroke="#1c1b19" stroke-width="1.5"/>
+              <ellipse cx="50" cy="40" rx="20" ry="3" fill="#1c1b19" opacity="0.6"/>
+              <path d="M40 26 Q42 22 40 18 M50 26 Q52 22 50 18 M60 26 Q62 22 60 18" stroke="#1c1b19" stroke-width="1" fill="none" opacity="0.5"/>
+              <text x="50" y="92" font-family="Courier New, monospace" font-size="5.5" text-anchor="middle" fill="#1c1b19" letter-spacing="1">EXHIBIT D</text>
+            </svg>
+          </figure>
         </div>
         <div class="bg-newsprint-accent/10 p-3 border border-newsprint-accent/30">
           <p class="text-[10px] uppercase font-bold tracking-widest text-newsprint-accent mb-1">POLICE BULLETIN:</p>
-          <p class="text-xs italic leading-tight">Major Henderson's pocket watch — recovered from the study floor — stopped at exactly 11:42 PM. A locksmith confirms the bolt was engaged from the inside.</p>
+          <p class="text-xs italic leading-tight text-newsprint-ink/90">Major Henderson's pocket watch — recovered from the study floor — stopped at exactly 11:42 PM. A locksmith confirms the bolt was engaged from the inside.</p>
         </div>
       </div>
 
       <!-- Main CTA -->
       <div class="bg-newsprint-dark/40 border-4 border-double border-newsprint-ink p-6 text-center shadow-md">
-        <h4 class="font-headline text-2xl font-black uppercase mb-3 leading-tight">WILL YOU SOLVE THE RICHARDS TOWN MURDER?</h4>
+        <h3 class="font-headline text-2xl font-black uppercase mb-3 leading-tight">WILL YOU SOLVE THE RICHARDS TOWN MURDER?</h3>
         <p class="text-[10px] mb-2 uppercase font-bold tracking-widest">A Bungalow. A Major. A Web of Deceit.</p>
-        <p class="text-[10px] mb-5 text-newsprint-ink/60 italic">Aga Abbas Ali Road, Bangalore &nbsp;·&nbsp; Fri–Sun evenings &nbsp;·&nbsp; from ₹999/person</p>
-        <button onclick="document.getElementById('partyModal').classList.remove('hidden')"
+        <p class="text-[11px] mb-5 text-newsprint-ink/80 italic">Aga Abbas Ali Road, Bangalore &nbsp;·&nbsp; Fri–Sun evenings &nbsp;·&nbsp; from ₹999/person</p>
+        <button type="button" data-open-modal="partyModal"
                 class="w-full bg-newsprint-ink text-white py-3 font-black uppercase hover:bg-newsprint-accent transition-all tracking-tighter text-lg shadow-xl">
           JOIN THE INVESTIGATION »
         </button>
+        <a href="https://wa.me/919731000440?text=Hi%20Let%27s%20Nail%20It%20%E2%80%94%20I%27d%20like%20to%20book%20a%20murder%20mystery" target="_blank" rel="noopener"
+           class="mt-2 w-full inline-flex items-center justify-center gap-2 bg-newsprint-accent text-white py-3 font-black uppercase hover:bg-newsprint-ink transition-all tracking-tighter text-base shadow-xl">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> WHATSAPP US »
+        </a>
       </div>
 
       <!-- Contact / social -->
       <div class="border-2 border-newsprint-ink p-4">
         <h3 class="font-headline text-sm font-bold uppercase border-b-2 border-newsprint-ink mb-3 pb-1 tracking-widest">REACH THE GAZETTE DESK</h3>
         <div class="space-y-2 text-xs font-bold uppercase tracking-wider">
-          <p class="flex items-center gap-2 text-newsprint-ink/60">
-            <i class="fas fa-map-marker-alt"></i> Aga Abbas Ali Road, Bangalore
+          <p class="flex items-center gap-2 text-newsprint-ink/80">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Aga Abbas Ali Road, Bangalore
           </p>
-          <div class="flex gap-3 pt-2 border-t border-newsprint-ink/20">
-            <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-instagram text-base"></i></a>
-            <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-facebook-f text-base"></i></a>
+          <p class="flex items-center gap-2 text-newsprint-ink/80">
+            <i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@letsnailit.com" class="hover:text-newsprint-accent transition-colors">hello@letsnailit.com</a>
+          </p>
+          <p class="flex items-center gap-2 text-newsprint-ink/80">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/919731000440" target="_blank" rel="noopener" class="hover:text-newsprint-accent transition-colors">+91 97310 00440</a>
+          </p>
+          <div class="flex gap-4 pt-2 border-t border-newsprint-ink/20 text-lg">
+            <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://wa.me/919731000440" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -700,43 +844,50 @@
         "Wait for the Final Edition"
       </div>
     </div>
-    <p class="text-[9px] text-newsprint-ink/40 italic">Bangalore's only murder mystery experience — Aga Abbas Ali Road, Bengaluru, Karnataka, India. Murder mystery Bangalore · corporate team building Bangalore · unique date night Bangalore.</p>
+    <p class="text-[9px] text-newsprint-ink/40 italic">Bangalore's signature murder mystery experience — Aga Abbas Ali Road, Bengaluru, Karnataka, India. Murder mystery Bangalore · corporate team building Bangalore · unique date night Bangalore.</p>
   </footer>
 
 </div><!-- /newspaper wrapper -->
 
-<!-- Background decorative circles -->
-<div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-10 z-0">
-  <div class="absolute top-20 right-[-5%] w-[400px] h-[400px] border-[20px] border-newsprint-accent/10 rounded-full rotate-45"></div>
-  <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] border-[40px] border-newsprint-ink/5 rounded-full -rotate-12"></div>
-</div>
+<!-- Decorative circles removed: caused horizontal scroll risk on iOS bounce
+     and added paint cost with minimal visual value. -->
 
 
 
 <!-- ═══ BOOKING MODAL — Public Session ═══ -->
-<div id="partyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="partyModalTitle">
-  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" onclick="document.getElementById('partyModal').classList.add('hidden')"></div>
-  <div class="gazette-modal relative max-w-md w-full newspaper-border p-8 shadow-2xl">
-    <button onclick="document.getElementById('partyModal').classList.add('hidden')"
+<div id="partyModal" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="partyModalTitle">
+  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-modal="partyModal"></div>
+  <div class="gazette-modal relative max-w-md w-full newspaper-border p-8 shadow-2xl my-8">
+    <button type="button" data-close-modal="partyModal"
             class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
-    <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">CANTONMENT DESK — RESERVATIONS</p>
-    <h3 id="partyModalTitle" class="font-headline text-3xl font-black uppercase leading-tight mb-1">Reserve Your Seat</h3>
-    <p class="text-xs italic text-newsprint-ink/60 mb-6 border-b border-newsprint-ink/30 pb-4">Grab your spot at Bangalore's most dangerous evening out. Limited seats per session.</p>
-    <form action="https://formspree.io/f/mykdqaol" method="POST"
-          onsubmit="this.querySelector('[type=submit]').textContent='Dispatching...'; this.querySelector('[type=submit]').disabled=true;">
+    <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">CANTONMENT DESK — RESERVATIONS</p>
+    <h2 id="partyModalTitle" class="font-headline text-3xl font-black uppercase leading-tight mb-1">Reserve Your Seat</h2>
+    <p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Grab your spot at Bangalore's most dangerous evening out. Limited seats per session.</p>
+    <form data-form-flow="reservation" data-success="Your reservation request has been filed — we'll be in touch on WhatsApp within one working day to confirm." novalidate>
       <input type="hidden" name="_subject" value="New Reservation Request - Let's Nail It">
+      <input type="hidden" name="form_type" value="public_reservation">
       <div class="mb-5">
         <label class="gazette-label" for="party-name">First Name</label>
-        <input id="party-name" class="gazette-input" type="text" name="name" placeholder="Your first name" required>
+        <input id="party-name" class="gazette-input" type="text" name="name" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="mb-5">
+        <label class="gazette-label" for="party-email">Email Address</label>
+        <input id="party-email" class="gazette-input" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
       </div>
       <div class="mb-5">
         <label class="gazette-label" for="party-phone">Phone / WhatsApp</label>
-        <input id="party-phone" class="gazette-input" type="tel" name="phone" placeholder="+91 98765 43210" required>
+        <input id="party-phone" class="gazette-input" type="tel" name="phone" placeholder="+91 98765 43210" required autocomplete="tel"
+               pattern="[+0-9\s\-()]{7,16}" title="A phone number, 7–16 digits, spaces or dashes permitted">
       </div>
-      <div class="mb-6">
+      <div class="mb-5">
         <label class="gazette-label" for="party-date">Preferred Date</label>
         <input id="party-date" class="gazette-input" type="date" name="date" required>
       </div>
+      <label class="flex items-start gap-2 mb-6 text-[11px] text-newsprint-ink/80">
+        <input type="checkbox" name="consent" required class="mt-0.5">
+        <span>I consent to Let's Nail It processing my details to respond to this enquiry, in line with the <a href="/privacy.html" class="underline">Privacy Policy</a>. Data is handled by our US-based form processor (Formspree) under a data processing agreement.</span>
+      </label>
+      <div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>
       <button type="submit"
               class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg">
         SUBMIT MY RESERVATION »
@@ -746,29 +897,43 @@
 </div>
 
 <!-- ═══ BOOKING MODAL — Private Event ═══ -->
-<div id="privateModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
-  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" onclick="document.getElementById('privateModal').classList.add('hidden')"></div>
-  <div class="gazette-modal relative max-w-md w-full newspaper-border p-8 shadow-2xl">
-    <button onclick="document.getElementById('privateModal').classList.add('hidden')"
+<div id="privateModal" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
+  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-modal="privateModal"></div>
+  <div class="gazette-modal relative max-w-md w-full newspaper-border p-8 shadow-2xl my-8">
+    <button type="button" data-close-modal="privateModal"
             class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
-    <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">PRIVATE DISPATCH — CONFIDENTIAL</p>
-    <h3 id="privateModalTitle" class="font-headline text-3xl font-black uppercase leading-tight mb-1">A Killer Party Idea</h3>
-    <p class="text-xs italic text-newsprint-ink/60 mb-6 border-b border-newsprint-ink/30 pb-4">Tell us about your event and we'll design a custom murder mystery for your group — at your venue, anywhere in Bangalore.</p>
-    <form action="https://formspree.io/f/mykdqaol" method="POST"
-          onsubmit="this.querySelector('[type=submit]').textContent='Dispatching...'; this.querySelector('[type=submit]').disabled=true;">
+    <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">PRIVATE DISPATCH — CONFIDENTIAL</p>
+    <h2 id="privateModalTitle" class="font-headline text-3xl font-black uppercase leading-tight mb-1">A Killer Party Idea</h2>
+    <p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Tell us about your event and we'll design a custom murder mystery for your group — at your venue, anywhere in Bangalore.</p>
+    <form data-form-flow="private" data-success="Your private dispatch has been received — our events desk will respond within one working day with a quote." novalidate>
       <input type="hidden" name="_subject" value="New Private Event Enquiry - Let's Nail It">
+      <input type="hidden" name="form_type" value="private_event">
       <div class="mb-5">
         <label class="gazette-label" for="priv-name">First Name</label>
-        <input id="priv-name" class="gazette-input" type="text" name="name" placeholder="Your first name" required>
+        <input id="priv-name" class="gazette-input" type="text" name="name" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="mb-5">
+        <label class="gazette-label" for="priv-email">Email Address</label>
+        <input id="priv-email" class="gazette-input" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
       </div>
       <div class="mb-5">
         <label class="gazette-label" for="priv-phone">Phone / WhatsApp</label>
-        <input id="priv-phone" class="gazette-input" type="tel" name="phone" placeholder="+91 98765 43210" required>
+        <input id="priv-phone" class="gazette-input" type="tel" name="phone" placeholder="+91 98765 43210" required autocomplete="tel"
+               pattern="[+0-9\s\-()]{7,16}" title="A phone number, 7–16 digits, spaces or dashes permitted">
       </div>
-      <div class="mb-6">
-        <label class="gazette-label" for="priv-date">Preferred Date</label>
+      <div class="mb-5">
+        <label class="gazette-label" for="priv-date">Preferred Date (optional)</label>
         <input id="priv-date" class="gazette-input" type="date" name="date">
       </div>
+      <div class="mb-5">
+        <label class="gazette-label" for="priv-guests">Approx. Guest Count</label>
+        <input id="priv-guests" class="gazette-input" type="number" name="guests" min="8" max="200" placeholder="8 – 40 typical">
+      </div>
+      <label class="flex items-start gap-2 mb-6 text-[11px] text-newsprint-ink/80">
+        <input type="checkbox" name="consent" required class="mt-0.5">
+        <span>I consent to Let's Nail It processing my details to respond to this enquiry, in line with the <a href="/privacy.html" class="underline">Privacy Policy</a>. Data is handled by our US-based form processor (Formspree) under a data processing agreement.</span>
+      </label>
+      <div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>
       <button type="submit"
               class="w-full bg-newsprint-accent text-white py-3 font-black uppercase tracking-widest hover:bg-newsprint-ink transition-colors shadow-lg">
         REQUEST A QUOTE »
@@ -781,12 +946,12 @@
 <!-- ═══ DISPATCH ARTICLE MODALS ═══ -->
 
 <!-- Article 1: Henderson's Railway Files -->
-<div id="dispatch1" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12 overflow-y-auto" role="dialog" aria-modal="true">
-  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" onclick="closeDispatch('dispatch1')"></div>
+<div id="dispatch1" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="dispatch1Title">
+  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-dispatch="dispatch1"></div>
   <div class="gazette-modal relative max-w-2xl w-full newspaper-border p-8 shadow-2xl mb-12">
-    <button onclick="closeDispatch('dispatch1')" class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
-    <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">WIRE #441-B &mdash; CANTONMENT BUREAU, FRIDAY 17 OCT. 1941</p>
-    <h2 class="font-headline text-3xl font-black uppercase leading-tight mb-1">Henderson's Railway Files Go Missing</h2>
+    <button type="button" data-close-dispatch="dispatch1" class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
+    <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">WIRE #441-B &mdash; CANTONMENT BUREAU, FRIDAY 17 OCT. 1941</p>
+    <h2 id="dispatch1Title" class="font-headline text-3xl font-black uppercase leading-tight mb-1">Henderson's Railway Files Go Missing</h2>
     <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/50 mb-5 border-b border-newsprint-ink/30 pb-3">BY OUR RAILWAY CORRESPONDENT &mdash; FILED AT 04:15 HRS</p>
     <p class="mb-4 leading-relaxed"><span class="font-bold">T</span>he study of the late Major Reginald Henderson at 'The Silver Oaks', Richards Town, was found in a state considerably more disordered than the Cantonment Police initially reported. Our correspondent has learned, through a source within the Railway Security Division who insists on anonymity, that a leather satchel bearing the insignia of the Kolar Gold Fields Audit Committee was absent from the premises when investigators arrived at dawn.</p>
     <p class="mb-4 leading-relaxed">Major Henderson, whose duties placed him at the intersection of military logistics and the Mysore State Railway's wartime freight operations, had been conducting a quiet inquiry into discrepancies in the gold ore consignment records since August. The audit, commissioned directly by the Dewan's office, was considered highly sensitive — the Kolar mines supply a significant portion of the Crown's wartime reserves.</p>
@@ -794,19 +959,19 @@
     <p class="mb-4 leading-relaxed">The Railway Security Division has declined to confirm or deny the existence of the audit. A spokesman offered only that Major Henderson's files were "a matter of ongoing administrative review." The Cantonment Police have not announced whether they consider the missing documents relevant to the death inquiry, now formally classified as suspicious.</p>
     <p class="leading-relaxed text-newsprint-ink/70 italic text-sm">Inspector Rao of the Cantonment Police has requested that any person with knowledge of the satchel's whereabouts present themselves voluntarily at the Cubbon Road police station before the evening of Saturday the 18th.</p>
     <div class="mt-6 pt-4 border-t border-newsprint-ink/30 flex justify-between items-center">
-      <p class="text-[9px] uppercase font-bold tracking-widest text-newsprint-ink/40">— END OF WIRE —</p>
-      <button onclick="closeDispatch('dispatch1')" class="text-xs font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">Close &times;</button>
+      <p class="text-[10px] uppercase font-bold tracking-widest text-newsprint-ink/60">— END OF WIRE —</p>
+      <button type="button" data-close-dispatch="dispatch1" class="text-xs font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">Close &times;</button>
     </div>
   </div>
 </div>
 
 <!-- Article 2: Silk Merchant Seen Near Silver Oaks -->
-<div id="dispatch2" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12 overflow-y-auto" role="dialog" aria-modal="true">
-  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" onclick="closeDispatch('dispatch2')"></div>
+<div id="dispatch2" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="dispatch2Title">
+  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-dispatch="dispatch2"></div>
   <div class="gazette-modal relative max-w-2xl w-full newspaper-border p-8 shadow-2xl mb-12">
-    <button onclick="closeDispatch('dispatch2')" class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
-    <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">INTERCEPTED CORRESPONDENCE #92 &mdash; RICHARDS TOWN, 17 OCT. 1941</p>
-    <h2 class="font-headline text-3xl font-black uppercase leading-tight mb-1">Silk Merchant Seen Near Silver Oaks</h2>
+    <button type="button" data-close-dispatch="dispatch2" class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
+    <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">INTERCEPTED CORRESPONDENCE #92 &mdash; RICHARDS TOWN, 17 OCT. 1941</p>
+    <h2 id="dispatch2Title" class="font-headline text-3xl font-black uppercase leading-tight mb-1">Silk Merchant Seen Near Silver Oaks</h2>
     <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/50 mb-5 border-b border-newsprint-ink/30 pb-3">BY OUR RICHARDS TOWN CORRESPONDENT</p>
     <p class="mb-4 leading-relaxed"><span class="font-bold">N</span>ot one but three independent witnesses have placed Mr. Ratan Narayan, proprietor of the Chickpet Silk Emporium, in the vicinity of 'The Silver Oaks' on the night of Thursday the 16th of October. Mrs. D'Souza of No. 14 Richards Town Road reports seeing a motorcar matching the description of Mr. Narayan's black Standard Eight parked outside the bungalow gates at approximately a quarter past eleven. A rickshaw puller who works the Ulsoor junction corroborates this account, placing the vehicle there until nearly midnight.</p>
     <p class="mb-4 leading-relaxed">Mr. Narayan, when confronted by this correspondent at his shop this morning, denied any visit to the Major's residence. "I was collecting a debt, yes — but through a messenger, not in person. I do not make house calls after dark," he stated, adjusting his spectacles with some agitation. He declined to name the messenger.</p>
@@ -814,19 +979,19 @@
     <p class="mb-4 leading-relaxed">Records obtained from the Silk Emporium's receipt book — which Mr. Narayan allowed this correspondent to inspect briefly before snatching it back — show a line of credit extended to one 'R. Henderson, Esq.' dating to March of this year. The outstanding sum is not trifling: a figure approaching three hundred rupees, with accumulated interest, is indicated by the final entry, dated the 14th of October — two days before the Major's death.</p>
     <p class="leading-relaxed text-newsprint-ink/70 italic text-sm">Mr. Narayan's Standard Eight motorcar was observed by this correspondent outside the Cantonment Police station at nine o'clock this morning. He had not emerged by the time of going to press.</p>
     <div class="mt-6 pt-4 border-t border-newsprint-ink/30 flex justify-between items-center">
-      <p class="text-[9px] uppercase font-bold tracking-widest text-newsprint-ink/40">— END OF DISPATCH —</p>
-      <button onclick="closeDispatch('dispatch2')" class="text-xs font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">Close &times;</button>
+      <p class="text-[10px] uppercase font-bold tracking-widest text-newsprint-ink/60">— END OF DISPATCH —</p>
+      <button type="button" data-close-dispatch="dispatch2" class="text-xs font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">Close &times;</button>
     </div>
   </div>
 </div>
 
 <!-- Article 3: Memsahib's Alibi Disputed -->
-<div id="dispatch3" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12 overflow-y-auto" role="dialog" aria-modal="true">
-  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" onclick="closeDispatch('dispatch3')"></div>
+<div id="dispatch3" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="dispatch3Title">
+  <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-dispatch="dispatch3"></div>
   <div class="gazette-modal relative max-w-2xl w-full newspaper-border p-8 shadow-2xl mb-12">
-    <button onclick="closeDispatch('dispatch3')" class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
-    <p class="text-[9px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">CONFIDENTIAL MEMO #7 &mdash; CANTONMENT SOCIAL DESK, 17 OCT. 1941</p>
-    <h2 class="font-headline text-3xl font-black uppercase leading-tight mb-1">Memsahib's Alibi Disputed</h2>
+    <button type="button" data-close-dispatch="dispatch3" class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
+    <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">CONFIDENTIAL MEMO #7 &mdash; CANTONMENT SOCIAL DESK, 17 OCT. 1941</p>
+    <h2 id="dispatch3Title" class="font-headline text-3xl font-black uppercase leading-tight mb-1">Memsahib's Alibi Disputed</h2>
     <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/50 mb-5 border-b border-newsprint-ink/30 pb-3">BY OUR CANTONMENT SOCIAL CORRESPONDENT</p>
     <p class="mb-4 leading-relaxed"><span class="font-bold">M</span>rs. Eleanor Pemberton — wife of the absent Lt. Colonel Pemberton, presently stationed in Assam — has stated to Inspector Rao's inquiry that she spent the entirety of Thursday evening at the Bowring Institute, participating in a bridge tournament that she claims concluded at half past midnight. "My partner, Mr. Krishnaswamy, can confirm every hand," she reportedly told investigators with considerable composure.</p>
     <p class="mb-4 leading-relaxed">The Bowring Institute, however, tells a markedly different story. The club secretary, Mr. Bernard Lobo, responded in writing to our enquiry this morning: "No bridge tournament was scheduled for the 16th of October. The Bowring Institute was closed to members from the afternoon of the 14th owing to emergency plumbing repairs in the card room. These repairs were not completed until the morning of the 17th. No member entered the building during this period." The letter is dated this very day and bears the official club seal.</p>
@@ -834,79 +999,197 @@
     <p class="mb-4 leading-relaxed">Neighbours on Richards Town Road report that Mrs. Pemberton and Major Henderson were long acquainted — she was, by several accounts, a frequent guest at 'The Silver Oaks' during Lt. Colonel Pemberton's extended deployments. Whether this acquaintance has any bearing on the events of Thursday night is not for this correspondent to speculate. It is, however, a matter this newspaper will continue to follow with considerable interest.</p>
     <p class="leading-relaxed text-newsprint-ink/70 italic text-sm">A source close to the inquiry informs us that Mrs. Pemberton's touring car — a pale green Morris Ten — was observed by a constable on Richards Town Road at 11:05 PM on the evening in question. The constable, who declined to be named, has since submitted a written statement to Inspector Rao.</p>
     <div class="mt-6 pt-4 border-t border-newsprint-ink/30 flex justify-between items-center">
-      <p class="text-[9px] uppercase font-bold tracking-widest text-newsprint-ink/40">— END OF MEMO —</p>
-      <button onclick="closeDispatch('dispatch3')" class="text-xs font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">Close &times;</button>
+      <p class="text-[10px] uppercase font-bold tracking-widest text-newsprint-ink/60">— END OF MEMO —</p>
+      <button type="button" data-close-dispatch="dispatch3" class="text-xs font-bold uppercase tracking-widest hover:text-newsprint-accent transition-colors">Close &times;</button>
     </div>
   </div>
 </div>
 
 <script>
-  /* Set min/max on date inputs */
-  var today = new Date().toISOString().split('T')[0];
-  var maxDate = new Date();
-  maxDate.setMonth(maxDate.getMonth() + 6);
-  var maxStr = maxDate.toISOString().split('T')[0];
-  document.querySelectorAll('input[type="date"]').forEach(function(inp) {
-    inp.min = today;
-    inp.max = maxStr;
+(function () {
+  'use strict';
+
+  const FORM_ENDPOINT = 'https://formspree.io/f/mykdqaol';
+  const FOCUSABLE = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  const DISPATCH_IDS = ['dispatch1','dispatch2','dispatch3'];
+  const MODAL_IDS = ['partyModal','privateModal'];
+  const ALL_MODALS = MODAL_IDS.concat(DISPATCH_IDS);
+
+  const lockedOpenCount = { n: 0 };
+  let lastFocus = null;
+  let activeKeyHandler = null;
+
+  function lockScroll() {
+    lockedOpenCount.n++;
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockScroll() {
+    lockedOpenCount.n = Math.max(0, lockedOpenCount.n - 1);
+    if (lockedOpenCount.n === 0) document.body.style.overflow = '';
+  }
+
+  function refreshDateBounds() {
+    const today = new Date().toISOString().split('T')[0];
+    const max = new Date();
+    max.setMonth(max.getMonth() + 6);
+    const maxStr = max.toISOString().split('T')[0];
+    document.querySelectorAll('input[type="date"]').forEach(inp => {
+      inp.min = today;
+      inp.max = maxStr;
+    });
+  }
+
+  function trapFocus(container) {
+    const focusables = container.querySelectorAll(FOCUSABLE);
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    activeKeyHandler = function (e) {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    };
+    container.addEventListener('keydown', activeKeyHandler);
+    // Prefer close button, fall back to first field
+    const preferred = container.querySelector('[data-close-modal], [data-close-dispatch], [aria-label="Close"]');
+    const firstField = container.querySelector('input:not([type="hidden"]), select, textarea');
+    (firstField || preferred || first).focus();
+  }
+  function releaseFocus(container) {
+    if (activeKeyHandler) {
+      container.removeEventListener('keydown', activeKeyHandler);
+      activeKeyHandler = null;
+    }
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    lastFocus = null;
+  }
+
+  function openModal(id) {
+    const m = document.getElementById(id);
+    if (!m || !m.classList.contains('hidden')) return;
+    lastFocus = document.activeElement;
+    m.classList.remove('hidden');
+    lockScroll();
+    refreshDateBounds();
+    requestAnimationFrame(() => trapFocus(m));
+  }
+  function closeModal(id) {
+    const m = document.getElementById(id);
+    if (!m || m.classList.contains('hidden')) return;
+    m.classList.add('hidden');
+    unlockScroll();
+    releaseFocus(m);
+  }
+
+  /* Event delegation — no inline onclick */
+  document.addEventListener('click', function (e) {
+    const openModalTgt = e.target.closest('[data-open-modal]');
+    if (openModalTgt) { openModal(openModalTgt.dataset.openModal); return; }
+
+    const closeModalTgt = e.target.closest('[data-close-modal]');
+    if (closeModalTgt) { closeModal(closeModalTgt.dataset.closeModal); return; }
+
+    const openDispatchTgt = e.target.closest('[data-open-dispatch]');
+    if (openDispatchTgt) { openModal(openDispatchTgt.dataset.openDispatch); return; }
+
+    const closeDispatchTgt = e.target.closest('[data-close-dispatch]');
+    if (closeDispatchTgt) { closeModal(closeDispatchTgt.dataset.closeDispatch); return; }
   });
 
-  /* Form success state */
-  document.querySelectorAll('#partyModal form, #privateModal form').forEach(function(form) {
-    form.addEventListener('submit', function() {
-      setTimeout(function() {
-        var wrapper = form.closest('[id$="Modal"]');
-        if (!wrapper) return;
+  /* Escape closes whichever modal is open */
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    ALL_MODALS.forEach(id => {
+      const m = document.getElementById(id);
+      if (m && !m.classList.contains('hidden')) closeModal(id);
+    });
+    const menu = document.getElementById('mobile-menu');
+    if (menu && !menu.classList.contains('hidden')) toggleMobileMenu();
+  });
+
+  /* Real Formspree POST with success/error handling */
+  document.querySelectorAll('form[data-form-flow]').forEach(form => {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const errorEl = form.querySelector('[data-form-error]');
+      if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Dispatching...';
+      submitBtn.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!response.ok) throw new Error('Bad response: ' + response.status);
+        const successMsg = form.dataset.success || "We'll be in touch shortly to confirm your booking.";
         form.innerHTML =
-          '<div class="text-center py-6">' +
-          '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3">✓</p>' +
-          '<h4 class="font-headline text-2xl font-black uppercase mb-2">Dispatch Received.</h4>' +
-          '<p class="text-sm italic text-newsprint-ink/70">We\'ll be in touch shortly to confirm your booking.</p>' +
+          '<div class="text-center py-6" role="status" aria-live="polite">' +
+          '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
+          '<h3 class="font-headline text-2xl font-black uppercase mb-2">Dispatch Received.</h3>' +
+          '<p class="text-sm italic text-newsprint-ink/80">' + successMsg + '</p>' +
           '</div>';
-      }, 1200);
+      } catch (err) {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        if (errorEl) {
+          errorEl.textContent = 'Dispatch failed — please try again or WhatsApp +91 97310 00440.';
+          errorEl.classList.remove('hidden');
+        }
+      }
     });
   });
 
-  /* Dispatch article open/close */
-  function openDispatch(id) {
-    document.getElementById(id).classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDispatch(id) {
-    document.getElementById(id).classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  /* Close modals on Escape */
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      document.getElementById('partyModal').classList.add('hidden');
-      document.getElementById('privateModal').classList.add('hidden');
-      if (!document.getElementById('mobile-menu').classList.contains('hidden')) toggleMobileMenu();
-      ['dispatch1','dispatch2','dispatch3'].forEach(closeDispatch);
-    }
-  });
-
-  /* Mobile menu toggle logic */
-  function toggleMobileMenu() {
+  /* Mobile menu toggle */
+  window.toggleMobileMenu = function () {
     const menu = document.getElementById('mobile-menu');
     const content = document.getElementById('mobile-menu-content');
-    const body = document.body;
+    const toggle = document.getElementById('mobile-menu-toggle');
+    if (!menu || !content) return;
 
     if (menu.classList.contains('hidden')) {
+      lastFocus = document.activeElement;
       menu.classList.remove('hidden');
-      // Trigger reflow for transition
-      content.offsetHeight;
+      void content.offsetHeight; // force reflow so the transform animates
       content.classList.remove('translate-x-full');
-      body.style.overflow = 'hidden';
+      lockScroll();
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(() => trapFocus(content));
     } else {
       content.classList.add('translate-x-full');
       setTimeout(() => {
         menu.classList.add('hidden');
-        body.style.overflow = '';
+        unlockScroll();
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        releaseFocus(content);
       }, 300);
     }
-  }
+  };
+
+  /* Wire the mobile menu toggle (no inline onclick) */
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  if (toggleBtn) toggleBtn.addEventListener('click', window.toggleMobileMenu);
+  document.querySelectorAll('[data-toggle="mobile-menu"]').forEach(el => {
+    el.addEventListener('click', window.toggleMobileMenu);
+  });
+
+  /* Refresh date bounds at load + whenever the page is revealed after midnight */
+  refreshDateBounds();
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshDateBounds(); });
+})();
 </script>
 
 <!-- ═══ MOBILE NAVIGATION DRAWER ═══ -->

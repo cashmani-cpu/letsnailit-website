@@ -47,9 +47,12 @@ tailwind.config = {
 .newspaper-border { border: 6px double #1a1a1a; }
 .weathered { box-shadow: inset 0 0 120px rgba(0,0,0,0.1); }
 .headline-shadow { text-shadow: 2px 2px 0px rgba(0,0,0,0.12); }
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 200; background: #1c1b19; color: #d2c7b3; padding: 0.75rem 1rem; font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.1em; }
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
 </style>
 </head>
 <body class="p-2 md:p-4 selection:bg-newsprint-ink selection:text-newsprint-base">
+<a href="#main" class="skip-link">Skip to main content</a>
 <div class="max-w-5xl mx-auto newspaper-border p-2 md:p-6 bg-newsprint-base weathered">
 
   <!-- MASTHEAD -->
@@ -80,7 +83,7 @@ tailwind.config = {
       </div>
 
       <!-- Mobile Toggle Button -->
-      <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-between gap-3 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
+      <button onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open sections menu" class="md:hidden flex items-center justify-between gap-3 px-3 py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
         <div class="flex items-center gap-2">
           <i class="fas fa-bars text-newsprint-accent group-hover:text-white transition-colors"></i>
           <span>Sections & Dispatches</span>
@@ -268,7 +271,7 @@ tailwind.config = {
       </nav>
       <div class="italic font-headline text-sm font-bold border-l-2 border-newsprint-ink pl-4">"Wait for the Final Edition"</div>
     </div>
-    <p class="text-[9px] text-newsprint-ink/40 italic">Bangalore's only murder mystery experience — Aga Abbas Ali Road, Bengaluru, Karnataka, India.</p>
+    <p class="text-[9px] text-newsprint-ink/40 italic">Bangalore's signature murder mystery experience — Aga Abbas Ali Road, Bengaluru, Karnataka, India.</p>
   </footer>
 
 </div>
@@ -279,14 +282,17 @@ tailwind.config = {
     const menu = document.getElementById('mobile-menu');
     const content = document.getElementById('mobile-menu-content');
     const body = document.body;
+    const toggleBtn = document.querySelector('[aria-controls="mobile-menu"]');
 
     if (menu.classList.contains('hidden')) {
       menu.classList.remove('hidden');
       content.offsetHeight; // Reflow
       content.classList.remove('translate-x-full');
       body.style.overflow = 'hidden';
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
     } else {
       content.classList.add('translate-x-full');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
       setTimeout(() => {
         menu.classList.add('hidden');
         body.style.overflow = '';
@@ -347,6 +353,12 @@ tailwind.config = {
     <div class="p-6 mt-auto bg-newsprint-accent/10 border-t-2 border-newsprint-ink text-center">
       <p class="text-[9px] font-black uppercase tracking-widest text-newsprint-accent mb-2">Back to the front page?</p>
       <a href="/" class="inline-block font-headline text-sm font-bold border-b border-newsprint-ink">Return to South Parade »</a>
+      <div class="flex justify-center gap-4 mt-4 text-base">
+        <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/919731000440" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:hello@letsnailit.com" aria-label="Email" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
 
   </div>

@@ -2,50 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://letsnailit.com/</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://letsnailit.com/blog/index.html</loc>
-    <lastmod>2026-03-23</lastmod>
+    <loc>https://letsnailit.com/blog/</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://letsnailit.com/blog/how-murder-mystery-dinner-works.html</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://letsnailit.com/blog/what-to-expect-murder-mystery-dinner.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://letsnailit.com/blog/corporate-team-building-bangalore.html</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://letsnailit.com/blog/unique-date-night-ideas-bangalore.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://letsnailit.com/terms.html</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://letsnailit.com/privacy.html</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>
