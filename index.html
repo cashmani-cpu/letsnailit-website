@@ -1138,35 +1138,46 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      /* Reservation form: April 25 is sold out — show waitlist instead */
+      /* Reservation form: April 25 is sold out — capture data then offer one-click waitlist */
       if (form.dataset.formFlow === 'reservation') {
         if (!form.checkValidity()) { form.reportValidity(); return; }
+        const captured = Object.fromEntries(new FormData(form));
         const modal = form.closest('.gazette-modal');
         modal.innerHTML =
           '<button type="button" data-close-modal="partyModal"' +
           ' class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>' +
           '<p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">SOLD OUT — 25 APRIL 2026</p>' +
           '<h2 class="font-headline text-3xl font-black uppercase leading-tight mb-1">This Evening is Full.</h2>' +
-          '<p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Every seat for 25 April has been claimed. Leave your details and we\'ll reach out the moment something opens up — or when the next date is announced.</p>' +
-          '<form data-waitlist novalidate>' +
-          '<input type="hidden" name="_subject" value="Waitlist Request - Let\'s Nail It">' +
-          '<input type="hidden" name="form_type" value="waitlist">' +
-          '<input type="hidden" name="date" value="2026-04-25">' +
-          '<div class="mb-5"><label class="gazette-label" for="wl-name">First Name</label>' +
-          '<input id="wl-name" class="gazette-input" type="text" name="name" placeholder="Your first name" required autocomplete="given-name"></div>' +
-          '<div class="mb-5"><label class="gazette-label" for="wl-email">Email Address</label>' +
-          '<input id="wl-email" class="gazette-input" type="email" name="email" placeholder="you@example.com" required autocomplete="email"></div>' +
-          '<div class="mb-5"><label class="gazette-label" for="wl-phone">Phone</label>' +
-          '<input id="wl-phone" class="gazette-input" type="tel" name="phone" placeholder="+91 98765 43210" required autocomplete="tel"' +
-          ' pattern="[+0-9\\s\\-()]{7,16}" title="A phone number, 7–16 digits, spaces or dashes permitted"></div>' +
+          '<p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Every seat for 25 April has been claimed. Would you like to join the waitlist? We\'ll reach out the moment something opens up — or when the next date is announced.</p>' +
           '<div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>' +
-          '<button type="submit" class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg">JOIN THE WAITLIST »</button>' +
-          '</form>';
-        /* re-bind close buttons inside re-rendered modal */
+          '<button id="wl-confirm-btn" class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg mb-3">YES, JOIN THE WAITLIST »</button>' +
+          '<button type="button" data-close-modal="partyModal" class="w-full border border-newsprint-ink/40 py-3 font-black uppercase tracking-widest text-sm hover:border-newsprint-accent hover:text-newsprint-accent transition-colors">No thanks</button>';
         modal.querySelectorAll('[data-close-modal]').forEach(btn => {
           btn.addEventListener('click', () => closeModal(btn.dataset.closeModal));
         });
-        attachWaitlistHandler(modal.querySelector('form[data-waitlist]'));
+        const confirmBtn = modal.querySelector('#wl-confirm-btn');
+        const errorEl = modal.querySelector('[data-form-error]');
+        confirmBtn.addEventListener('click', async function () {
+          confirmBtn.textContent = 'Dispatching...';
+          confirmBtn.disabled = true;
+          try {
+            const payload = { ...captured, form_type: 'waitlist', date: '2026-04-25' };
+            const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
+            const res = await fetch(url, { redirect: 'follow' });
+            const json = await res.json();
+            if (!json.ok) throw new Error('bad response');
+            modal.innerHTML =
+              '<div class="text-center py-6" role="status" aria-live="polite">' +
+              '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
+              '<h3 class="font-headline text-2xl font-black uppercase mb-2">You\'re on the list.</h3>' +
+              '<p class="text-sm italic text-newsprint-ink/80">We\'ll contact you the moment a seat opens up for 25 April 2026.</p>' +
+              '</div>';
+          } catch (err) {
+            confirmBtn.textContent = 'YES, JOIN THE WAITLIST »';
+            confirmBtn.disabled = false;
+            if (errorEl) { errorEl.textContent = 'Dispatch failed — please try again or email hello@letsnailit.com.'; errorEl.classList.remove('hidden'); }
+          }
+        });
         return;
       }
 
