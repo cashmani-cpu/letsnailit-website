@@ -1142,6 +1142,9 @@
       if (form.dataset.formFlow === 'reservation') {
         if (!form.checkValidity()) { form.reportValidity(); return; }
         const captured = Object.fromEntries(new FormData(form));
+        /* Always save their details immediately — regardless of waitlist choice */
+        const silentPayload = { ...captured, form_type: 'reservation_interest', date: '2026-04-25' };
+        fetch(FORM_ENDPOINT + '?' + new URLSearchParams({ ...silentPayload, _t: Date.now() }).toString(), { redirect: 'follow' });
         const modal = form.closest('.gazette-modal');
         modal.innerHTML =
           '<button type="button" data-close-modal="partyModal"' +
