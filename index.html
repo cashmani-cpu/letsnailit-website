@@ -1002,7 +1002,7 @@
 (function () {
   'use strict';
 
-  const FORM_ENDPOINT = 'https://formspree.io/f/mykdqaol';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzgJ9BX5TKTlOTKqPf-cMGcd9ZXSPcPCB4zTN8PNhlns_kfpyxfuwV3LWRhYGoQe2K_/exec';
   const FOCUSABLE = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
   const DISPATCH_IDS = ['dispatch1','dispatch2','dispatch3'];
   const MODAL_IDS = ['partyModal','privateModal'];
@@ -1115,11 +1115,11 @@
       btn.textContent = 'Dispatching...';
       btn.disabled = true;
       try {
-        const res = await fetch(FORM_ENDPOINT, {
-          method: 'POST', body: new FormData(waitlistForm),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (!res.ok) throw new Error('bad response');
+        const payload = Object.fromEntries(new FormData(waitlistForm));
+        const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
+        const res = await fetch(url, { redirect: 'follow' });
+        const json = await res.json();
+        if (!json.ok) throw new Error('bad response');
         waitlistForm.innerHTML =
           '<div class="text-center py-6" role="status" aria-live="polite">' +
           '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
@@ -1184,13 +1184,11 @@
       submitBtn.disabled = true;
 
       try {
-        const formData = new FormData(form);
-        const response = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (!response.ok) throw new Error('Bad response: ' + response.status);
+        const payload = Object.fromEntries(new FormData(form));
+        const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
+        const response = await fetch(url, { redirect: 'follow' });
+        const json = await response.json();
+        if (!json.ok) throw new Error('Bad response');
         const successMsg = form.dataset.success || "We'll be in touch shortly to confirm your booking.";
         form.innerHTML =
           '<div class="text-center py-6" role="status" aria-live="polite">' +
