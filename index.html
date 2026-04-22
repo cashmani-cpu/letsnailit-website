@@ -12,8 +12,9 @@
 <meta name="theme-color" content="#6b1111">
 <link rel="canonical" href="https://letsnailit.com/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%236b1111'/><text x='32' y='48' font-size='40' text-anchor='middle' fill='%23d2c7b3' font-family='serif'>G</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%236b1111'/><text x='90' y='135' font-size='110' text-anchor='middle' fill='%23d2c7b3' font-family='serif'>G</text></svg>">
+<link rel="icon" type="image/png" href="logo-final.png">
+<link rel="shortcut icon" type="image/png" href="logo-final.png">
+<link rel="apple-touch-icon" href="logo-final.png">
 <link rel="manifest" href="/site.webmanifest">
 
 <!-- SEO: Open Graph -->
@@ -352,10 +353,10 @@
 
 <div class="max-w-6xl mx-auto newspaper-border p-2 md:p-6 bg-newsprint-base weathered relative">
 
-  <!-- Censored stamp watermark (decorative — hidden on mobile to avoid hero overlap) -->
-  <div aria-hidden="true" class="hidden md:flex absolute top-24 right-12 w-32 h-32 border-4 border-newsprint-accent/20 rounded-full items-center justify-center -rotate-12 pointer-events-none uppercase text-xs font-bold text-newsprint-accent/20 text-center leading-none">
-    Censored by<br/>Cantonment<br/>Press Bureau
-  </div>
+  <!-- Brand seal — Let's Nail It, styled as an official press stamp over the masthead -->
+  <a href="/" aria-label="Let's Nail It — home" class="hidden md:block absolute top-20 right-10 w-32 h-32 -rotate-[8deg] pointer-events-auto z-10 drop-shadow-md transition-transform hover:rotate-0 hover:scale-105">
+    <img src="logo-final.png" alt="Let's Nail It — a Bangalore supper-club mystery" width="128" height="128" class="w-full h-full rounded-full border-[3px] border-newsprint-ink/70 shadow-lg object-cover bg-newsprint-base" />
+  </a>
 
   <!-- ═══ MASTHEAD ═══ -->
   <header class="text-center border-b-4 border-double border-newsprint-ink pb-4 mb-0">
@@ -809,6 +810,14 @@
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="mt-10 border-t-4 border-double border-newsprint-ink pt-6">
+    <!-- Colophon — visible on all breakpoints, primary brand mark on mobile where the masthead seal is hidden -->
+    <div class="flex items-center justify-center gap-3 pb-5 mb-5 border-b border-newsprint-ink/20">
+      <img src="logo-final.png" alt="" aria-hidden="true" width="56" height="56" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-newsprint-ink/40 shadow-sm bg-newsprint-base" />
+      <div class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-newsprint-ink/70 leading-snug">
+        Published by<br/>
+        <span class="text-newsprint-ink">Let's Nail It</span> · Bangalore
+      </div>
+    </div>
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] font-bold uppercase tracking-widest mb-4">
       <div class="mb-4 md:mb-0">
         &copy; 2026 LET'S NAIL IT. ALL RIGHTS RESERVED.
