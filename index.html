@@ -121,6 +121,7 @@
     /* SVG portrait card for suspects (no external image dependency) */
     .suspect-portrait { aspect-ratio: 4 / 5; background: #d2c7b3; position: relative; overflow: hidden; }
     .suspect-portrait svg { width: 100%; height: 100%; display: block; }
+    .suspect-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
     /* Disable the dropcap on very narrow screens to avoid orphan lines */
     @media (max-width: 480px) {
         .dropcap::first-letter { font-size: 1em !important; float: none !important; margin: 0 !important; font-weight: inherit !important; }
@@ -544,14 +545,8 @@
           <figure class="border-b border-newsprint-ink sm:border-b-0 pb-4">
             <div class="relative mb-3">
               <span class="absolute -top-3 -left-2 bg-newsprint-accent text-white text-[10px] font-bold px-3 py-1 rotate-[-8deg] z-10 shadow-md">NO ALIBI</span>
-              <div class="suspect-portrait border border-newsprint-ink halftone-wrap" role="img" aria-label="Police file portrait of The Chickpet Silk Merchant — no photograph on file">
-                <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <rect width="200" height="250" fill="#bdaf96"/>
-                  <circle cx="100" cy="95" r="42" fill="#1c1b19"/>
-                  <path d="M30 250 Q30 165 100 165 Q170 165 170 250 Z" fill="#1c1b19"/>
-                  <rect x="14" y="14" width="172" height="222" fill="none" stroke="#1c1b19" stroke-width="1" stroke-dasharray="3 3"/>
-                  <text x="100" y="232" font-family="Courier New, monospace" font-size="10" fill="#d2c7b3" text-anchor="middle" font-weight="bold" letter-spacing="1">FILE No. 1</text>
-                </svg>
+              <div class="suspect-portrait border border-newsprint-ink halftone-wrap">
+                <img src="suspects/chickpet-merchant.png" alt="Police file portrait of The Chickpet Silk Merchant" loading="lazy"/>
               </div>
             </div>
             <figcaption>
@@ -563,15 +558,8 @@
           <figure class="border-b border-newsprint-ink sm:border-b-0 pb-4">
             <div class="relative mb-3">
               <span class="absolute -top-3 -right-2 bg-newsprint-ink text-newsprint-base text-[10px] font-bold px-3 py-1 rotate-[8deg] z-10 shadow-md">RETAINED</span>
-              <div class="suspect-portrait border border-newsprint-ink halftone-wrap" role="img" aria-label="Police file portrait of The Memsahib — no photograph on file">
-                <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <rect width="200" height="250" fill="#bdaf96"/>
-                  <ellipse cx="100" cy="95" rx="40" ry="44" fill="#1c1b19"/>
-                  <path d="M55 85 Q100 35 145 85" fill="none" stroke="#1c1b19" stroke-width="8" stroke-linecap="round"/>
-                  <path d="M40 250 Q40 160 100 160 Q160 160 160 250 Z" fill="#1c1b19"/>
-                  <rect x="14" y="14" width="172" height="222" fill="none" stroke="#1c1b19" stroke-width="1" stroke-dasharray="3 3"/>
-                  <text x="100" y="232" font-family="Courier New, monospace" font-size="10" fill="#d2c7b3" text-anchor="middle" font-weight="bold" letter-spacing="1">FILE No. 2</text>
-                </svg>
+              <div class="suspect-portrait border border-newsprint-ink halftone-wrap">
+                <img src="suspects/memsahib.png" alt="Police file portrait of The Memsahib" loading="lazy"/>
               </div>
             </div>
             <figcaption>
@@ -583,15 +571,8 @@
           <figure class="pb-4">
             <div class="relative mb-3">
               <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-newsprint-accent text-white text-[10px] font-bold px-3 py-1 z-10 shadow-md">MISSING</span>
-              <div class="suspect-portrait border border-newsprint-ink halftone-wrap" role="img" aria-label="Police file portrait of The Khansama — no photograph on file">
-                <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <rect width="200" height="250" fill="#bdaf96"/>
-                  <rect x="60" y="52" width="80" height="22" rx="4" fill="#1c1b19"/>
-                  <circle cx="100" cy="100" r="40" fill="#1c1b19"/>
-                  <path d="M40 250 Q40 160 100 160 Q160 160 160 250 Z" fill="#1c1b19"/>
-                  <rect x="14" y="14" width="172" height="222" fill="none" stroke="#1c1b19" stroke-width="1" stroke-dasharray="3 3"/>
-                  <text x="100" y="232" font-family="Courier New, monospace" font-size="10" fill="#d2c7b3" text-anchor="middle" font-weight="bold" letter-spacing="1">FILE No. 3</text>
-                </svg>
+              <div class="suspect-portrait border border-newsprint-ink halftone-wrap">
+                <img src="suspects/khansama.png" alt="Police file portrait of The Khansama" loading="lazy"/>
               </div>
             </div>
             <figcaption>
