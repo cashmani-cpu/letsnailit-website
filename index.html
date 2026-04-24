@@ -113,6 +113,46 @@
     .suspect-portrait { aspect-ratio: 4 / 5; background: #d2c7b3; position: relative; overflow: hidden; }
     .suspect-portrait svg { width: 100%; height: 100%; display: block; }
     .suspect-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media (max-width: 640px) {
+        html { font-size: 110%; }
+        .booking-ribbon {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.65rem 0.75rem;
+            line-height: 1.15;
+        }
+        .booking-ribbon__copy {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            min-width: 0;
+        }
+        .booking-ribbon__main { font-size: 0.68rem; }
+        .booking-ribbon__meta { font-size: 0.58rem; opacity: 0.9; }
+        .booking-ribbon__button {
+            background: #fff;
+            color: #6b1111;
+            padding: 0.45rem 0.6rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .hero-title-mobile {
+            font-size: clamp(2.4rem, 13vw, 3.2rem) !important;
+            margin-bottom: 0.9rem !important;
+        }
+        .hero-deck-mobile {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+            padding-block: 0.6rem !important;
+        }
+        .hero-cta-mobile {
+            width: 100%;
+            padding-inline: 1rem !important;
+            text-align: center;
+        }
+    }
     /* Disable the dropcap on very narrow screens to avoid orphan lines */
     @media (max-width: 480px) {
         .dropcap::first-letter { font-size: 1em !important; float: none !important; margin: 0 !important; font-weight: inherit !important; }
@@ -126,12 +166,7 @@
   "@type": "WebSite",
   "name": "Let's Nail It",
   "url": "https://letsnailit.com/",
-  "description": "Bangalore's signature murder mystery experience — immersive interactive event for corporate team building, date nights and private parties.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://letsnailit.com/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "description": "Bangalore's signature murder mystery experience — immersive interactive event for corporate team building, date nights and private parties."
 }
 </script>
 <script type="application/ld+json">
@@ -312,7 +347,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://letsnailit.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Murder Mystery Experience Bangalore", "item": "https://letsnailit.com/#experience"},
+    {"@type": "ListItem", "position": 2, "name": "Murder Mystery Experience Bangalore", "item": "https://letsnailit.com/#supper-club"},
     {"@type": "ListItem", "position": 3, "name": "Private Events & Corporate Team Building", "item": "https://letsnailit.com/#private"},
     {"@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://letsnailit.com/#faq"}
   ]
@@ -334,10 +369,13 @@
 <a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- Booking ribbon: above-the-fold contemporary CTA so first-time visitors see the offer immediately -->
-<div class="max-w-6xl mx-auto mb-2 bg-newsprint-accent text-white px-3 py-2 flex flex-wrap items-center justify-between gap-2 text-[11px] md:text-xs font-bold uppercase tracking-widest shadow">
-  <span class="flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 bg-white rounded-full"></span>Book Now · ₹999 · Fri–Sun · Aga Abbas Ali Road</span>
+<div class="booking-ribbon max-w-6xl mx-auto mb-2 bg-newsprint-accent text-white px-3 py-2 flex flex-wrap items-center justify-between gap-2 text-[11px] md:text-xs font-bold uppercase tracking-widest shadow">
+  <span class="booking-ribbon__copy flex items-center gap-2">
+    <span class="booking-ribbon__main flex items-center gap-2"><span class="inline-block w-1.5 h-1.5 bg-white rounded-full"></span>Book Now · ₹999</span>
+    <span class="booking-ribbon__meta">Fri–Sun · Aga Abbas Ali Road</span>
+  </span>
   <span class="flex items-center gap-3">
-    <button type="button" data-open-modal="partyModal" class="underline underline-offset-2 hover:no-underline">Reserve →</button>
+    <button type="button" data-open-modal="partyModal" class="booking-ribbon__button underline underline-offset-2 hover:no-underline">Reserve →</button>
   </span>
 </div>
 
@@ -394,10 +432,10 @@
 
       <!-- Hero story -->
       <div class="mb-10" id="supper-club">
-        <h2 class="font-headline text-5xl md:text-[5.5rem] font-black uppercase leading-[0.85] mb-6 headline-shadow italic tracking-tighter">
+        <h2 class="hero-title-mobile font-headline text-5xl md:text-[5.5rem] font-black uppercase leading-[0.85] mb-6 headline-shadow italic tracking-tighter">
           TRAGEDY AT RICHARDS TOWN!
         </h2>
-        <h3 class="font-headline text-xl md:text-2xl font-bold uppercase mb-6 border-y-2 border-newsprint-ink py-3 leading-tight">
+        <h3 class="hero-deck-mobile font-headline text-xl md:text-2xl font-bold uppercase mb-6 border-y-2 border-newsprint-ink py-3 leading-tight">
           BRITISH OFFICER FOUND DEAD IN COLONIAL BUNGALOW; SERVANTS FLEE AS "CURSE OF THE MYSORE TIGER" RUMORS SPREAD
         </h3>
 
@@ -413,7 +451,7 @@
             </p>
             <div class="mt-6 flex flex-wrap gap-3">
               <button type="button" data-open-modal="partyModal"
-                      class="bg-newsprint-ink text-newsprint-base px-8 py-4 font-bold uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg text-base">
+                      class="hero-cta-mobile bg-newsprint-ink text-newsprint-base px-8 py-4 font-bold uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg text-base">
                 Join the Investigation! »
               </button>
             </div>
@@ -427,12 +465,12 @@
           <div class="order-2">
             <figure class="halftone-wrap border-2 border-newsprint-ink p-1 bg-white mb-2 shadow-md">
               <img alt="Evidence: case file dossier, confidential envelope, pocket watch and key from the Richards Town murder" class="halftone contrast-150" src="mystery-props.png"/>
+              <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight mt-2">FIG 1. EVIDENCE RECOVERED FROM 'THE SILVER OAKS', RICHARDS TOWN — DOSSIER NO. 43-B, CASE FILE: THE HENDERSON MURDER.</figcaption>
             </figure>
-            <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight">FIG 1. EVIDENCE RECOVERED FROM 'THE SILVER OAKS', RICHARDS TOWN — DOSSIER NO. 43-B, CASE FILE: THE HENDERSON MURDER.</figcaption>
             <figure class="halftone-wrap border-2 border-newsprint-ink p-1 bg-white mt-4 shadow-md">
               <img alt="Inspector poring over a map of Bangalore in a colonial study by lamplight" class="halftone contrast-150" src="mystery-scene.png"/>
+              <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight mt-2">FIG 2. INSPECTOR RAO CROSS-REFERENCES WITNESS ACCOUNTS AGAINST A MAP OF THE CANTONMENT DISTRICT.</figcaption>
             </figure>
-            <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight mt-1">FIG 2. INSPECTOR RAO CROSS-REFERENCES WITNESS ACCOUNTS AGAINST A MAP OF THE CANTONMENT DISTRICT.</figcaption>
           </div>
         </div>
       </div>
