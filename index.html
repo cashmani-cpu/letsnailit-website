@@ -39,125 +39,11 @@
 <!-- Preconnects -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Old+Standard+TT:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    newsprint: {
-                        base: '#d2c7b3',
-                        dark: '#bdaf96',
-                        ink: '#1c1b19',
-                        accent: '#6b1111'
-                    }
-                },
-                fontFamily: {
-                    'masthead': ['UnifrakturMaguntia', 'serif'],
-                    'headline': ['"Playfair Display"', 'serif'],
-                    'body': ['"Old Standard TT"', 'serif'],
-                    'typewriter': ['"Courier New"', 'Courier', 'monospace'],
-                }
-            }
-        }
-    }
-</script>
-<style type="text/tailwindcss">
-    @layer base {
-        html {
-            font-size: 118%;
-        }
-        body {
-            @apply bg-newsprint-base text-newsprint-ink font-body leading-tight;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
-        }
-    }
-    .halftone {
-        filter: contrast(160%) grayscale(100%) brightness(85%);
-    }
-    .halftone-wrap {
-        position: relative;
-        display: block;
-    }
-    .halftone-wrap > img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .column-rule { border-left: 1px solid #1a1a1a; }
-    .headline-shadow { text-shadow: 2px 2px 0px rgba(0,0,0,0.15); }
-    .newspaper-border { border: 6px double #1a1a1a; }
-    .weathered { box-shadow: inset 0 0 120px rgba(0,0,0,0.1); }
-    /* Modal styling in newsprint aesthetic */
-    .gazette-modal {
-        background-color: #d2c7b3;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E");
-    }
-    .gazette-input {
-        @apply bg-transparent border-0 border-b-2 border-newsprint-ink w-full py-1 px-0 font-typewriter text-newsprint-ink focus:outline-none focus:border-newsprint-accent;
-    }
-    .gazette-label {
-        @apply block font-typewriter text-[10px] uppercase tracking-widest text-newsprint-ink/75 mb-1;
-    }
-    /* Skip link for keyboard users */
-    .skip-link {
-        position: absolute; left: -9999px; top: 0; z-index: 200;
-        background: #1c1b19; color: #d2c7b3; padding: 0.75rem 1rem;
-        font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.1em;
-    }
-    .skip-link:focus { left: 0.5rem; top: 0.5rem; }
-    /* SVG portrait card for suspects (no external image dependency) */
-    .suspect-portrait { aspect-ratio: 4 / 5; background: #d2c7b3; position: relative; overflow: hidden; }
-    .suspect-portrait svg { width: 100%; height: 100%; display: block; }
-    .suspect-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    @media (max-width: 640px) {
-        html { font-size: 110%; }
-        .booking-ribbon {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            align-items: center;
-            gap: 0.65rem;
-            padding: 0.65rem 0.75rem;
-            line-height: 1.15;
-        }
-        .booking-ribbon__copy {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-            min-width: 0;
-        }
-        .booking-ribbon__main { font-size: 0.68rem; }
-        .booking-ribbon__meta { font-size: 0.58rem; opacity: 0.9; }
-        .booking-ribbon__button {
-            background: #fff;
-            color: #6b1111;
-            padding: 0.45rem 0.6rem;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-        .hero-title-mobile {
-            font-size: clamp(2.4rem, 13vw, 3.2rem) !important;
-            margin-bottom: 0.9rem !important;
-        }
-        .hero-deck-mobile {
-            font-size: 1rem !important;
-            margin-bottom: 1rem !important;
-            padding-block: 0.6rem !important;
-        }
-        .hero-cta-mobile {
-            width: 100%;
-            padding-inline: 1rem !important;
-            text-align: center;
-        }
-    }
-    /* Disable the dropcap on very narrow screens to avoid orphan lines */
-    @media (max-width: 480px) {
-        .dropcap::first-letter { font-size: 1em !important; float: none !important; margin: 0 !important; font-weight: inherit !important; }
-    }
-</style>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preload" as="image" href="assets/img/logo-final-c4ebb2fb-480.webp" imagesrcset="assets/img/logo-final-c4ebb2fb-480.webp 480w, assets/img/logo-final-c4ebb2fb-768.webp 768w, assets/img/logo-final-c4ebb2fb-1024.webp 1024w" imagesizes="128px">
 
 <!-- SEO: Structured Data -->
 <script type="application/ld+json">
@@ -353,16 +239,7 @@
   ]
 }
 </script>
-<!-- Meta Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1121055437750097'); fbq('track', 'PageView');</script><noscript> <img height="1" width="1" src="https://www.facebook.com/tr?id=1121055437750097&ev=PageView&noscript=1"/></noscript><!-- End Meta Pixel Code -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVYK1LYM7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QVYK1LYM7R');
-</script>
+<script src="assets/js/analytics.js" defer></script>
 </head>
 <body class="p-2 md:p-6 selection:bg-newsprint-ink selection:text-newsprint-base">
 
@@ -383,7 +260,7 @@
 
   <!-- Brand seal — Let's Nail It, styled as an official press stamp over the masthead -->
   <a href="/" aria-label="Let's Nail It — home" class="hidden md:block absolute top-20 right-10 w-32 h-32 -rotate-[8deg] pointer-events-auto z-10 drop-shadow-md transition-transform hover:rotate-0 hover:scale-105">
-    <img src="logo-final.png" alt="Let's Nail It — a Bangalore supper-club mystery" width="128" height="128" class="w-full h-full rounded-full border-[3px] border-newsprint-ink/70 shadow-lg object-cover bg-newsprint-base" />
+    <img width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" data-original-src="logo-final.png" data-image-priority="high" data-image-sizes="128px" src="assets/img/logo-final-c4ebb2fb-1024.webp" alt="Let's Nail It — a Bangalore supper-club mystery" class="w-full h-full rounded-full border-[3px] border-newsprint-ink/70 shadow-lg object-cover bg-newsprint-base" srcset="assets/img/logo-final-c4ebb2fb-480.webp 480w, assets/img/logo-final-c4ebb2fb-768.webp 768w, assets/img/logo-final-c4ebb2fb-1024.webp 1024w" sizes="128px">
   </a>
 
   <!-- ═══ MASTHEAD ═══ -->
@@ -416,10 +293,10 @@
       <!-- Mobile Toggle Button -->
       <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden flex items-center justify-between gap-3 px-3 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
         <div class="flex items-center gap-2">
-          <i class="fas fa-bars text-newsprint-accent group-hover:text-white transition-colors" aria-hidden="true"></i>
+          <span class="icon" aria-hidden="true">☰</span>
           <span>Sections &amp; Dispatches</span>
         </div>
-        <i class="fas fa-chevron-right text-[10px] opacity-40 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+        <span class="icon" aria-hidden="true">›</span>
       </button>
     </div>
   </nav>
@@ -464,11 +341,11 @@
           <!-- Imagery follows copy on mobile; side-by-side on desktop -->
           <div class="order-2">
             <figure class="halftone-wrap border-2 border-newsprint-ink p-1 bg-white mb-2 shadow-md">
-              <img alt="Evidence: case file dossier, confidential envelope, pocket watch and key from the Richards Town murder" class="halftone contrast-150" src="mystery-props.png"/>
+              <img width="1024" height="1024" decoding="async" loading="lazy" data-original-src="mystery-props.png" alt="Evidence: case file dossier, confidential envelope, pocket watch and key from the Richards Town murder" class="halftone contrast-150" src="assets/img/mystery-props-4be83832-1024.webp" srcset="assets/img/mystery-props-4be83832-480.webp 480w, assets/img/mystery-props-4be83832-768.webp 768w, assets/img/mystery-props-4be83832-1024.webp 1024w" sizes="(max-width: 768px) 100vw, 50vw">
               <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight mt-2">FIG 1. EVIDENCE RECOVERED FROM 'THE SILVER OAKS', RICHARDS TOWN — DOSSIER NO. 43-B, CASE FILE: THE HENDERSON MURDER.</figcaption>
             </figure>
             <figure class="halftone-wrap border-2 border-newsprint-ink p-1 bg-white mt-4 shadow-md">
-              <img alt="Inspector poring over a map of Bangalore in a colonial study by lamplight" class="halftone contrast-150" src="mystery-scene.png"/>
+              <img width="1024" height="1024" decoding="async" loading="lazy" data-original-src="mystery-scene.png" alt="Inspector poring over a map of Bangalore in a colonial study by lamplight" class="halftone contrast-150" src="assets/img/mystery-scene-44522c62-1024.webp" srcset="assets/img/mystery-scene-44522c62-480.webp 480w, assets/img/mystery-scene-44522c62-768.webp 768w, assets/img/mystery-scene-44522c62-1024.webp 1024w" sizes="(max-width: 768px) 100vw, 50vw">
               <figcaption class="text-[10px] uppercase font-bold text-center italic leading-tight mt-2">FIG 2. INSPECTOR RAO CROSS-REFERENCES WITNESS ACCOUNTS AGAINST A MAP OF THE CANTONMENT DISTRICT.</figcaption>
             </figure>
           </div>
@@ -575,7 +452,7 @@
             <div class="relative mb-3">
               <span class="absolute -top-3 -left-2 bg-newsprint-accent text-white text-[10px] font-bold px-3 py-1 rotate-[-8deg] z-10 shadow-md">NO ALIBI</span>
               <div class="suspect-portrait border border-newsprint-ink halftone-wrap">
-                <img src="suspects/chickpet-merchant.png" alt="Police file portrait of The Chickpet Silk Merchant" loading="lazy"/>
+                <img width="1856" height="2304" decoding="async" loading="lazy" data-original-src="suspects/chickpet-merchant.png" src="assets/img/suspects-chickpet-merchant-a9aaff69-1856.webp" alt="Police file portrait of The Chickpet Silk Merchant" srcset="assets/img/suspects-chickpet-merchant-a9aaff69-480.webp 480w, assets/img/suspects-chickpet-merchant-a9aaff69-768.webp 768w, assets/img/suspects-chickpet-merchant-a9aaff69-1200.webp 1200w, assets/img/suspects-chickpet-merchant-a9aaff69-1856.webp 1856w" sizes="(max-width: 768px) 100vw, 50vw">
               </div>
             </div>
             <figcaption>
@@ -588,7 +465,7 @@
             <div class="relative mb-3">
               <span class="absolute -top-3 -right-2 bg-newsprint-ink text-newsprint-base text-[10px] font-bold px-3 py-1 rotate-[8deg] z-10 shadow-md">RETAINED</span>
               <div class="suspect-portrait border border-newsprint-ink halftone-wrap">
-                <img src="suspects/memsahib.png" alt="Police file portrait of The Memsahib" loading="lazy"/>
+                <img width="1856" height="2304" decoding="async" loading="lazy" data-original-src="suspects/memsahib.png" src="assets/img/suspects-memsahib-fdb8df1a-1856.webp" alt="Police file portrait of The Memsahib" srcset="assets/img/suspects-memsahib-fdb8df1a-480.webp 480w, assets/img/suspects-memsahib-fdb8df1a-768.webp 768w, assets/img/suspects-memsahib-fdb8df1a-1200.webp 1200w, assets/img/suspects-memsahib-fdb8df1a-1856.webp 1856w" sizes="(max-width: 768px) 100vw, 50vw">
               </div>
             </div>
             <figcaption>
@@ -601,7 +478,7 @@
             <div class="relative mb-3">
               <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-newsprint-accent text-white text-[10px] font-bold px-3 py-1 z-10 shadow-md">MISSING</span>
               <div class="suspect-portrait border border-newsprint-ink halftone-wrap">
-                <img src="suspects/khansama.png" alt="Police file portrait of The Khansama" loading="lazy"/>
+                <img width="1856" height="2304" decoding="async" loading="lazy" data-original-src="suspects/khansama.png" src="assets/img/suspects-khansama-24793a42-1856.webp" alt="Police file portrait of The Khansama" srcset="assets/img/suspects-khansama-24793a42-480.webp 480w, assets/img/suspects-khansama-24793a42-768.webp 768w, assets/img/suspects-khansama-24793a42-1200.webp 1200w, assets/img/suspects-khansama-24793a42-1856.webp 1856w" sizes="(max-width: 768px) 100vw, 50vw">
               </div>
             </div>
             <figcaption>
@@ -728,16 +605,16 @@
         <h3 class="font-headline text-lg font-bold uppercase border-b-2 border-newsprint-ink mb-4 pb-1">EVIDENCE LOCKER</h3>
         <div class="grid grid-cols-2 gap-3 mb-4">
           <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Pocket watch, recovered from the study floor — stopped at 11:42 PM">
-            <img src="evidence/exhibit-a.png" alt="Silver pocket watch on black velvet, Roman numerals, chain trailing off — Exhibit A" loading="lazy" decoding="async" />
+            <img width="2048" height="2048" decoding="async" loading="lazy" data-original-src="evidence/exhibit-a.png" src="assets/img/evidence-exhibit-a-9f6657ae-2048.webp" alt="Silver pocket watch on black velvet, Roman numerals, chain trailing off — Exhibit A" srcset="assets/img/evidence-exhibit-a-9f6657ae-480.webp 480w, assets/img/evidence-exhibit-a-9f6657ae-768.webp 768w, assets/img/evidence-exhibit-a-9f6657ae-1200.webp 1200w, assets/img/evidence-exhibit-a-9f6657ae-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 50vw">
           </figure>
           <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Brass key marked 'Silver Oaks — Study' recovered beside the body">
-            <img src="evidence/exhibit-b.png" alt="Ornate brass skeleton key with luggage tag on black velvet — Exhibit B" loading="lazy" decoding="async" />
+            <img width="2048" height="2048" decoding="async" loading="lazy" data-original-src="evidence/exhibit-b.png" src="assets/img/evidence-exhibit-b-547fc205-2048.webp" alt="Ornate brass skeleton key with luggage tag on black velvet — Exhibit B" srcset="assets/img/evidence-exhibit-b-547fc205-480.webp 480w, assets/img/evidence-exhibit-b-547fc205-768.webp 768w, assets/img/evidence-exhibit-b-547fc205-1200.webp 1200w, assets/img/evidence-exhibit-b-547fc205-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 50vw">
           </figure>
           <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Sealed envelope addressed to the Resident Commissioner, Mysore — missing from the dossier">
-            <img src="evidence/exhibit-c.png" alt="Parchment envelope with dark wax seal bearing a crest, on black velvet — Exhibit C" loading="lazy" decoding="async" />
+            <img width="2048" height="2048" decoding="async" loading="lazy" data-original-src="evidence/exhibit-c.png" src="assets/img/evidence-exhibit-c-b84a85d8-2048.webp" alt="Parchment envelope with dark wax seal bearing a crest, on black velvet — Exhibit C" srcset="assets/img/evidence-exhibit-c-b84a85d8-480.webp 480w, assets/img/evidence-exhibit-c-b84a85d8-768.webp 768w, assets/img/evidence-exhibit-c-b84a85d8-1200.webp 1200w, assets/img/evidence-exhibit-c-b84a85d8-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 50vw">
           </figure>
           <figure class="aspect-square bg-white border border-newsprint-ink p-1 shadow-inner halftone-wrap" role="img" aria-label="Wine glass recovered from the scene — dregs still present, lip bearing a single fingerprint, pending laboratory analysis">
-            <img src="evidence/exhibit-d.png" alt="Crystal wine glass half-filled with dark wine, fingerprint smudge on rim, on black velvet — Exhibit D" loading="lazy" decoding="async" />
+            <img width="2048" height="2048" decoding="async" loading="lazy" data-original-src="evidence/exhibit-d.png" src="assets/img/evidence-exhibit-d-96ff6ad7-2048.webp" alt="Crystal wine glass half-filled with dark wine, fingerprint smudge on rim, on black velvet — Exhibit D" srcset="assets/img/evidence-exhibit-d-96ff6ad7-480.webp 480w, assets/img/evidence-exhibit-d-96ff6ad7-768.webp 768w, assets/img/evidence-exhibit-d-96ff6ad7-1200.webp 1200w, assets/img/evidence-exhibit-d-96ff6ad7-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 50vw">
           </figure>
         </div>
         <div class="bg-newsprint-accent/10 p-3 border border-newsprint-accent/30">
@@ -762,17 +639,17 @@
         <h3 class="font-headline text-sm font-bold uppercase border-b-2 border-newsprint-ink mb-3 pb-1 tracking-widest">REACH THE GAZETTE DESK</h3>
         <div class="space-y-2 text-xs font-bold uppercase tracking-wider">
           <p class="flex items-center gap-2 text-newsprint-ink/80">
-            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Aga Abbas Ali Road, Bangalore
+            <span class="icon" aria-hidden="true">⌖</span> Aga Abbas Ali Road, Bangalore
           </p>
           <p class="flex items-center gap-2 text-newsprint-ink/80">
-            <i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@letsnailit.com" class="hover:text-newsprint-accent transition-colors">hello@letsnailit.com</a>
+            <span class="icon" aria-hidden="true">✉</span> <a href="mailto:hello@letsnailit.com" class="hover:text-newsprint-accent transition-colors">hello@letsnailit.com</a>
           </p>
           <p class="flex items-center gap-2 text-newsprint-ink/80">
-            <i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+919731000440" class="hover:text-newsprint-accent transition-colors">+91 97310 00440</a>
+            <span class="icon" aria-hidden="true">☎</span> <a href="tel:+919731000440" class="hover:text-newsprint-accent transition-colors">+91 97310 00440</a>
           </p>
           <div class="flex gap-4 pt-2 border-t border-newsprint-ink/20 text-lg">
-            <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-newsprint-accent transition-colors"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-newsprint-accent transition-colors"><span class="icon" aria-hidden="true">IG</span></a>
+            <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-newsprint-accent transition-colors"><span class="icon" aria-hidden="true">f</span></a>
           </div>
         </div>
       </div>
@@ -808,7 +685,7 @@
   <footer class="mt-10 border-t-4 border-double border-newsprint-ink pt-6">
     <!-- Colophon — visible on all breakpoints, primary brand mark on mobile where the masthead seal is hidden -->
     <div class="flex items-center justify-center gap-3 pb-5 mb-5 border-b border-newsprint-ink/20">
-      <img src="logo-final.png" alt="" aria-hidden="true" width="56" height="56" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-newsprint-ink/40 shadow-sm bg-newsprint-base" />
+      <img width="1024" height="1024" decoding="async" loading="lazy" data-original-src="logo-final.png" src="assets/img/logo-final-c4ebb2fb-1024.webp" alt="" aria-hidden="true" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-newsprint-ink/40 shadow-sm bg-newsprint-base" srcset="assets/img/logo-final-c4ebb2fb-480.webp 480w, assets/img/logo-final-c4ebb2fb-768.webp 768w, assets/img/logo-final-c4ebb2fb-1024.webp 1024w" sizes="(max-width: 768px) 100vw, 50vw">
       <div class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-newsprint-ink/70 leading-snug">
         Published by<br/>
         <span class="text-newsprint-ink">Let's Nail It</span> · Bangalore
@@ -994,272 +871,12 @@
   </div>
 </div>
 
-<script>
-(function () {
-  'use strict';
-
-  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzgJ9BX5TKTlOTKqPf-cMGcd9ZXSPcPCB4zTN8PNhlns_kfpyxfuwV3LWRhYGoQe2K_/exec';
-  const FOCUSABLE = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
-  const DISPATCH_IDS = ['dispatch1','dispatch2','dispatch3'];
-  const MODAL_IDS = ['partyModal','privateModal'];
-  const ALL_MODALS = MODAL_IDS.concat(DISPATCH_IDS);
-
-  const lockedOpenCount = { n: 0 };
-  let lastFocus = null;
-  let activeKeyHandler = null;
-
-  function lockScroll() {
-    lockedOpenCount.n++;
-    document.body.style.overflow = 'hidden';
-  }
-  function unlockScroll() {
-    lockedOpenCount.n = Math.max(0, lockedOpenCount.n - 1);
-    if (lockedOpenCount.n === 0) document.body.style.overflow = '';
-  }
-
-  function refreshDateBounds() {
-    const today = new Date().toISOString().split('T')[0];
-    const max = new Date();
-    max.setMonth(max.getMonth() + 6);
-    const maxStr = max.toISOString().split('T')[0];
-    document.querySelectorAll('input[type="date"]').forEach(inp => {
-      inp.min = today;
-      inp.max = maxStr;
-    });
-  }
-
-  function trapFocus(container) {
-    const focusables = container.querySelectorAll(FOCUSABLE);
-    if (!focusables.length) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    activeKeyHandler = function (e) {
-      if (e.key !== 'Tab') return;
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault(); last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault(); first.focus();
-      }
-    };
-    container.addEventListener('keydown', activeKeyHandler);
-    // Prefer close button, fall back to first field
-    const preferred = container.querySelector('[data-close-modal], [data-close-dispatch], [aria-label="Close"]');
-    const firstField = container.querySelector('input:not([type="hidden"]), select, textarea');
-    (firstField || preferred || first).focus();
-  }
-  function releaseFocus(container) {
-    if (activeKeyHandler) {
-      container.removeEventListener('keydown', activeKeyHandler);
-      activeKeyHandler = null;
-    }
-    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    lastFocus = null;
-  }
-
-  function openModal(id) {
-    const m = document.getElementById(id);
-    if (!m || !m.classList.contains('hidden')) return;
-    lastFocus = document.activeElement;
-    m.classList.remove('hidden');
-    lockScroll();
-    refreshDateBounds();
-    requestAnimationFrame(() => trapFocus(m));
-  }
-  function closeModal(id) {
-    const m = document.getElementById(id);
-    if (!m || m.classList.contains('hidden')) return;
-    m.classList.add('hidden');
-    unlockScroll();
-    releaseFocus(m);
-  }
-
-  /* Event delegation — no inline onclick */
-  document.addEventListener('click', function (e) {
-    const openModalTgt = e.target.closest('[data-open-modal]');
-    if (openModalTgt) { openModal(openModalTgt.dataset.openModal); return; }
-
-    const closeModalTgt = e.target.closest('[data-close-modal]');
-    if (closeModalTgt) { closeModal(closeModalTgt.dataset.closeModal); return; }
-
-    const openDispatchTgt = e.target.closest('[data-open-dispatch]');
-    if (openDispatchTgt) { openModal(openDispatchTgt.dataset.openDispatch); return; }
-
-    const closeDispatchTgt = e.target.closest('[data-close-dispatch]');
-    if (closeDispatchTgt) { closeModal(closeDispatchTgt.dataset.closeDispatch); return; }
-  });
-
-  /* Escape closes whichever modal is open */
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    ALL_MODALS.forEach(id => {
-      const m = document.getElementById(id);
-      if (m && !m.classList.contains('hidden')) closeModal(id);
-    });
-    const menu = document.getElementById('mobile-menu');
-    if (menu && !menu.classList.contains('hidden')) toggleMobileMenu();
-  });
-
-  /* Waitlist form handler — called after sold-out screen is injected */
-  function attachWaitlistHandler(waitlistForm) {
-    waitlistForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      if (!waitlistForm.checkValidity()) { waitlistForm.reportValidity(); return; }
-      const btn = waitlistForm.querySelector('button[type="submit"]');
-      const errorEl = waitlistForm.querySelector('[data-form-error]');
-      if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
-      const orig = btn.textContent;
-      btn.textContent = 'Dispatching...';
-      btn.disabled = true;
-      try {
-        const payload = Object.fromEntries(new FormData(waitlistForm));
-        const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
-        const res = await fetch(url, { redirect: 'follow' });
-        const json = await res.json();
-        if (!json.ok) throw new Error('bad response');
-        waitlistForm.innerHTML =
-          '<div class="text-center py-6" role="status" aria-live="polite">' +
-          '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
-          '<h3 class="font-headline text-2xl font-black uppercase mb-2">You\'re on the list.</h3>' +
-          '<p class="text-sm italic text-newsprint-ink/80">We\'ll contact you the moment a seat opens up for 25 April 2026.</p>' +
-          '</div>';
-      } catch (err) {
-        btn.textContent = orig; btn.disabled = false;
-        if (errorEl) { errorEl.textContent = 'Dispatch failed — please try again or email hello@letsnailit.com.'; errorEl.classList.remove('hidden'); }
-      }
-    });
-  }
-
-  /* Real Formspree POST with success/error handling */
-  document.querySelectorAll('form[data-form-flow]').forEach(form => {
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      /* Reservation form: April 25 is sold out — capture data then offer one-click waitlist */
-      if (form.dataset.formFlow === 'reservation') {
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        const captured = Object.fromEntries(new FormData(form));
-        /* Always save their details immediately — regardless of waitlist choice */
-        const silentPayload = { ...captured, form_type: 'reservation_interest', date: '2026-04-25' };
-        fetch(FORM_ENDPOINT + '?' + new URLSearchParams({ ...silentPayload, _t: Date.now() }).toString(), { redirect: 'follow' });
-        const modal = form.closest('.gazette-modal');
-        modal.innerHTML =
-          '<button type="button" data-close-modal="partyModal"' +
-          ' class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>' +
-          '<p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">SOLD OUT — 25 APRIL 2026</p>' +
-          '<h2 class="font-headline text-3xl font-black uppercase leading-tight mb-1">This Evening is Full.</h2>' +
-          '<p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Every seat for 25 April has been claimed. Would you like to join the waitlist? We\'ll reach out the moment something opens up — or when the next date is announced.</p>' +
-          '<div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>' +
-          '<button id="wl-confirm-btn" class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg mb-3">YES, JOIN THE WAITLIST »</button>' +
-          '<button type="button" data-close-modal="partyModal" class="w-full border border-newsprint-ink/40 py-3 font-black uppercase tracking-widest text-sm hover:border-newsprint-accent hover:text-newsprint-accent transition-colors">No thanks</button>';
-        modal.querySelectorAll('[data-close-modal]').forEach(btn => {
-          btn.addEventListener('click', () => closeModal(btn.dataset.closeModal));
-        });
-        const confirmBtn = modal.querySelector('#wl-confirm-btn');
-        const errorEl = modal.querySelector('[data-form-error]');
-        confirmBtn.addEventListener('click', async function () {
-          confirmBtn.textContent = 'Dispatching...';
-          confirmBtn.disabled = true;
-          try {
-            const payload = { ...captured, form_type: 'waitlist', date: '2026-04-25' };
-            const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
-            const res = await fetch(url, { redirect: 'follow' });
-            const json = await res.json();
-            if (!json.ok) throw new Error('bad response');
-            modal.innerHTML =
-              '<div class="text-center py-6" role="status" aria-live="polite">' +
-              '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
-              '<h3 class="font-headline text-2xl font-black uppercase mb-2">You\'re on the list.</h3>' +
-              '<p class="text-sm italic text-newsprint-ink/80">We\'ll contact you the moment a seat opens up for 25 April 2026.</p>' +
-              '</div>';
-          } catch (err) {
-            confirmBtn.textContent = 'YES, JOIN THE WAITLIST »';
-            confirmBtn.disabled = false;
-            if (errorEl) { errorEl.textContent = 'Dispatch failed — please try again or email hello@letsnailit.com.'; errorEl.classList.remove('hidden'); }
-          }
-        });
-        return;
-      }
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const errorEl = form.querySelector('[data-form-error]');
-      if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      const originalBtnText = submitBtn.textContent;
-      submitBtn.textContent = 'Dispatching...';
-      submitBtn.disabled = true;
-
-      try {
-        const payload = Object.fromEntries(new FormData(form));
-        const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
-        const response = await fetch(url, { redirect: 'follow' });
-        const json = await response.json();
-        if (!json.ok) throw new Error('Bad response');
-        const successMsg = form.dataset.success || "We'll be in touch shortly to confirm your booking.";
-        form.innerHTML =
-          '<div class="text-center py-6" role="status" aria-live="polite">' +
-          '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
-          '<h3 class="font-headline text-2xl font-black uppercase mb-2">Dispatch Received.</h3>' +
-          '<p class="text-sm italic text-newsprint-ink/80">' + successMsg + '</p>' +
-          '</div>';
-      } catch (err) {
-        submitBtn.textContent = originalBtnText;
-        submitBtn.disabled = false;
-        if (errorEl) {
-          errorEl.textContent = 'Dispatch failed — please try again or email hello@letsnailit.com.';
-          errorEl.classList.remove('hidden');
-        }
-      }
-    });
-  });
-
-  /* Mobile menu toggle */
-  window.toggleMobileMenu = function () {
-    const menu = document.getElementById('mobile-menu');
-    const content = document.getElementById('mobile-menu-content');
-    const toggle = document.getElementById('mobile-menu-toggle');
-    if (!menu || !content) return;
-
-    if (menu.classList.contains('hidden')) {
-      lastFocus = document.activeElement;
-      menu.classList.remove('hidden');
-      void content.offsetHeight; // force reflow so the transform animates
-      content.classList.remove('translate-x-full');
-      lockScroll();
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-      requestAnimationFrame(() => trapFocus(content));
-    } else {
-      content.classList.add('translate-x-full');
-      setTimeout(() => {
-        menu.classList.add('hidden');
-        unlockScroll();
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        releaseFocus(content);
-      }, 300);
-    }
-  };
-
-  /* Wire the mobile menu toggle (no inline onclick) */
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  if (toggleBtn) toggleBtn.addEventListener('click', window.toggleMobileMenu);
-  document.querySelectorAll('[data-toggle="mobile-menu"]').forEach(el => {
-    el.addEventListener('click', window.toggleMobileMenu);
-  });
-
-  /* Refresh date bounds at load + whenever the page is revealed after midnight */
-  refreshDateBounds();
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshDateBounds(); });
-})();
-</script>
+<script src="assets/js/index.js" defer></script>
 
 <!-- ═══ MOBILE NAVIGATION DRAWER ═══ -->
 <div id="mobile-menu" class="hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true">
   <!-- Backdrop -->
-  <div class="absolute inset-0 bg-newsprint-ink/60 backdrop-blur-md transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
+  <div class="absolute inset-0 bg-newsprint-ink/60 backdrop-blur-md transition-opacity duration-300" data-close-menu></div>
   
   <!-- Drawer Content -->
   <div id="mobile-menu-content" class="absolute top-0 right-0 w-[85%] max-w-[320px] h-full bg-newsprint-base border-l-4 border-newsprint-ink shadow-2xl transform transition-transform duration-300 ease-in-out translate-x-full overflow-y-auto flex flex-col">
@@ -1271,8 +888,8 @@
           <p class="text-[9px] font-bold uppercase tracking-widest text-newsprint-accent mb-1 underline decoration-double">South Parade Dispatch</p>
           <h2 class="font-masthead text-4xl tracking-tight leading-none">The Gazette</h2>
         </div>
-        <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center border-2 border-newsprint-ink rounded-full hover:bg-newsprint-accent hover:text-white transition-colors" aria-label="Close menu">
-          <i class="fas fa-times"></i>
+        <button data-toggle="mobile-menu" class="w-10 h-10 flex items-center justify-center border-2 border-newsprint-ink rounded-full hover:bg-newsprint-accent hover:text-white transition-colors" aria-label="Close menu">
+          <span class="icon" aria-hidden="true">×</span>
         </button>
       </div>
       <p class="text-[10px] font-bold uppercase tracking-wider italic text-newsprint-ink/60">"For King, Country and the Garden City"</p>
@@ -1282,29 +899,29 @@
     <nav class="flex-1 p-6 space-y-1">
       <p class="text-[9px] font-black uppercase tracking-[0.2em] text-newsprint-ink/40 mb-4 border-b border-newsprint-ink/10 pb-2">Main Sections</p>
       
-      <a href="#supper-club" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="#supper-club" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">The Mystery</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
       
-      <a href="#how" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="#how" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">How It Works</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
       
-      <a href="#private" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="#private" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">Private Events</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
 
-      <a href="#faq" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="#faq" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">FAQ</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
 
-      <a href="/blog/" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-4 mt-4 bg-newsprint-ink text-white px-4 -mx-2">
+      <a href="/blog/" data-close-menu class="flex items-center justify-between group py-4 mt-4 bg-newsprint-ink text-white px-4 -mx-2">
         <span class="font-headline text-xl font-black uppercase">Gazette Archives</span>
-        <i class="fas fa-newspaper"></i>
+        <span class="icon" aria-hidden="true">▣</span>
       </a>
     </nav>
 
@@ -1312,7 +929,7 @@
     <div class="p-6 mt-auto bg-newsprint-accent/10 border-t-2 border-newsprint-ink">
       <p class="text-[9px] font-black uppercase tracking-widest text-newsprint-accent mb-3">Breaking: New Dates Added</p>
       <p class="text-[11px] font-body leading-relaxed text-newsprint-ink/80 italic mb-4">"The killer is amongst us. Secure your seat at the table before history repeats itself."</p>
-      <button onclick="toggleMobileMenu(); document.getElementById('partyModal').classList.remove('hidden')" class="w-full bg-newsprint-accent text-white py-3 font-bold uppercase tracking-widest text-xs shadow-lg hover:bg-newsprint-ink transition-colors">
+      <button data-close-menu data-open-modal="partyModal" class="w-full bg-newsprint-accent text-white py-3 font-bold uppercase tracking-widest text-xs shadow-lg hover:bg-newsprint-ink transition-colors">
         Join the Investigation »
       </button>
     </div>

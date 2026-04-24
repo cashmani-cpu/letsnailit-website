@@ -1,0 +1,23 @@
+{
+  "brand": {
+    "name": "Let's Nail It",
+    "publicationName": "The Bangalore Gazette"
+  },
+  "event": {
+    "publicSessionLabel": "Saturday, 25 April 2026, 6.30 PM",
+    "publicSessionDate": "2026-04-25",
+    "publicPrice": "999",
+    "privatePriceFrom": "799",
+    "location": "Aga Abbas Ali Road, Bangalore",
+    "days": "Fri-Sun"
+  },
+  "contact": {
+    "email": "hello@letsnailit.com",
+    "phone": "+91 97310 00440",
+    "phoneHref": "+919731000440"
+  },
+  "analytics": {
+    "googleMeasurementId": "G-QVYK1LYM7R",
+    "metaPixelId": "1121055437750097"
+  }
+}

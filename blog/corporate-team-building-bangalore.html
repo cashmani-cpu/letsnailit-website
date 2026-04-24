@@ -31,35 +31,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Old+Standard+TT:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    colors: { newsprint: { base: '#d2c7b3', dark: '#bdaf96', ink: '#1c1b19', accent: '#6b1111' } },
-    fontFamily: { masthead: ['UnifrakturMaguntia','serif'], headline: ['"Playfair Display"','serif'], body: ['"Old Standard TT"','serif'], typewriter: ['"Courier New"','Courier','monospace'] }
-  }}
-}
-</script>
-<style type="text/tailwindcss">
-@layer base { html { font-size: 118%; } body { @apply bg-newsprint-base text-newsprint-ink font-body leading-tight; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E"); } }
-.newspaper-border { border: 6px double #1a1a1a; }
-.weathered { box-shadow: inset 0 0 120px rgba(0,0,0,0.1); }
-.headline-shadow { text-shadow: 2px 2px 0px rgba(0,0,0,0.12); }
-.skip-link { position: absolute; left: -9999px; top: 0; z-index: 200; background: #1c1b19; color: #d2c7b3; padding: 0.75rem 1rem; font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.1em; }
-.skip-link:focus { left: 0.5rem; top: 0.5rem; }
-</style>
-<!-- Meta Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1121055437750097'); fbq('track', 'PageView');</script><noscript> <img height="1" width="1" src="https://www.facebook.com/tr?id=1121055437750097&ev=PageView&noscript=1"/></noscript><!-- End Meta Pixel Code -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVYK1LYM7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QVYK1LYM7R');
-</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<script src="../assets/js/analytics.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
 </head>
 <body class="p-2 md:p-4 selection:bg-newsprint-ink selection:text-newsprint-base">
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -93,14 +67,14 @@ tailwind.config = {
       </div>
 
       <!-- Mobile Toggle Button -->
-      <button onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open sections menu" class="md:hidden flex items-center justify-between gap-3 px-3 py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
+      <button data-toggle="mobile-menu" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open sections menu" class="md:hidden flex items-center justify-between gap-3 px-3 py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-newsprint-accent transition-all w-full group overflow-hidden relative">
         <div class="flex items-center gap-2">
-          <i class="fas fa-bars text-newsprint-accent group-hover:text-white transition-colors"></i>
+          <span class="icon" aria-hidden="true">☰</span>
           <span>Sections & Dispatches</span>
         </div>
         <div class="flex items-center gap-2 text-newsprint-base opacity-40">
           <span class="text-[8px] font-normal italic">Archives Ed.</span>
-          <i class="fas fa-search text-[8px]"></i>
+          <span class="icon" aria-hidden="true">⌕</span>
         </div>
       </button>
     </div>
@@ -291,41 +265,10 @@ tailwind.config = {
 
 </div>
 
-<script>
-  /* Mobile menu toggle logic */
-  function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const content = document.getElementById('mobile-menu-content');
-    const body = document.body;
-    const toggleBtn = document.querySelector('[aria-controls="mobile-menu"]');
-
-    if (menu.classList.contains('hidden')) {
-      menu.classList.remove('hidden');
-      content.offsetHeight; // Reflow
-      content.classList.remove('translate-x-full');
-      body.style.overflow = 'hidden';
-      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
-    } else {
-      content.classList.add('translate-x-full');
-      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
-      setTimeout(() => {
-        menu.classList.add('hidden');
-        body.style.overflow = '';
-      }, 300);
-    }
-  }
-
-  /* Close on Escape */
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && !document.getElementById('mobile-menu').classList.contains('hidden')) {
-      toggleMobileMenu();
-    }
-  });
-</script>
 
 <!-- ═══ MOBILE NAVIGATION DRAWER ═══ -->
 <div id="mobile-menu" class="hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true">
-  <div class="absolute inset-0 bg-newsprint-ink/60 backdrop-blur-md transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
+  <div class="absolute inset-0 bg-newsprint-ink/60 backdrop-blur-md transition-opacity duration-300" data-close-menu></div>
   <div id="mobile-menu-content" class="absolute top-0 right-0 w-[85%] max-w-[320px] h-full bg-newsprint-base border-l-4 border-newsprint-ink shadow-2xl transform transition-transform duration-300 ease-in-out translate-x-full overflow-y-auto flex flex-col">
     
     <div class="p-6 border-b-2 border-newsprint-ink bg-newsprint-dark/10">
@@ -334,8 +277,8 @@ tailwind.config = {
           <p class="text-[9px] font-bold uppercase tracking-widest text-newsprint-accent mb-1 underline decoration-double">South Parade Dispatch</p>
           <h2 class="font-masthead text-4xl tracking-tight leading-none">The Gazette</h2>
         </div>
-        <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center border-2 border-newsprint-ink rounded-full hover:bg-newsprint-accent hover:text-white transition-colors">
-          <i class="fas fa-times"></i>
+        <button data-toggle="mobile-menu" class="w-10 h-10 flex items-center justify-center border-2 border-newsprint-ink rounded-full hover:bg-newsprint-accent hover:text-white transition-colors">
+          <span class="icon" aria-hidden="true">×</span>
         </button>
       </div>
       <p class="text-[10px] font-bold uppercase tracking-wider italic text-newsprint-ink/60">"For King, Country and the Garden City"</p>
@@ -343,25 +286,25 @@ tailwind.config = {
 
     <nav class="flex-1 p-6 space-y-1">
       <p class="text-[9px] font-black uppercase tracking-[0.2em] text-newsprint-ink/40 mb-4 border-b border-newsprint-ink/10 pb-2">Main Sections</p>
-      <a href="/#supper-club" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="/#supper-club" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">The Mystery</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
-      <a href="/#how" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="/#how" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">How It Works</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
-      <a href="/#private" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="/#private" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">Private Events</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
-      <a href="/#faq" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
+      <a href="/#faq" data-close-menu class="flex items-center justify-between group py-3 border-b border-newsprint-ink/10">
         <span class="font-headline text-2xl font-black uppercase group-hover:text-newsprint-accent transition-colors">FAQ</span>
-        <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+        <span class="icon" aria-hidden="true">→</span>
       </a>
-      <a href="/blog/" onclick="toggleMobileMenu()" class="flex items-center justify-between group py-4 mt-4 bg-newsprint-ink text-white px-4 -mx-2">
+      <a href="/blog/" data-close-menu class="flex items-center justify-between group py-4 mt-4 bg-newsprint-ink text-white px-4 -mx-2">
         <span class="font-headline text-xl font-black uppercase">Gazette Archives</span>
-        <i class="fas fa-newspaper"></i>
+        <span class="icon" aria-hidden="true">▣</span>
       </a>
     </nav>
 
@@ -369,9 +312,9 @@ tailwind.config = {
       <p class="text-[9px] font-black uppercase tracking-widest text-newsprint-accent mb-2">Back to the front page?</p>
       <a href="/" class="inline-block font-headline text-sm font-bold border-b border-newsprint-ink">Return to South Parade »</a>
       <div class="flex justify-center gap-4 mt-4 text-base">
-        <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
-        <a href="mailto:hello@letsnailit.com" aria-label="Email" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/letsnailit_official/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><span class="icon" aria-hidden="true">IG</span></a>
+        <a href="https://www.facebook.com/letsnailit.official/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><span class="icon" aria-hidden="true">f</span></a>
+        <a href="mailto:hello@letsnailit.com" aria-label="Email" class="w-9 h-9 flex items-center justify-center border-2 border-newsprint-ink hover:bg-newsprint-accent hover:text-white transition-colors"><span class="icon" aria-hidden="true">✉</span></a>
       </div>
     </div>
 
