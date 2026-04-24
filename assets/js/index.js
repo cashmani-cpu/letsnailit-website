@@ -11,13 +11,6 @@
   let lastFocus = null;
   let activeKeyHandler = null;
 
-  function updateMobileCta() {
-    const bar = document.querySelector('.mobile-cta-bar');
-    if (!bar) return;
-    const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    bar.classList.toggle('is-visible', y > 180);
-  }
-
   function lockScroll() {
     lockedOpenCount.n++;
     document.body.style.overflow = 'hidden';
@@ -83,34 +76,10 @@
     releaseFocus(m);
   }
 
-  function openModalFromHash() {
-    let target = null;
-    if (window.location.hash === '#reserve' || window.location.hash === '#book') {
-      target = 'partyModal';
-    } else if (window.location.hash === '#private-event') {
-      target = 'privateModal';
-    }
-    if (!target) return;
-    ALL_MODALS.forEach(id => {
-      if (id !== target) closeModal(id);
-    });
-    window.setTimeout(() => openModal(target), 150);
-  }
-
   /* Event delegation — no inline onclick */
   document.addEventListener('click', function (e) {
     const openModalTgt = e.target.closest('[data-open-modal]');
-    if (openModalTgt) {
-      e.preventDefault();
-      const modalId = openModalTgt.dataset.openModal;
-      if (openModalTgt.hasAttribute('data-close-menu') && typeof window.toggleMobileMenu === 'function') {
-        window.toggleMobileMenu();
-        window.setTimeout(() => openModal(modalId), 320);
-      } else {
-        openModal(modalId);
-      }
-      return;
-    }
+    if (openModalTgt) { openModal(openModalTgt.dataset.openModal); return; }
 
     const closeModalTgt = e.target.closest('[data-close-modal]');
     if (closeModalTgt) { closeModal(closeModalTgt.dataset.closeModal); return; }
@@ -287,14 +256,4 @@
   /* Refresh date bounds at load + whenever the page is revealed after midnight */
   refreshDateBounds();
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshDateBounds(); });
-  window.addEventListener('scroll', updateMobileCta, { passive: true });
-  document.addEventListener('scroll', updateMobileCta, { passive: true });
-  updateMobileCta();
-  window.setTimeout(() => {
-    const bar = document.querySelector('.mobile-cta-bar');
-    if (bar) bar.classList.add('is-visible');
-  }, 1600);
-
-  window.addEventListener('hashchange', openModalFromHash);
-  openModalFromHash();
 })();

@@ -36,17 +36,6 @@
 
   window.toggleMobileMenu = toggleMobileMenu;
 
-  function updateMobileCta() {
-    var bar = document.querySelector('.mobile-cta-bar');
-    if (!bar) return;
-    if (bar.hasAttribute('data-persistent-cta')) {
-      bar.classList.add('is-visible');
-      return;
-    }
-    var y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    bar.classList.toggle('is-visible', y > 180);
-  }
-
   document.addEventListener('click', function (event) {
     var toggle = event.target.closest('[data-toggle="mobile-menu"]');
     if (toggle) {
@@ -66,8 +55,4 @@
     var parts = getMenuParts();
     if (event.key === 'Escape' && isMenuOpen(parts.menu)) toggleMobileMenu(false);
   });
-
-  window.addEventListener('scroll', updateMobileCta, { passive: true });
-  document.addEventListener('scroll', updateMobileCta, { passive: true });
-  updateMobileCta();
 })();
