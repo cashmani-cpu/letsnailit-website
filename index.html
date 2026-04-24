@@ -241,9 +241,14 @@
 </script>
 <script src="assets/js/analytics.js" defer></script>
 </head>
-<body class="p-2 md:p-6 selection:bg-newsprint-ink selection:text-newsprint-base">
+<body class="has-mobile-cta p-2 md:p-6 selection:bg-newsprint-ink selection:text-newsprint-base">
 
 <a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="mobile-cta-bar md:hidden" aria-label="Booking shortcuts">
+  <button type="button" data-open-modal="partyModal" class="mobile-cta-primary">Book ₹999</button>
+  <button type="button" data-open-modal="privateModal" class="mobile-cta-secondary">Private Event</button>
+</div>
 
 <!-- Booking ribbon: above-the-fold contemporary CTA so first-time visitors see the offer immediately -->
 <div class="booking-ribbon max-w-6xl mx-auto mb-2 bg-newsprint-accent text-white px-3 py-2 flex flex-wrap items-center justify-between gap-2 text-[11px] md:text-xs font-bold uppercase tracking-widest shadow">
@@ -316,6 +321,16 @@
           BRITISH OFFICER FOUND DEAD IN COLONIAL BUNGALOW; SERVANTS FLEE AS "CURSE OF THE MYSORE TIGER" RUMORS SPREAD
         </h3>
 
+        <div class="mobile-offer-brief md:hidden" aria-label="Event summary">
+          <p class="offer-kicker">Case Briefing</p>
+          <div class="offer-brief-grid">
+            <span>3-hour mystery</span>
+            <span>₹999 public seats</span>
+            <span>Aga Abbas Ali Road</span>
+            <span>No acting required</span>
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <!-- Copy block appears first on mobile (CTA visible without scroll past images) -->
           <div class="order-1">
@@ -337,6 +352,13 @@
               <p class="font-headline text-xl font-black italic leading-tight mb-3"><em>Let's Nail It</em> invites you to take a seat at the table.</p>
               <p class="font-body text-base leading-relaxed text-newsprint-ink">An immersive murder mystery experience on Aga Abbas Ali Road, Bengaluru — where every guest is a suspect, every clue matters, and only the sharpest detective nails the killer.</p>
             </div>
+            <details class="clue-teaser mt-5">
+              <summary>Open your first clue</summary>
+              <div>
+                <p class="font-bold">The pocket watch stopped at 11:42 PM.</p>
+                <p>Ask who owned the study key, and who needed the Major silent before morning.</p>
+              </div>
+            </details>
           </div>
           <!-- Imagery follows copy on mobile; side-by-side on desktop -->
           <div class="order-2">
@@ -372,11 +394,32 @@
         </div>
       </div>
 
+      <section class="fit-brief border-2 border-newsprint-ink mb-10" aria-label="Who the experience is for">
+        <div>
+          <p class="fit-label">Perfect For</p>
+          <p>Date nights, birthdays, friend groups, and corporate teams that want everyone involved.</p>
+        </div>
+        <div>
+          <p class="fit-label">You Do Not Need</p>
+          <p>Acting experience, costumes, mystery knowledge, or a group. Come curious.</p>
+        </div>
+        <div>
+          <p class="fit-label">Good To Know</p>
+          <p>The ticket covers the mystery experience. Bring your own food and drinks if you like.</p>
+        </div>
+      </section>
+
       <!-- How It Works -->
 
       <div class="border-t-2 border-newsprint-ink pt-8 mb-10" id="how">
         <h2 class="font-headline text-3xl font-black uppercase mb-2 tracking-tight">FOUR ACTS. ONE KILLER. ZERO MERCY.</h2>
         <p class="text-xs uppercase font-bold tracking-widest text-newsprint-ink/50 mb-6 border-b border-newsprint-ink/30 pb-3">HOW THE EVENING UNFOLDS — AS REPORTED BY OUR CORRESPONDENT</p>
+        <ol class="mobile-checkpoints md:hidden" aria-label="Evening checkpoints">
+          <li><span>1</span>Receive your dossier</li>
+          <li><span>2</span>Trade clues and secrets</li>
+          <li><span>3</span>Interrogate everyone</li>
+          <li><span>4</span>Name the killer</li>
+        </ol>
         <div class="space-y-0 border border-newsprint-ink">
 
           <div class="flex gap-0 border-b border-newsprint-ink">
@@ -719,12 +762,17 @@
 <!-- ═══ BOOKING MODAL — Public Session ═══ -->
 <div id="partyModal" class="hidden fixed inset-0 z-[90] flex items-start justify-center p-4 pt-8 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="partyModalTitle">
   <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-modal="partyModal"></div>
-  <div class="gazette-modal relative max-w-md w-full newspaper-border p-8 shadow-2xl my-8">
+  <div class="gazette-modal booking-sheet relative max-w-md w-full newspaper-border p-8 shadow-2xl my-8">
     <button type="button" data-close-modal="partyModal"
             class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
     <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">CANTONMENT DESK — RESERVATIONS</p>
     <h2 id="partyModalTitle" class="font-headline text-3xl font-black uppercase leading-tight mb-1">Reserve Your Seat</h2>
     <p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Grab your spot at Bangalore's most dangerous evening out. Limited seats per session.</p>
+    <div class="booking-modal-summary" aria-label="Reservation summary">
+      <span>₹999 per person</span>
+      <span>3-hour mystery</span>
+      <span>Aga Abbas Ali Road</span>
+    </div>
     <form data-form-flow="reservation" data-success="Your reservation request has been filed — we'll be in touch within one working day to confirm." novalidate>
       <input type="hidden" name="_subject" value="New Reservation Request - Let's Nail It">
       <input type="hidden" name="form_type" value="public_reservation">
@@ -743,21 +791,23 @@
       </div>
       <div class="mb-5">
         <label class="gazette-label">Date</label>
-        <div class="gazette-input flex items-center justify-between pointer-events-none select-none opacity-80">
+        <div class="date-lockup gazette-input flex items-center justify-between pointer-events-none select-none opacity-80">
           <span class="font-bold">Saturday, 25 April 2026, 6.30 PM</span>
           <span class="text-[10px] uppercase tracking-widest text-newsprint-accent font-bold ml-2 shrink-0">Only date available</span>
         </div>
         <input type="hidden" name="date" value="2026-04-25">
       </div>
-      <label class="flex items-start gap-2 mb-6 text-[11px] text-newsprint-ink/80">
+      <label class="consent-line flex items-start gap-2 mb-6 text-[11px] text-newsprint-ink/80">
         <input type="checkbox" name="consent" required class="mt-0.5">
         <span>I consent to Let's Nail It processing my details to respond to this enquiry, in line with the <a href="/privacy.html" class="underline">Privacy Policy</a>. Data is handled by our US-based form processor (Formspree) under a data processing agreement.</span>
       </label>
       <div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>
-      <button type="submit"
-              class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg">
-        SUBMIT MY RESERVATION »
-      </button>
+      <div class="modal-submit-bar">
+        <button type="submit"
+                class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg">
+          SUBMIT MY RESERVATION »
+        </button>
+      </div>
     </form>
   </div>
 </div>
@@ -765,12 +815,17 @@
 <!-- ═══ BOOKING MODAL — Private Event ═══ -->
 <div id="privateModal" class="hidden fixed inset-0 z-[90] flex items-start justify-center p-4 pt-8 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="privateModalTitle">
   <div class="absolute inset-0 bg-newsprint-ink/80 backdrop-blur-sm" data-close-modal="privateModal"></div>
-  <div class="gazette-modal relative max-w-md w-full newspaper-border p-8 shadow-2xl my-8">
+  <div class="gazette-modal booking-sheet relative max-w-md w-full newspaper-border p-8 shadow-2xl my-8">
     <button type="button" data-close-modal="privateModal"
             class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>
     <p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">PRIVATE DISPATCH — CONFIDENTIAL</p>
     <h2 id="privateModalTitle" class="font-headline text-3xl font-black uppercase leading-tight mb-1">A Killer Party Idea</h2>
     <p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Tell us about your event and we'll design a custom murder mystery for your group — at your venue, anywhere in Bangalore.</p>
+    <div class="booking-modal-summary" aria-label="Private event summary">
+      <span>From ₹799 per person</span>
+      <span>8-40 typical</span>
+      <span>Your venue or ours</span>
+    </div>
     <form data-form-flow="private" data-success="Your private dispatch has been received — our events desk will respond within one working day with a quote." novalidate>
       <input type="hidden" name="_subject" value="New Private Event Enquiry - Let's Nail It">
       <input type="hidden" name="form_type" value="private_event">
@@ -795,15 +850,17 @@
         <label class="gazette-label" for="priv-guests">Approx. Guest Count</label>
         <input id="priv-guests" class="gazette-input" type="number" name="guests" min="8" max="200" placeholder="8 – 40 typical">
       </div>
-      <label class="flex items-start gap-2 mb-6 text-[11px] text-newsprint-ink/80">
+      <label class="consent-line flex items-start gap-2 mb-6 text-[11px] text-newsprint-ink/80">
         <input type="checkbox" name="consent" required class="mt-0.5">
         <span>I consent to Let's Nail It processing my details to respond to this enquiry, in line with the <a href="/privacy.html" class="underline">Privacy Policy</a>. Data is handled by our US-based form processor (Formspree) under a data processing agreement.</span>
       </label>
       <div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>
-      <button type="submit"
-              class="w-full bg-newsprint-accent text-white py-3 font-black uppercase tracking-widest hover:bg-newsprint-ink transition-colors shadow-lg">
-        REQUEST A QUOTE »
-      </button>
+      <div class="modal-submit-bar">
+        <button type="submit"
+                class="w-full bg-newsprint-accent text-white py-3 font-black uppercase tracking-widest hover:bg-newsprint-ink transition-colors shadow-lg">
+          REQUEST A QUOTE »
+        </button>
+      </div>
     </form>
   </div>
 </div>
