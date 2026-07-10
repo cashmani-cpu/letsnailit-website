@@ -4,7 +4,7 @@
   const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzgJ9BX5TKTlOTKqPf-cMGcd9ZXSPcPCB4zTN8PNhlns_kfpyxfuwV3LWRhYGoQe2K_/exec';
   const FOCUSABLE = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
   const DISPATCH_IDS = ['dispatch1','dispatch2','dispatch3'];
-  const MODAL_IDS = ['partyModal','privateModal'];
+  const MODAL_IDS = ['partyModal','privateModal','notifyModal'];
   const ALL_MODALS = MODAL_IDS.concat(DISPATCH_IDS);
 
   const lockedOpenCount = { n: 0 };
@@ -84,6 +84,14 @@
 
   /* Event delegation — no inline onclick */
   document.addEventListener('click', function (e) {
+    /* Drawer backdrop / nav links carry data-close-menu; handle before modals and
+       don't return — the drawer CTA pairs data-close-menu with data-open-modal */
+    const closeMenuTgt = e.target.closest('[data-close-menu]');
+    if (closeMenuTgt) {
+      const menu = document.getElementById('mobile-menu');
+      if (menu && !menu.classList.contains('hidden')) window.toggleMobileMenu();
+    }
+
     const openModalTgt = e.target.closest('[data-open-modal]');
     const closeModalTgt = e.target.closest('[data-close-modal]');
     /* An element may carry both (e.g. "switch to another modal") — close, then open, don't short-circuit */
