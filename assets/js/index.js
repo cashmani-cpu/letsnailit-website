@@ -11,6 +11,12 @@
   let lastFocus = null;
   let activeKeyHandler = null;
 
+  /* Fire a lead-conversion signal to both ad platforms so campaigns have something to optimize toward */
+  function trackLead(formType) {
+    if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: formType });
+    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { form_type: formType });
+  }
+
   function lockScroll() {
     lockedOpenCount.n++;
     document.body.style.overflow = 'hidden';
@@ -79,10 +85,13 @@
   /* Event delegation — no inline onclick */
   document.addEventListener('click', function (e) {
     const openModalTgt = e.target.closest('[data-open-modal]');
-    if (openModalTgt) { openModal(openModalTgt.dataset.openModal); return; }
-
     const closeModalTgt = e.target.closest('[data-close-modal]');
-    if (closeModalTgt) { closeModal(closeModalTgt.dataset.closeModal); return; }
+    /* An element may carry both (e.g. "switch to another modal") — close, then open, don't short-circuit */
+    if (openModalTgt || closeModalTgt) {
+      if (closeModalTgt) closeModal(closeModalTgt.dataset.closeModal);
+      if (openModalTgt) openModal(openModalTgt.dataset.openModal);
+      return;
+    }
 
     const openDispatchTgt = e.target.closest('[data-open-dispatch]');
     if (openDispatchTgt) { openModal(openDispatchTgt.dataset.openDispatch); return; }
@@ -144,6 +153,7 @@
         /* Always save their details immediately — regardless of waitlist choice */
         const silentPayload = { ...captured, form_type: 'reservation_interest', date: '2026-04-25' };
         fetch(FORM_ENDPOINT + '?' + new URLSearchParams({ ...silentPayload, _t: Date.now() }).toString(), { redirect: 'follow' });
+        trackLead('reservation_interest');
         const modal = form.closest('.gazette-modal');
         modal.innerHTML =
           '<button type="button" data-close-modal="partyModal"' +
@@ -168,6 +178,7 @@
             const res = await fetch(url, { redirect: 'follow' });
             const json = await res.json();
             if (!json.ok) throw new Error('bad response');
+            trackLead('waitlist');
             modal.innerHTML =
               '<div class="text-center py-6" role="status" aria-live="polite">' +
               '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
@@ -202,6 +213,7 @@
         const response = await fetch(url, { redirect: 'follow' });
         const json = await response.json();
         if (!json.ok) throw new Error('Bad response');
+        trackLead(payload.form_type || form.dataset.formFlow);
         const successMsg = form.dataset.success || "We'll be in touch shortly to confirm your booking.";
         form.innerHTML =
           '<div class="text-center py-6" role="status" aria-live="polite">' +
