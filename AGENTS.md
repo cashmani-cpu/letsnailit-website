@@ -69,6 +69,7 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - `.telegram` (Exclusive Dispatch), `.evidence-strip` / `.polaroid` (taped evidence with plot tags), `.ticket` (sticky booking stub), `.suspect-row` / `.suspect-card`.
 - Mobile (<768px): `.front-page` dissolves both columns (`display: contents`) and orders dispatch + evidence (`.m-order-2/3`) right after the opening story; evidence and suspects become swipe rows; classifieds show one notice with a `[data-toggle-notices]` button (wired in `assets/js/index.js`); page frame is a single thin border.
 - Paper grain is a fixed `body::after` overlay; worn edges come from `.weathered`.
+- `.wa-float` (all pages): floating WhatsApp seal, bottom-right, z-80 (below modals and the mobile menu).
 
 ## Conventions
 - Keep custom CSS in `src/styles.css`, then run `npm run build:css`.
@@ -91,4 +92,5 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - Blog: dossier image cropped to the evidence board; "Forthcoming" titles readable; `VOL. XLII · No. 12,804` fixed site-wide; publisher logo in JSON-LD now `logo-mark-512.png`.
 - Sections restyled: Usual Suspects heading matches other sections; private-event cards equal height with aligned links (new birthday link opens the private-event form); Four Acts numerals above titles on mobile; Notify Me footer link matches the others.
 - Texture: paper grain, worn edges, sepia/halftone photos, telegram dispatch, taped polaroid evidence, ticket-stub booking box (sticky on desktop).
-- Not done: there's no floating WhatsApp button in the code (review item 23 didn't apply). Out of scope: photoshoot, regenerating AI images, real guest reviews.
+- Merged main (new contact number +91 80734 26951 and the floating WhatsApp button, `.wa-float`). Review item 23 done: the button is now a small ink wax-seal (oxblood on hover) and phones get 4rem of bottom padding so it never covers text.
+- Out of scope: photoshoot, regenerating AI images, real guest reviews.

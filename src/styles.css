@@ -916,3 +916,56 @@ body::after {
     scroll-snap-align: center;
   }
 }
+
+/* Floating WhatsApp button (all pages): a small ink wax-seal, not a bright green bubble.
+   Sits below modals (z-90) and the mobile menu (z-100). */
+.wa-float {
+  position: fixed;
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: max(0.85rem, env(safe-area-inset-bottom));
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: var(--newsprint-ink);
+  color: var(--paper-light);
+  border: 2px solid var(--paper-light);
+  box-shadow: 0 0 0 2px var(--newsprint-ink), 0 3px 8px rgba(0, 0, 0, 0.35);
+  transform: rotate(-8deg);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+  background: var(--newsprint-accent);
+  transform: rotate(0deg) scale(1.05);
+}
+
+.wa-float:active {
+  transform: scale(0.95);
+}
+
+.wa-float:focus-visible {
+  outline: 3px solid var(--newsprint-accent);
+  outline-offset: 4px;
+}
+
+.wa-float svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+/* Leave room at the bottom on phones so the seal never sits on top of the last lines of text */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4rem !important; /* beats the p-2 utility on <body> */
+  }
+}
+
+@media print {
+  .wa-float { display: none; }
+}
