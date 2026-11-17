@@ -82,6 +82,7 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - Use `logo-mark.svg` (not `logo-final.png`) anywhere the logo is shown smaller than ~150px; the full logo's tagline is unreadable at that size.
 - After changing source artwork for the share card or crops, run `node scripts/build-brand-assets.mjs`, then `npm run build:images`.
 - Bookings are private groups only: minimum 10 guests, ₹1,500 per person, food and drinks not included, at our place or the customer's venue. Keep `MIN_GUESTS` / `PRICE_PER_PERSON` in `assets/js/index.js` and `src/site.config.json` in step with the copy.
+- Form submissions go to a Google Apps Script web app that writes to the "LNI Signup" Google Sheet. `scripts/apps-script/forms.gs` mirrors its code; after editing, paste it into the Apps Script project and use Deploy → Manage deployments → edit → New version so the /exec URL in `assets/js/index.js` stays the same.
 - Keep this file up to date: at the end of each working day with changes, add a dated entry to the change log below and update any section above that changed.
 
 ## Git & GitHub
@@ -99,7 +100,9 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - `/date-night/` retired: page deleted, 301 to `/` in new `_redirects`, removed from sitemap, Tailwind content and validate script. The date-night blog post stays but its CTAs now point to `/#groups` with a "double date — or a dozen" angle.
 - Blog CTAs ("Reserve a Seat" → "Book Your Group") and prices updated; share card text now "PRIVATE MURDER MYSTERY · GROUPS OF 10+ · BANGALORE".
 - Fixed the phone `pattern` on all forms (was an invalid regex in current browsers, so phone validation was silently skipped).
-- Not done: the Apps Script / Google Sheet may need columns for `venue`, `area`, `occasion`; `make_shotlist_video.py` (untracked) still says ₹999.
+- Merged to `main` (PR #3) and live on letsnailit.com.
+- Apps Script form endpoint updated (deployment version 5, same /exec URL): `group_booking` and `corporate_event` now go to a new **Group Bookings** tab (Timestamp, Name, Email, Phone, Source, Venue, Area, Guests, Estimate ₹, Preferred Date, Occasion). All user text is stored as plain text, so "+91…" phones no longer show #ERROR! and formula injection is blocked. Reference copy in `scripts/apps-script/forms.gs` (Sheet ID replaced by a placeholder; repo is public).
+- Not done: `make_shotlist_video.py` (untracked) still says ₹999; the consent text still names Formspree although forms post to Google Apps Script; the old **Other** tab holds earlier corporate/notify-me entries, many of them bot spam.
 
 ### 2026-11-17 — Design review fixes (branch `claude/trusting-goldberg-ndvoxz`)
 - Homepage hero: headline overlap fixed, masthead ~40% smaller, oxblood main CTA with "Fri–Sun · ₹999 · Aga Abbas Ali Road"; removed the top booking ribbon and hero fact strip (location/price line now only at the top CTA and the final ticket).
