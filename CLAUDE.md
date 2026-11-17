@@ -106,6 +106,9 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - Before starting work or opening a PR, run `git fetch` and branch from `origin/main` (not a stale local `main`).
 
 ## Change Log
+### 2026-11-17 — Dispatch pop-ups above the nav (branch `claude/modal-above-nav`)
+- The three Exclusive Dispatch article pop-ups (`#dispatch1–3`) were `z-50`, below the sticky nav (`z-[60]`), so the nav bar showed across the open article on desktop. Raised to `z-[90]`, same as `#bookModal`. Pop-ups must stay above the nav (60) and the WhatsApp seal (80).
+
 ### 2026-11-17 — Cache-busting for CSS/JS (branch `claude/asset-cache-busting`)
 - `/assets/*` is served `immutable` for a year at fixed URLs, so returning visitors never got new CSS/JS. New `scripts/version-assets.mjs` (`npm run build:version`, now part of `npm run build`) tags every `assets/css` and `assets/js` link with `?v=<content hash>` on all pages.
 
