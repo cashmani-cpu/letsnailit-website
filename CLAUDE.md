@@ -83,6 +83,11 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - After changing source artwork for the share card or crops, run `node scripts/build-brand-assets.mjs`, then `npm run build:images`.
 - Keep this file up to date: at the end of each working day with changes, add a dated entry to the change log below and update any section above that changed.
 
+## Git & GitHub
+- Repo: `cashmani-cpu/letsnailit-website` (remote `origin`, HTTPS). `main` is the live branch.
+- This Mac is signed in to the GitHub CLI as `cashmani-cpu`; the token lives in the macOS keychain and git uses it through `gh auth git-credential`, so `git push` and `gh pr create` need no login. Run `gh auth status` to check; never copy the token into files.
+- Before starting work or opening a PR, run `git fetch` and branch from `origin/main` (not a stale local `main`).
+
 ## Change Log
 ### 2026-11-17 — Design review fixes (branch `claude/trusting-goldberg-ndvoxz`)
 - Homepage hero: headline overlap fixed, masthead ~40% smaller, oxblood main CTA with "Fri–Sun · ₹999 · Aga Abbas Ali Road"; removed the top booking ribbon and hero fact strip (location/price line now only at the top CTA and the final ticket).
