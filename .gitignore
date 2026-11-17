@@ -1,3 +1,7 @@
 .claude/
 node_modules/
 .npm-cache/
+
+# Watermarked photos: local reference only, never deploy or share
+dinner.jpg
+group-pic.jpg

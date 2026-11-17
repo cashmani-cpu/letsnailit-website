@@ -11,7 +11,10 @@
       "Bash(powershell -Command \":*)",
       "Bash(powershell -NoProfile -Command \":*)",
       "WebFetch(domain:www.letsnailit.com)",
-      "Bash(netlify --version)"
+      "Bash(netlify --version)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

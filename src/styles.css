@@ -7,6 +7,8 @@
   --newsprint-dark: #bdaf96;
   --newsprint-ink: #1c1b19;
   --newsprint-accent: #6b1111;
+  --newsprint-muted: #5a5348;
+  --paper-light: #f3ecdf;
 }
 
 * {
@@ -44,11 +46,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, #000 0.8px, transparent 1px);
-  background-size: 2.5px 2.5px;
+  background-image: radial-gradient(circle, #2a1f12 0.7px, transparent 1.1px);
+  background-size: 3px 3px;
   mix-blend-mode: multiply;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.28;
 }
 
 .column-rule {
@@ -64,7 +66,11 @@
 }
 
 .weathered {
-  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.1);
+  /* worn, slightly darker page edges */
+  box-shadow:
+    inset 0 0 0 1px rgba(28, 27, 25, 0.06),
+    inset 0 0 60px rgba(92, 70, 40, 0.22),
+    inset 0 0 160px rgba(60, 45, 25, 0.12);
 }
 
 .gazette-modal {
@@ -418,106 +424,599 @@ body.not-found-page {
   html {
     font-size: 110%;
   }
+}
 
-  .booking-ribbon {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 0.65rem;
-    padding: 0.65rem 0.75rem;
-    line-height: 1.15;
+
+
+/* ═══════════════════════════════════════════════════════════════
+   Front page (index.html) — print texture, objects, mobile layout
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Paper grain over the whole page, on top of everything but never interactive */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 300;
+  opacity: 0.09;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0 0.12 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* Photos printed on the paper: warm sepia + light halftone (dots via .halftone-dots) */
+.photo-print {
+  filter: grayscale(1) sepia(0.38) contrast(1.12) brightness(0.96);
+}
+
+.halftone-wrap > img.photo-print {
+  height: 100%;
+}
+
+/* Section headings and decks */
+.section-deck {
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--newsprint-muted);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(28, 27, 25, 0.3);
+}
+
+.section-label {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--newsprint-ink);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--newsprint-muted);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--newsprint-ink);
+  color: var(--newsprint-base);
+  padding: 0.1rem 0.45rem;
+}
+
+.byline {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--newsprint-muted);
+  margin-bottom: 0.6rem;
+}
+
+/* Drop cap on the first word of the story, not on the byline */
+.dropcap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 3.6em;
+  line-height: 0.8;
+  margin: 0.08em 0.1em 0 0;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--newsprint-accent);
+  color: #f3ecdf;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.95rem;
+  padding: 0.95rem 1rem;
+  border: 2px solid var(--newsprint-accent);
+  box-shadow: 3px 3px 0 var(--newsprint-ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #561010;
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--newsprint-ink);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--newsprint-ink);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--newsprint-ink);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--newsprint-ink);
+  color: var(--newsprint-base);
+}
+
+.cta-meta {
+  margin-top: 0.55rem;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.card-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  color: var(--newsprint-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(28, 27, 25, 0.35);
+  text-underline-offset: 3px;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  color: var(--newsprint-accent);
+  text-decoration-color: currentColor;
+}
+
+/* Group booking: "our place / your venue" choice cards */
+.venue-choice {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.venue-choice label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.75rem;
+  border: 2px solid var(--newsprint-ink);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.venue-choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.venue-choice__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.venue-choice__note {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--newsprint-muted);
+}
+
+.venue-choice label:has(input:checked) {
+  background: var(--newsprint-ink);
+  color: var(--newsprint-base);
+}
+
+.venue-choice label:has(input:checked) .venue-choice__note {
+  color: var(--newsprint-base);
+}
+
+.venue-choice label:has(input:focus-visible) {
+  outline: 2px solid var(--newsprint-accent);
+  outline-offset: 2px;
+}
+
+/* Hero: headline/deck above; photo, CTA and lede arranged so all three land on the first screen */
+.hero-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'photo'
+    'cta'
+    'lede';
+}
+
+.hero-grid__photo { grid-area: photo; }
+.hero-grid__cta { grid-area: cta; }
+.hero-grid__lede { grid-area: lede; }
+
+.hero-photo-crop {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.hero-photo-crop > img {
+  object-position: 60% 45%;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    gap: 0 1.5rem;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'cta  photo'
+      'lede photo';
   }
 
-  .booking-ribbon__copy {
+  .hero-photo-crop {
+    aspect-ratio: 5 / 4;
+  }
+
+  .hero-grid__cta {
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.1rem;
+    border-bottom: 1px solid rgba(28, 27, 25, 0.35);
+  }
+}
+
+/* The red case stamp over the hero photo */
+.murder-stamp {
+  position: absolute;
+  left: 5%;
+  top: 7%;
+  transform: rotate(-9deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.2rem 0.9rem 0.3rem;
+  border: 4px double #9b1c1c;
+  color: #9b1c1c;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4.2vw, 2.4rem);
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(236, 226, 205, 0.86);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at 30% 40%, #000 55%, rgba(0, 0, 0, 0.72) 75%, #000 100%);
+  mask-image: radial-gradient(circle at 30% 40%, #000 55%, rgba(0, 0, 0, 0.72) 75%, #000 100%);
+}
+
+.murder-stamp small {
+  font-size: 0.32em;
+  letter-spacing: 0.22em;
+  margin-top: 0.2rem;
+}
+
+/* Small stamped tag on a suspect file */
+.stamp-tag {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f3ecdf;
+  background: var(--newsprint-accent);
+  padding: 0.2rem 0.65rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Four Acts: on phones the numeral sits above the title */
+.act-numeral {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--newsprint-muted);
+  margin-bottom: 0.15rem;
+}
+
+/* Exclusive dispatch as a telegram slip */
+.telegram {
+  position: relative;
+  background: #ebe0c4;
+  color: var(--newsprint-ink);
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid rgba(28, 27, 25, 0.35);
+  box-shadow: 0 2px 0 rgba(28, 27, 25, 0.12), 0 6px 14px rgba(60, 45, 25, 0.18);
+  transform: rotate(-0.6deg);
+}
+
+.telegram::before,
+.telegram::after {
+  /* perforated top and bottom edges */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: radial-gradient(circle at 5px 3px, var(--newsprint-base) 2.2px, transparent 2.6px) repeat-x;
+  background-size: 10px 6px;
+}
+
+.telegram::before { top: -3px; }
+.telegram::after { bottom: -3px; }
+
+.telegram__head {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(28, 27, 25, 0.4);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.telegram__title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.telegram .stop {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+/* Evidence locker: taped polaroids with paper tags */
+.evidence-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 0.9rem;
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.polaroid {
+  position: relative;
+  background: var(--paper-light);
+  padding: 0.4rem 0.4rem 0.3rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(60, 45, 25, 0.22);
+  transform: rotate(-2.2deg);
+}
+
+.polaroid:nth-child(2) { transform: rotate(1.8deg); }
+.polaroid:nth-child(3) { transform: rotate(1.2deg); }
+.polaroid:nth-child(4) { transform: rotate(-1.5deg); }
+
+.polaroid::before {
+  /* strip of tape holding the photo down */
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 46%;
+  height: 16px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(236, 226, 196, 0.78);
+  border-left: 1px dashed rgba(28, 27, 25, 0.12);
+  border-right: 1px dashed rgba(28, 27, 25, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+.polaroid__tag {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  line-height: 1.25;
+  padding-top: 0.35rem;
+  color: var(--newsprint-ink);
+}
+
+.polaroid__tag b {
+  display: block;
+  color: var(--newsprint-accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Booking box as a ticket stub */
+.ticket {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #e8dcc1;
+  border: 2px solid var(--newsprint-ink);
+  box-shadow: 0 6px 16px rgba(60, 45, 25, 0.22);
+  text-align: center;
+  -webkit-mask: radial-gradient(circle at 0 calc(100% - 3.1rem), transparent 11px, #000 11.5px) left / 51% 100% no-repeat,
+                radial-gradient(circle at 100% calc(100% - 3.1rem), transparent 11px, #000 11.5px) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle at 0 calc(100% - 3.1rem), transparent 11px, #000 11.5px) left / 51% 100% no-repeat,
+        radial-gradient(circle at 100% calc(100% - 3.1rem), transparent 11px, #000 11.5px) right / 51% 100% no-repeat;
+}
+
+.ticket__body {
+  padding: 1.4rem 1.25rem 1.25rem;
+}
+
+.ticket__stub {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+  height: 3.1rem;
+  align-items: center;
+  border-top: 2px dashed rgba(28, 27, 25, 0.55);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 1rem;
+}
+
+/* Classifieds toggle (mobile) */
+@media (max-width: 767px) {
+  .classifieds .more-notices:not(.is-open) {
+    display: none;
+  }
+}
+
+/* Suspects: three columns on wider screens, a swipeable row of cards on phones */
+.suspect-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.suspect-card {
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 639px) {
+  .suspect-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    min-width: 0;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.9rem 0.25rem 0.75rem;
+    margin: 0 -0.25rem;
+    scrollbar-width: thin;
   }
 
-  .booking-ribbon__main {
-    font-size: 0.76rem;
+  .suspect-card {
+    flex: 0 0 72%;
+    scroll-snap-align: start;
+    border: 1px solid rgba(28, 27, 25, 0.35);
+    background: rgba(243, 236, 223, 0.45);
+    padding: 0.6rem 0.6rem 0.9rem;
   }
 
-  .booking-ribbon__meta {
-    font-size: 0.68rem;
-    opacity: 0.9;
+  /* tighter face crops */
+  .suspect-card .suspect-portrait {
+    aspect-ratio: 1 / 1;
   }
 
-  .booking-ribbon__button {
-    background: #fff;
-    color: var(--newsprint-accent);
-    padding: 0.45rem 0.6rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .hero-title-mobile {
-    font-size: clamp(2.4rem, 13vw, 3.2rem) !important;
-    margin-bottom: 0.9rem !important;
-  }
-
-  .hero-deck-mobile {
-    font-size: 1rem !important;
-    margin-bottom: 1rem !important;
-    padding-block: 0.6rem !important;
-  }
-
-  .hero-cta-mobile {
-    width: 100%;
-    padding-inline: 1rem !important;
-    text-align: center;
+  .suspect-card .suspect-portrait img {
+    object-position: 50% 18%;
   }
 }
 
-@media (max-width: 480px) {
-  .dropcap::first-letter {
-    font-size: 1em !important;
-    float: none !important;
-    margin: 0 !important;
-    font-weight: inherit !important;
+/* ── Mobile front page ── */
+@media (max-width: 767px) {
+  /* single thin page border instead of the double frame */
+  .page.newspaper-border {
+    border: 1.5px solid var(--newsprint-ink);
+  }
+
+  /* Dissolve both columns so the dispatch + evidence follow the opening article */
+  .front-page {
+    gap: 0;
+  }
+
+  .front-page > .lead-column,
+  .front-page > .sidebar {
+    display: contents;
+  }
+
+  .front-page > .lead-column > *,
+  .front-page > .sidebar > * {
+    order: 10;
+  }
+
+  .front-page #supper-club { order: 1; }
+  .front-page .m-order-2 { order: 2; margin-bottom: 2rem; }
+  .front-page .m-order-3 { order: 3; margin-bottom: 0.5rem; }
+
+  .front-page > .sidebar > * + * {
+    margin-top: 2rem;
+  }
+
+  /* Evidence as a horizontal swipe strip */
+  .evidence-strip {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.9rem 0.5rem 0.9rem;
+    margin: 0 -0.5rem 0.5rem;
+  }
+
+  .evidence-strip > .polaroid {
+    flex: 0 0 58%;
+    scroll-snap-align: center;
   }
 }
 
-/* Floating WhatsApp button (all pages). Sits below modals (z-90) and the mobile menu (z-100). */
+/* Floating WhatsApp button (all pages): a small ink wax-seal, not a bright green bubble.
+   Sits below modals (z-90) and the mobile menu (z-100). */
 .wa-float {
   position: fixed;
-  right: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: max(0.85rem, env(safe-area-inset-bottom));
   z-index: 80;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 9999px;
-  background: #25d366;
-  color: #fff;
-  border: 3px solid #1c1b19;
-  box-shadow: 3px 3px 0 #1c1b19;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: var(--newsprint-ink);
+  color: var(--paper-light);
+  border: 2px solid var(--paper-light);
+  box-shadow: 0 0 0 2px var(--newsprint-ink), 0 3px 8px rgba(0, 0, 0, 0.35);
+  transform: rotate(-8deg);
+  transition: transform 0.15s ease, background-color 0.15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
 .wa-float:hover,
 .wa-float:focus-visible {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 #1c1b19;
+  background: var(--newsprint-accent);
+  transform: rotate(0deg) scale(1.05);
 }
 
 .wa-float:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 #1c1b19;
+  transform: scale(0.95);
 }
 
 .wa-float:focus-visible {
-  outline: 3px solid #6b1111;
-  outline-offset: 3px;
+  outline: 3px solid var(--newsprint-accent);
+  outline-offset: 4px;
 }
 
 .wa-float svg {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+/* Leave room at the bottom on phones so the seal never sits on top of the last lines of text */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4rem !important; /* beats the p-2 utility on <body> */
+  }
 }
 
 @media print {

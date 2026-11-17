@@ -10,7 +10,6 @@ const htmlFiles = [
   'blog/corporate-team-building-bangalore.html',
   'blog/unique-date-night-ideas-bangalore.html',
   'corporate/index.html',
-  'date-night/index.html',
   '404.html',
   'privacy.html',
   'terms.html'

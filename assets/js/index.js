@@ -4,7 +4,9 @@
   const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzgJ9BX5TKTlOTKqPf-cMGcd9ZXSPcPCB4zTN8PNhlns_kfpyxfuwV3LWRhYGoQe2K_/exec';
   const FOCUSABLE = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
   const DISPATCH_IDS = ['dispatch1','dispatch2','dispatch3'];
-  const MODAL_IDS = ['partyModal','privateModal','notifyModal'];
+  const MODAL_IDS = ['bookModal'];
+  const MIN_GUESTS = 10;
+  const PRICE_PER_PERSON = 1500;
   const ALL_MODALS = MODAL_IDS.concat(DISPATCH_IDS);
 
   const lockedOpenCount = { n: 0 };
@@ -119,88 +121,45 @@
     if (menu && !menu.classList.contains('hidden')) toggleMobileMenu();
   });
 
-  /* Waitlist form handler — called after sold-out screen is injected */
-  function attachWaitlistHandler(waitlistForm) {
-    waitlistForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      if (!waitlistForm.checkValidity()) { waitlistForm.reportValidity(); return; }
-      const btn = waitlistForm.querySelector('button[type="submit"]');
-      const errorEl = waitlistForm.querySelector('[data-form-error]');
-      if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
-      const orig = btn.textContent;
-      btn.textContent = 'Dispatching...';
-      btn.disabled = true;
-      try {
-        const payload = Object.fromEntries(new FormData(waitlistForm));
-        const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
-        const res = await fetch(url, { redirect: 'follow' });
-        const json = await res.json();
-        if (!json.ok) throw new Error('bad response');
-        waitlistForm.innerHTML =
-          '<div class="text-center py-6" role="status" aria-live="polite">' +
-          '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
-          '<h3 class="font-headline text-2xl font-black uppercase mb-2">You\'re on the list.</h3>' +
-          '<p class="text-sm italic text-newsprint-ink/80">We\'ll contact you the moment a seat opens up for 25 April 2026.</p>' +
-          '</div>';
-      } catch (err) {
-        btn.textContent = orig; btn.disabled = false;
-        if (errorEl) { errorEl.textContent = 'Dispatch failed — please try again or email hello@letsnailit.com.'; errorEl.classList.remove('hidden'); }
-      }
-    });
-  }
+  /* Group booking form: venue toggle, 10-guest minimum, running estimate */
+  document.querySelectorAll('form[data-group-booking]').forEach(form => {
+    const areaWrap = form.querySelector('[data-venue-area]');
+    const areaInput = areaWrap ? areaWrap.querySelector('input') : null;
+    const guests = form.querySelector('[data-min-guests]');
+    const total = form.querySelector('[data-guest-total]');
 
-  /* Real Formspree POST with success/error handling */
+    function syncVenue() {
+      const picked = form.querySelector('input[name="venue"]:checked');
+      const theirs = picked && picked.dataset.venue === 'yours';
+      if (!areaWrap || !areaInput) return;
+      areaWrap.classList.toggle('hidden', !theirs);
+      areaInput.disabled = !theirs;
+      areaInput.required = theirs;
+    }
+    function syncGuests() {
+      if (!guests) return;
+      const n = parseInt(guests.value, 10);
+      if (guests.value !== '' && (isNaN(n) || n < MIN_GUESTS)) {
+        guests.setCustomValidity('We need at least ' + MIN_GUESTS + ' suspects. Gather a few more, or message us on WhatsApp.');
+      } else {
+        guests.setCustomValidity('');
+      }
+      if (total) {
+        total.textContent = (!isNaN(n) && n >= MIN_GUESTS)
+          ? 'Estimate: ₹' + (n * PRICE_PER_PERSON).toLocaleString('en-IN') + ' for ' + n + ' guests (food and drinks not included).'
+          : 'Minimum ' + MIN_GUESTS + ' guests · ₹' + PRICE_PER_PERSON.toLocaleString('en-IN') + ' per person.';
+      }
+    }
+    form.querySelectorAll('input[name="venue"]').forEach(r => r.addEventListener('change', syncVenue));
+    if (guests) guests.addEventListener('input', syncGuests);
+    syncVenue();
+    syncGuests();
+  });
+
+  /* Form POST with success/error handling */
   document.querySelectorAll('form[data-form-flow]').forEach(form => {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-
-      /* Reservation form: April 25 is sold out — capture data then offer one-click waitlist */
-      if (form.dataset.formFlow === 'reservation') {
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        const captured = Object.fromEntries(new FormData(form));
-        /* Always save their details immediately — regardless of waitlist choice */
-        const silentPayload = { ...captured, form_type: 'reservation_interest', date: '2026-04-25' };
-        fetch(FORM_ENDPOINT + '?' + new URLSearchParams({ ...silentPayload, _t: Date.now() }).toString(), { redirect: 'follow' });
-        trackLead('reservation_interest');
-        const modal = form.closest('.gazette-modal');
-        modal.innerHTML =
-          '<button type="button" data-close-modal="partyModal"' +
-          ' class="absolute top-3 right-4 text-2xl font-bold hover:text-newsprint-accent transition-colors" aria-label="Close">&times;</button>' +
-          '<p class="text-[10px] uppercase tracking-widest font-bold text-newsprint-accent mb-1">SOLD OUT — 25 APRIL 2026</p>' +
-          '<h2 class="font-headline text-3xl font-black uppercase leading-tight mb-1">This Evening is Full.</h2>' +
-          '<p class="text-xs italic text-newsprint-ink/80 mb-6 border-b border-newsprint-ink/30 pb-4">Every seat for 25 April has been claimed. Would you like to join the waitlist? We\'ll reach out the moment something opens up — or when the next date is announced.</p>' +
-          '<div data-form-error class="hidden mb-3 text-[11px] text-newsprint-accent font-bold uppercase tracking-widest"></div>' +
-          '<button id="wl-confirm-btn" class="w-full bg-newsprint-ink text-newsprint-base py-3 font-black uppercase tracking-widest hover:bg-newsprint-accent transition-colors shadow-lg mb-3">YES, JOIN THE WAITLIST »</button>' +
-          '<button type="button" data-close-modal="partyModal" class="w-full border border-newsprint-ink/40 py-3 font-black uppercase tracking-widest text-sm hover:border-newsprint-accent hover:text-newsprint-accent transition-colors">No thanks</button>';
-        modal.querySelectorAll('[data-close-modal]').forEach(btn => {
-          btn.addEventListener('click', () => closeModal(btn.dataset.closeModal));
-        });
-        const confirmBtn = modal.querySelector('#wl-confirm-btn');
-        const errorEl = modal.querySelector('[data-form-error]');
-        confirmBtn.addEventListener('click', async function () {
-          confirmBtn.textContent = 'Dispatching...';
-          confirmBtn.disabled = true;
-          try {
-            const payload = { ...captured, form_type: 'waitlist', date: '2026-04-25' };
-            const url = FORM_ENDPOINT + '?' + new URLSearchParams({ ...payload, _t: Date.now() }).toString();
-            const res = await fetch(url, { redirect: 'follow' });
-            const json = await res.json();
-            if (!json.ok) throw new Error('bad response');
-            trackLead('waitlist');
-            modal.innerHTML =
-              '<div class="text-center py-6" role="status" aria-live="polite">' +
-              '<p class="font-headline text-5xl font-black text-newsprint-accent mb-3" aria-hidden="true">✓</p>' +
-              '<h3 class="font-headline text-2xl font-black uppercase mb-2">You\'re on the list.</h3>' +
-              '<p class="text-sm italic text-newsprint-ink/80">We\'ll contact you the moment a seat opens up for 25 April 2026.</p>' +
-              '</div>';
-          } catch (err) {
-            confirmBtn.textContent = 'YES, JOIN THE WAITLIST »';
-            confirmBtn.disabled = false;
-            if (errorEl) { errorEl.textContent = 'Dispatch failed — please try again or email hello@letsnailit.com.'; errorEl.classList.remove('hidden'); }
-          }
-        });
-        return;
-      }
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const errorEl = form.querySelector('[data-form-error]');
@@ -271,6 +230,18 @@
   if (toggleBtn) toggleBtn.addEventListener('click', window.toggleMobileMenu);
   document.querySelectorAll('[data-toggle="mobile-menu"]').forEach(el => {
     el.addEventListener('click', window.toggleMobileMenu);
+  });
+
+  /* Classifieds: one notice on phones, the rest behind a "More notices" toggle */
+  document.querySelectorAll('[data-toggle-notices]').forEach(btn => {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
+    const closedLabel = btn.innerHTML;
+    btn.addEventListener('click', () => {
+      const open = panel.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = open ? 'Fewer notices&nbsp;«' : closedLabel;
+    });
   });
 
   /* Refresh date bounds at load + whenever the page is revealed after midnight */
