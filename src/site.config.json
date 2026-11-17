@@ -4,12 +4,16 @@
     "publicationName": "The Bangalore Gazette"
   },
   "event": {
-    "publicSessionLabel": "Sunday, 13 September 2026, 6.30 PM",
-    "publicSessionDate": "2026-09-13",
-    "publicPrice": "999",
-    "privatePriceFrom": "799",
-    "location": "Aga Abbas Ali Road, Bangalore",
-    "days": "Fri-Sun"
+    "bookingType": "Private group bookings only",
+    "pricePerPerson": "1500",
+    "priceExcludes": "Food and drinks",
+    "minGuests": 10,
+    "maxGuests": null,
+    "venues": [
+      "Our place — Aga Abbas Ali Road",
+      "Customer venue anywhere in Bangalore"
+    ],
+    "location": "Aga Abbas Ali Road, Bangalore"
   },
   "contact": {
     "email": "hello@letsnailit.com",

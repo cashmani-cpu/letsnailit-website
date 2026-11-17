@@ -32,7 +32,7 @@ const overlay = Buffer.from(`
   <text x="60" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="20" letter-spacing="5" fill="${ink}" font-weight="700">THE BANGALORE GAZETTE · LATE EDITION</text>
   <line x1="60" y1="96" x2="790" y2="96" stroke="${ink}" stroke-width="2"/>
   <text x="60" y="545" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-style="italic" font-weight="700" fill="${ink}">Every guest is a suspect.</text>
-  <text x="60" y="586" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="3" fill="${accent}" font-weight="700">LIVE MURDER MYSTERY · BANGALORE · ₹999</text>
+  <text x="60" y="586" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="3" fill="${accent}" font-weight="700">PRIVATE MURDER MYSTERY · GROUPS OF 10+ · BANGALORE</text>
   <g transform="translate(760 120) rotate(-9)">
     <rect x="0" y="0" width="170" height="52" fill="none" stroke="${accent}" stroke-width="4"/>
     <text x="85" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="700" letter-spacing="6" fill="${accent}">WANTED</text>

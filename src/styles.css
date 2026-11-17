@@ -581,6 +581,59 @@ body::after {
   text-decoration-color: currentColor;
 }
 
+/* Group booking: "our place / your venue" choice cards */
+.venue-choice {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.venue-choice label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.75rem;
+  border: 2px solid var(--newsprint-ink);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.venue-choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.venue-choice__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.venue-choice__note {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--newsprint-muted);
+}
+
+.venue-choice label:has(input:checked) {
+  background: var(--newsprint-ink);
+  color: var(--newsprint-base);
+}
+
+.venue-choice label:has(input:checked) .venue-choice__note {
+  color: var(--newsprint-base);
+}
+
+.venue-choice label:has(input:focus-visible) {
+  outline: 2px solid var(--newsprint-accent);
+  outline-offset: 2px;
+}
+
 /* Hero: headline/deck above; photo, CTA and lede arranged so all three land on the first screen */
 .hero-grid {
   display: grid;

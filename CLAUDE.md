@@ -81,6 +81,7 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - `dinner.jpg` and `group-pic.jpg` carry a watermark: they are git-ignored and must never be used on the site or as share images. Use `share-card.jpg` for og/twitter/JSON-LD images and `logo-final.png` / `logo-mark-512.png` for logos.
 - Use `logo-mark.svg` (not `logo-final.png`) anywhere the logo is shown smaller than ~150px; the full logo's tagline is unreadable at that size.
 - After changing source artwork for the share card or crops, run `node scripts/build-brand-assets.mjs`, then `npm run build:images`.
+- Bookings are private groups only: minimum 10 guests, ₹1,500 per person, food and drinks not included, at our place or the customer's venue. Keep `MIN_GUESTS` / `PRICE_PER_PERSON` in `assets/js/index.js` and `src/site.config.json` in step with the copy.
 - Keep this file up to date: at the end of each working day with changes, add a dated entry to the change log below and update any section above that changed.
 
 ## Git & GitHub
@@ -89,6 +90,17 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - Before starting work or opening a PR, run `git fetch` and branch from `origin/main` (not a stale local `main`).
 
 ## Change Log
+### 2026-11-17 — Group bookings only (branch `claude/trusting-goldberg-ndvoxz`)
+- Booking model changed from single seats to private group bookings: minimum 10 guests, no maximum, ₹1,500 per person (food and drinks not included), same price at our place (Aga Abbas Ali Road) or the customer's venue anywhere in Bangalore.
+- The three homepage modals (`partyModal`, `privateModal`, `notifyModal`) are replaced by one `bookModal` form: venue choice cards (`.venue-choice`), area field shown only for "your venue", guest count with a 10-minimum message and live ₹ estimate, preferred date, occasion. Sends `form_type=group_booking` with new fields `venue`, `area`, `occasion` to the same Apps Script endpoint.
+- Removed the fake "sold out — 25 April" waitlist flow and the Notify Me modal/footer link from `assets/js/index.js` and the homepage.
+- Corporate quote form shares the same logic via `data-group-booking` (venue choice, 10+ minimum); corporate copy, schema and sidebar now say 10+ guests, ₹1,500/person.
+- Homepage copy, FAQ (visible + JSON-LD), meta/OG descriptions, ticket stub ("Admit ten or more"), nav ("Group Bookings", anchor `#groups`) and the stats strip ("10+ guests per group") updated; weekly Fri–Sun EventSeries schema removed (no public sessions).
+- `/date-night/` retired: page deleted, 301 to `/` in new `_redirects`, removed from sitemap, Tailwind content and validate script. The date-night blog post stays but its CTAs now point to `/#groups` with a "double date — or a dozen" angle.
+- Blog CTAs ("Reserve a Seat" → "Book Your Group") and prices updated; share card text now "PRIVATE MURDER MYSTERY · GROUPS OF 10+ · BANGALORE".
+- Fixed the phone `pattern` on all forms (was an invalid regex in current browsers, so phone validation was silently skipped).
+- Not done: the Apps Script / Google Sheet may need columns for `venue`, `area`, `occasion`; `make_shotlist_video.py` (untracked) still says ₹999.
+
 ### 2026-11-17 — Design review fixes (branch `claude/trusting-goldberg-ndvoxz`)
 - Homepage hero: headline overlap fixed, masthead ~40% smaller, oxblood main CTA with "Fri–Sun · ₹999 · Aga Abbas Ali Road"; removed the top booking ribbon and hero fact strip (location/price line now only at the top CTA and the final ticket).
 - Drop cap moved off the byline; Fig. 1 is now the inspector photo with a MURDER stamp; Fig. 2 uses the cropped props image with a matching caption.
