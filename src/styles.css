@@ -478,3 +478,48 @@ body.not-found-page {
     font-weight: inherit !important;
   }
 }
+
+/* Floating WhatsApp button (all pages). Sits below modals (z-90) and the mobile menu (z-100). */
+.wa-float {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background: #25d366;
+  color: #fff;
+  border: 3px solid #1c1b19;
+  box-shadow: 3px 3px 0 #1c1b19;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #1c1b19;
+}
+
+.wa-float:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #1c1b19;
+}
+
+.wa-float:focus-visible {
+  outline: 3px solid #6b1111;
+  outline-offset: 3px;
+}
+
+.wa-float svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+@media print {
+  .wa-float { display: none; }
+}
