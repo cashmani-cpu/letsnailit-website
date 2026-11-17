@@ -5,8 +5,9 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/styles.css -o ./assets/css/site.css --minify",
     "build:images": "node ./scripts/optimize-images.mjs",
-    "build": "npm run build:css && npm run build:images",
-    "validate": "node ./scripts/validate-site.mjs"
+    "build": "npm run build:css && npm run build:images && npm run build:version",
+    "validate": "node ./scripts/validate-site.mjs",
+    "build:version": "node ./scripts/version-assets.mjs"
   },
   "private": true,
   "keywords": [],

@@ -22,6 +22,7 @@ JNI/
 ├── scripts/
 │   ├── optimize-images.mjs     # skips .svg files
 │   ├── build-brand-assets.mjs  # share card, logo-mark PNGs, safe image crops
+│   ├── version-assets.mjs      # adds ?v=<hash> to assets/css + assets/js links in all HTML
 │   └── validate-site.mjs
 ├── logo-mark.svg               # simplified logo (candle + ? + name) for small placements
 ├── logo-mark-180.png / -512.png
@@ -41,7 +42,7 @@ JNI/
 
 ## Build Commands
 ```bash
-npm run build        # compile CSS and regenerate optimized image variants
+npm run build        # compile CSS, regenerate optimized image variants, re-version asset links
 npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD parses
 ```
 
@@ -72,7 +73,7 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - `.wa-float` (all pages): floating WhatsApp seal, bottom-right, z-80 (below modals and the mobile menu).
 
 ## Conventions
-- Keep custom CSS in `src/styles.css`, then run `npm run build:css`.
+- Keep custom CSS in `src/styles.css`, then run `npm run build:css` and `npm run build:version` (or just `npm run build`). `/assets/*` is cached for a year as immutable, so a CSS/JS change only reaches returning visitors once its `?v=` hash changes.
 - Keep shared scripts in `assets/js/`; avoid inline event handlers.
 - When adding or replacing images, run `npm run build:images` and use generated WebP `srcset` values.
 - Keep event/contact/analytics constants mirrored in `src/site.config.json` when content changes.
@@ -105,11 +106,15 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - Before starting work or opening a PR, run `git fetch` and branch from `origin/main` (not a stale local `main`).
 
 ## Change Log
+### 2026-11-17 — Cache-busting for CSS/JS (branch `claude/asset-cache-busting`)
+- `/assets/*` is served `immutable` for a year at fixed URLs, so returning visitors never got new CSS/JS. New `scripts/version-assets.mjs` (`npm run build:version`, now part of `npm run build`) tags every `assets/css` and `assets/js` link with `?v=<content hash>` on all pages.
+
 ### 2026-11-17 — Photo proportions on desktop (branch `claude/photo-proportions`)
 - Fig. 1 (hero): from 1280px the photo stretches to the full height of the CTA + lede column (`.hero-grid__photo` flex, `.hero-photo-crop` fills, 5:4 floor), so there is no blank paper under it. 1024–1279px uses a fixed 4:5 portrait crop, because a stretched photo there becomes a thin strip.
 - Fig. 2 (editor's desk): grid is now 2/3 text + 1/3 photo (max 260px); the editor's box stretches to the photo's height with its text centred, so its top and bottom rules line up with the photo.
 - Fig. 2 `sizes` corrected to `260px` (was `220px`, so retina screens got the 480w file for a ~300px slot).
 - Not done: at 1024–1279px the hero lede is still taller than the photo; the "Book your group »" label overflows its button at 1024px (already the case before this change).
+- Merged to `main` (PR #6).
 
 ### 2026-11-17 — Group bookings only (branch `claude/trusting-goldberg-ndvoxz`)
 - Booking model changed from single seats to private group bookings: minimum 10 guests, no maximum, ₹1,500 per person (food and drinks not included), same price at our place (Aga Abbas Ali Road) or the customer's venue anywhere in Bangalore.
