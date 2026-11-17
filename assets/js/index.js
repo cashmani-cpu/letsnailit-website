@@ -273,6 +273,18 @@
     el.addEventListener('click', window.toggleMobileMenu);
   });
 
+  /* Classifieds: one notice on phones, the rest behind a "More notices" toggle */
+  document.querySelectorAll('[data-toggle-notices]').forEach(btn => {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
+    const closedLabel = btn.innerHTML;
+    btn.addEventListener('click', () => {
+      const open = panel.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = open ? 'Fewer notices&nbsp;«' : closedLabel;
+    });
+  });
+
   /* Refresh date bounds at load + whenever the page is revealed after midnight */
   refreshDateBounds();
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshDateBounds(); });

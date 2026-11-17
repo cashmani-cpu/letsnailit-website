@@ -13,7 +13,8 @@ module.exports = {
           base: '#d2c7b3',
           dark: '#bdaf96',
           ink: '#1c1b19',
-          accent: '#6b1111'
+          accent: '#6b1111',
+          muted: '#5a5348'
         }
       },
       fontFamily: {

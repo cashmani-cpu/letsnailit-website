@@ -27,7 +27,7 @@ async function resetGeneratedDir() {
 }
 
 function normalizeSrc(src) {
-  if (!src || src.startsWith('http') || src.startsWith('data:') || src.includes('facebook.com/tr')) return null;
+  if (!src || src.startsWith('http') || src.startsWith('data:') || src.includes('facebook.com/tr') || src.endsWith('.svg')) return null;
   return src.replace(/^\//, '');
 }
 
