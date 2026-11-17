@@ -82,8 +82,22 @@ npm run validate     # verify no Tailwind CDN/runtime CSS remains and JSON-LD pa
 - Use `logo-mark.svg` (not `logo-final.png`) anywhere the logo is shown smaller than ~150px; the full logo's tagline is unreadable at that size.
 - After changing source artwork for the share card or crops, run `node scripts/build-brand-assets.mjs`, then `npm run build:images`.
 - Bookings are private groups only: minimum 10 guests, ₹1,500 per person, food and drinks not included, at our place or the customer's venue. Keep `MIN_GUESTS` / `PRICE_PER_PERSON` in `assets/js/index.js` and `src/site.config.json` in step with the copy.
-- Form submissions go to a Google Apps Script web app that writes to the "LNI Signup" Google Sheet. `scripts/apps-script/forms.gs` mirrors its code; after editing, paste it into the Apps Script project and use Deploy → Manage deployments → edit → New version so the /exec URL in `assets/js/index.js` stays the same.
+- Forms and the Google Apps Script must change together — see **Forms ↔ Apps Script** below.
 - Keep this file up to date: at the end of each working day with changes, add a dated entry to the change log below and update any section above that changed.
+
+## Forms ↔ Apps Script (keep in sync)
+**Rule: whenever a website form changes, the Google Apps Script must be changed to match, in the same piece of work.** A form change is not finished until the script is updated, redeployed and tested.
+
+- Forms: `#bookModal` in `index.html` (`form_type=group_booking`) and the quote form in `corporate/index.html` (`form_type=corporate_event`). Both post every field as URL parameters to the Apps Script `/exec` URL in `assets/js/index.js` (`FORM_ENDPOINT`).
+- The script writes to the "LNI Signup" Google Sheet. Both forms go to the **Group Bookings** tab; columns come from `getHeaders()` / `getRow()`.
+- `scripts/apps-script/forms.gs` is the repo copy of the script (Sheet ID is a placeholder because the repo is public; the real ID is only in the Apps Script project).
+- Counts as a form change: adding, removing or renaming a field (`name=`), a new or renamed `form_type`, new radio/select values, or a price change (`PRICE_PER_PERSON` is in both `assets/js/index.js` and the script).
+- When one happens:
+  1. Update `getHeaders()` and `getRow()` (and `getTabName()` for a new `form_type`) in `scripts/apps-script/forms.gs`.
+  2. Paste it into the Apps Script project (script.google.com → the project whose code has `doGet` and `form_type`), keeping the real `SHEET_ID`, and save.
+  3. Deploy → Manage deployments → edit the active deployment → Version: **New version** → Deploy. Never "New deployment": that creates a new URL and the site would stop saving bookings.
+  4. Headers are only written when a tab is first created. If columns change, add the new header cells to the existing tab by hand, or rename the old tab so a fresh one is created.
+  5. Test: send one booking marked "TEST — delete me", check the row in the sheet, then delete it.
 
 ## Git & GitHub
 - Repo: `cashmani-cpu/letsnailit-website` (remote `origin`, HTTPS). `main` is the live branch.
